@@ -7,6 +7,7 @@ function App() {
 
   return (
     <div className='App'>
+      <h1 className='text-3xl font-bold underline'>Tailwind funciona bro!</h1>
       <div>
         <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
           <img src='/vite.svg' className='logo' alt='Vite logo' />
