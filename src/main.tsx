@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import TorneosPage from './torneo-page';
+import TorneoPage from './components/TorneoPage';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ErrorPage from './error-page';
+import ErrorPage from './components/error-page';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/torneos',
-    element: <TorneosPage />,
+    element: <TorneoPage />,
   },
 ]);
 
