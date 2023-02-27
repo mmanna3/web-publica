@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import ListaDeTablasDePosiciones from './ListaDeTablasDePosiciones';
+import ListaDeTablasDePosiciones from './ListaDeTablasDePosiciones';
 /* Interfaces */
 import { TablasPorCategoria } from '../interfaces/TablasPorCategoria';
 import { Torneos } from '../interfaces/Torneos';
@@ -17,7 +17,6 @@ function TorneoPage() {
     const torneos: Torneos = await response.json();
 
     setTablasPorCategoria(torneos.TablasPorCategoria);
-    console.log(tablasPorCategoria);
     
   }
   
@@ -34,7 +33,7 @@ function TorneoPage() {
         <p className='col-span-3 bg-blue-400'>Posiciones</p>
       </nav>
 
-      {/* <ListaDeTablasDePosiciones tablasPorCategoria={tablasPorCategoria} /> */}
+      <ListaDeTablasDePosiciones tablasPorCategoria={tablasPorCategoria} />
     </div>
   );
 }
