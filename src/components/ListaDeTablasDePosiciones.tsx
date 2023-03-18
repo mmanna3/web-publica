@@ -4,7 +4,7 @@ interface Props {
   tablasPorCategoria: TablasPorCategoria[];
   tabla: TablasPorCategoria;
   key: number;
-  categoria: number;
+  categoria: string;
 }
 
 export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: Props) {

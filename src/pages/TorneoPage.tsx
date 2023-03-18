@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import ListaDeTablasDePosiciones from './ListaDeTablasDePosiciones';
+import ListaDeTablasDePosiciones from '../components/ListaDeTablasDePosiciones';
 /* Interfaces */
 import { TablasPorCategoria } from '../interfaces/TablasPorCategoria';
 import { Torneos } from '../interfaces/Torneos';
+import NavBar from '../components/NavBar'
 
 // interface Props {
 //   tablasPorCategoria:TablasPorCategoria[]
@@ -17,15 +18,16 @@ function TorneoPage() {
     const torneos: Torneos = await response.json();
 
     setTablasPorCategoria(torneos.TablasPorCategoria);
-    
   }
-  
+
   useEffect(() => {
     fetchTorneosAperturaClausura();
   }, []);
 
   return (
     <div className='bg-gray-200 p-4'>
+      <NavBar />
+      <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
       <nav className='grid grid-cols-3 grid-rows-2 gap-2 bg-gray-100 p-4'>
         <p className='bg-red-500'>Vespertino</p>
         <p className='bg-green-500'>A</p>
