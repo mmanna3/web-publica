@@ -42,6 +42,7 @@ const router = createBrowserRouter([
     path: '/fichaje',
     element: <FichajePage />,
   },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -28,14 +28,21 @@ function TorneoPage() {
     <div className='bg-gray-200 p-4'>
       <NavBar />
       <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
-      <nav className='grid grid-cols-3 grid-rows-2 gap-2 bg-gray-100 p-4'>
+      {/* <nav className='grid grid-cols-3 grid-rows-2 gap-2 bg-gray-100 p-4'>
         <p className='bg-red-500'>Vespertino</p>
         <p className='bg-green-500'>A</p>
         <p className='bg-blue-500'>Apertura</p>
         <p className='col-span-3 bg-blue-400'>Posiciones</p>
-      </nav>
+      </nav> */}
 
-      <ListaDeTablasDePosiciones tablasPorCategoria={tablasPorCategoria} />
+      <div className='grid grid-cols-3 gap-3 mb-10'>
+        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano</button>
+        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano matutino 6 cat</button>
+        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano matutino 5 cat</button>
+        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano futsal</button>
+      </div>
+
+      {/* <ListaDeTablasDePosiciones tablasPorCategoria={tablasPorCategoria} /> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { TablasPorCategoria } from '../interfaces/TablasPorCategoria';
 
 interface Props {
   tablasPorCategoria: TablasPorCategoria[];
-  tabla: TablasPorCategoria;
+  tablaPorCategoria: TablasPorCategoria;
   key: number;
   categoria: string;
 }
@@ -10,14 +10,14 @@ interface Props {
 export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: Props) {
   return (
     <div className='flex flex-wrap justify-center bg-gray-400'>
-      {tablasPorCategoria.map((tabla) => (
-        <TablaDePosiciones key={tabla.CategoriaId} categoria={tabla.Categoria} tabla={tabla} />
+      {tablasPorCategoria.map((tablaPorCategoria) => (
+        <TablaDePosiciones key={tablaPorCategoria.CategoriaId} categoria={tablaPorCategoria.Categoria} tablaPorCategoria={tablaPorCategoria} />
       ))}
     </div>
   );
 }
 
-function TablaDePosiciones({ tabla, categoria }: Props) {
+function TablaDePosiciones({ tablaPorCategoria, categoria }: Props) {
   return (
     <div className='m-2'>
       <h2>Numero de Tabla: {categoria}</h2>
@@ -38,7 +38,7 @@ function TablaDePosiciones({ tabla, categoria }: Props) {
         </thead>
 
           <tbody >
-        {tabla.Renglones.map((renglon) => (
+        {tablaPorCategoria.Renglones.map((renglon) => (
             <tr key={renglon.EquipoId} className='grid grid-cols-12'>
               <td>{renglon.Posicion}</td>
               <td >{renglon.Escudo}</td>
