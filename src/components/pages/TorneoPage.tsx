@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import ListaDeTablasDePosiciones from '../components/ListaDeTablasDePosiciones';
+import ListaDeTablasDePosiciones from '../common/ListaDeTablasDePosiciones';
 /* Interfaces */
-import { TablasPorCategoria } from '../interfaces/TablasPorCategoria';
-import { Torneos } from '../interfaces/Torneos';
-import NavBar from '../components/NavBar'
+import { TablasPorCategoria } from '../../interfaces/TablasPorCategoria';
+import { Torneos } from '../../interfaces/Torneos';
+import NavBar from '../common/NavBar';
+import { Link } from 'react-router-dom'
 
 // interface Props {
 //   tablasPorCategoria:TablasPorCategoria[]
@@ -35,12 +36,22 @@ function TorneoPage() {
         <p className='col-span-3 bg-blue-400'>Posiciones</p>
       </nav> */}
 
-      <div className='grid grid-cols-3 gap-3 mb-10'>
-        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano</button>
-        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano matutino 6 cat</button>
-        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano matutino 5 cat</button>
-        <button className='bg-blue-600 rounded-lg shadow-xl min-h-[100px] min-w-[300px]'>Torneo de verano futsal</button>
+      <div className='mb-10 grid grid-cols-3 gap-3'>
+        <button className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 shadow-xl'>
+          Torneo de verano
+        </button>
+        <button className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 shadow-xl'>
+          Torneo de verano matutino 6 cat
+        </button>
+        <button className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 shadow-xl'>
+          Torneo de verano matutino 5 cat
+        </button>
+        <button className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 shadow-xl'>
+          Torneo de verano futsal
+        </button>
       </div>
+
+      {/* Trae todos los torneos de todas las categorias y redirige a zonaId=189 */}
 
       {/* <ListaDeTablasDePosiciones tablasPorCategoria={tablasPorCategoria} /> */}
     </div>

@@ -4,13 +4,13 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ErrorPage from './pages/error-page';
-import NosotrosPage from './pages/NosotrosPage';
-import TorneoPage from './pages/TorneoPage';
-import CopasPage from './pages/CopasPage';
-import NoticiasPage from './pages/NoticiasPage';
-import ContactoPage from './pages/ContactoPage';
-import FichajePage from './pages/FichajePage';
+import ErrorPage from './components/pages/error-page';
+import NosotrosPage from './components/pages/NosotrosPage';
+import TorneoPage from './components/pages/TorneoPage';
+import CopasPage from './components/pages/CopasPage';
+import NoticiasPage from './components/pages/NoticiasPage';
+import ContactoPage from './components/pages/ContactoPage';
+import FichajePage from './components/pages/FichajePage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
   },
   {
     path: '/torneos',
+    element: <TorneoPage />,
+  },
+  {
+    path: '/torneos/:torneoId',
     element: <TorneoPage />,
   },
   {
@@ -42,7 +46,6 @@ const router = createBrowserRouter([
     path: '/fichaje',
     element: <FichajePage />,
   },
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
