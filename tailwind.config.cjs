@@ -4,7 +4,12 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        // eslint-disable-next-line quotes
+        'img-inicio': "url('assets/images/desktop/fondo-pc.jpg')",
+      },
+    },
   },
   plugins: [],
 };

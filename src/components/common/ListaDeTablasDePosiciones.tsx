@@ -1,13 +1,16 @@
 import { TablasPorCategoria } from '../../interfaces/TablasPorCategoria';
 
-interface Props {
+interface listaProps {
   tablasPorCategoria: TablasPorCategoria[];
+}
+
+interface tablaProps {
   tablaPorCategoria: TablasPorCategoria;
   key: number;
   categoria: string;
 }
 
-export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: Props) {
+export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: listaProps) {
   return (
     <div className='flex flex-wrap justify-center bg-gray-400'>
       {tablasPorCategoria.map((tablaPorCategoria) => (
@@ -21,7 +24,7 @@ export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: Props)
   );
 }
 
-function TablaDePosiciones({ tablaPorCategoria, categoria }: Props) {
+function TablaDePosiciones({ tablaPorCategoria, categoria }: tablaProps) {
   return (
     <div className='m-2'>
       <h2>Numero de Tabla: {categoria}</h2>

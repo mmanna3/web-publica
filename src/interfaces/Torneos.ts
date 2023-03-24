@@ -1,11 +1,11 @@
 import { TablasPorCategoria } from './TablasPorCategoria';
 import { TablaGeneral } from './TablaGeneral';
 
-export interface Torneos {
+export interface Posiciones {
   ZonaId: number;
   TorneoId: number;
   Titulo: string;
   VerGoles: boolean;
-  TablasPorCategoria: TablasPorCategoria;
+  TablasPorCategoria: TablasPorCategoria[];
   TablaGeneral: TablaGeneral;
 }

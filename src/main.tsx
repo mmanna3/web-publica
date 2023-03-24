@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import ErrorPage from './components/pages/error-page';
 import NosotrosPage from './components/pages/NosotrosPage';
-import TorneoPage from './components/pages/TorneoPage';
+import TorneosPage from './components/pages/TorneosPage';
 import CopasPage from './components/pages/CopasPage';
 import NoticiasPage from './components/pages/NoticiasPage';
 import ContactoPage from './components/pages/ContactoPage';
@@ -24,11 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/torneos',
-    element: <TorneoPage />,
+    element: <TorneosPage />,
   },
   {
     path: '/torneos/:torneoId',
-    element: <TorneoPage />,
+    element: <TorneosPage />,
   },
   {
     path: '/copas',
