@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 
+
 export default function NavBar() {
   return (
     <div className='p-10'>
-      <img src='#' alt='logo' />
+      <img src='' alt='edefi-logo' />
       <ul className='flex flex-row justify-end'>
         <li className='mr-6'>
           <Link className='text-blue-500 hover:text-blue-800' to='/'>

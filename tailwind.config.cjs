@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable no-undef */
 
 /** @type {import('tailwindcss').Config} */
@@ -6,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        // eslint-disable-next-line quotes
-        'img-inicio': "url('assets/images/desktop/fondo-pc.jpg')",
+        'fondo-pc': "url('assets/images/desktop/fondo-pc.jpg')",
+        'fondo-celu': "url('assets/images/mobile/fondo-celu.jpg')",
       },
     },
   },
