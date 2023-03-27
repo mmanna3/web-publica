@@ -13,7 +13,6 @@ export default function InicioPage() {
     <main className='bg-fondo-celu bg-cover'>
         <NavBar />
         <section className='p-4'>
-          {/* <h2 className='my-20 text-center text-3xl font-bold'>Banner</h2> */}
           <img src={BANNER_CELU} alt="banner" />
         </section>
         <section>
@@ -26,7 +25,6 @@ export default function InicioPage() {
           </div>
         </section>
         <section>
-          {/* <h2 className='my-10 bg-gray-100 text-center text-3xl font-bold'>Copas</h2> */}
           <img src={COPAS} alt="copas" className='mb-2 opacity-80' />
           <div className='mx-auto flex justify-around  bg-gray-200 opacity-80 mb-8 '>
             <img src={COPA_EDEFI} alt='edefi' className='w-[100px]' />

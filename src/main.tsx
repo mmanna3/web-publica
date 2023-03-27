@@ -11,6 +11,8 @@ import CopasPage from './components/pages/CopasPage';
 import NoticiasPage from './components/pages/NoticiasPage';
 import ContactoPage from './components/pages/ContactoPage';
 import FichajePage from './components/pages/FichajePage';
+import ZonasDelTorneo from './components/pages/ZonasDelTorneo';
+import Prueba from './components/Prueba';
 
 const router = createBrowserRouter([
   {
@@ -23,12 +25,16 @@ const router = createBrowserRouter([
     element: <NosotrosPage />,
   },
   {
+    path: '/prueba/:pruebaId',
+    element: <Prueba />,
+  },
+  {
     path: '/torneos',
     element: <TorneosPage />,
   },
   {
     path: '/torneos/:torneoId',
-    element: <TorneosPage />,
+    element: <ZonasDelTorneo />,
   },
   {
     path: '/copas',

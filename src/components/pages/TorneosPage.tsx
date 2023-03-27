@@ -26,21 +26,22 @@ function TorneosPage() {
   }, []);
 
   return (
-    <div className='bg-gray-200 p-4'>
+    <main className='bg-gray-200 p-4'>
       <NavBar />
       <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
 
-      {torneos.map((torneo) => (
-        <div key={torneo.id} className='mb-10 grid grid-cols-3 gap-3'>
+      <div className='mb-10 grid grid-cols-3 gap-3'>
+        {torneos.map((torneo) => (
           <Link
-            to={`/torneos/${torneo.id}`}
-            className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 shadow-xl'
+            key={torneo.id}
+            to={`/torneos/torneoId=${torneo.id}`}
+            className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 text-white text-center text-lg shadow-xl'
           >
             {torneo.descripcion}
           </Link>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </main>
   );
 }
 
