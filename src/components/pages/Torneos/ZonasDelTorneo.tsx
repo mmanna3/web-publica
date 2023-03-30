@@ -11,11 +11,10 @@ interface Zona {
 export default function ZonasDelTorneo() {
   const [zonas, setZonas] = useState<Zona[]>([]);
   const { torneoId } = useParams();
-  // console.log(torneoId);
 
   async function fetchZonas() {
     // eslint-disable-next-line quotes
-    const response = fetch(`https://edefi.com.ar/publico/zonas?${torneoId}`);
+    const response = fetch(`https://edefi.com.ar/publico/zonas?torneoId=${torneoId}`);
 
     const zonasData: Zona[] = await (await response).json();
 
@@ -32,7 +31,7 @@ export default function ZonasDelTorneo() {
         {zonas.map(({ descripcion, zonaAperturaId }) => (
           <Link
             key={zonaAperturaId}
-            to={`/torneo/${torneoId}/zona/zonaId=${zonaAperturaId}`}
+            to={`/torneo/${torneoId}/zona/${zonaAperturaId}`}
             className='text min-h-[100px] w-[500px] rounded-lg bg-green-600 text-center text-white  shadow-xl'
           >
             {descripcion}

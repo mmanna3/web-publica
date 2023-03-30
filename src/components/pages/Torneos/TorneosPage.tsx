@@ -29,7 +29,7 @@ function TorneosPage() {
         {torneos.map(({ id, descripcion }) => (
           <Link
             key={id}
-            to={`/torneo/torneoId=${id}/zonas`}
+            to={`/torneo/${id}/zonas`}
             className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 text-center text-lg text-white shadow-xl'
           >
             {descripcion}
