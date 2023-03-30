@@ -6,13 +6,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import ErrorPage from './components/pages/error-page';
 import NosotrosPage from './components/pages/NosotrosPage';
-import TorneosPage from './components/pages/TorneosPage';
+import TorneosPage from './components/pages/Torneos/TorneosPage';
 import CopasPage from './components/pages/CopasPage';
 import NoticiasPage from './components/pages/NoticiasPage';
 import ContactoPage from './components/pages/ContactoPage';
 import FichajePage from './components/pages/FichajePage';
-import ZonasDelTorneo from './components/pages/ZonasDelTorneo';
+import ZonasDelTorneo from './components/pages/Torneos/ZonasDelTorneo';
 import Prueba from './components/Prueba';
+import TablasDeLaZona from './components/pages/Torneos/TablasDeLaZona';
+import ListaDeTablasDePosiciones from './components/common/ListaDeTablasDePosiciones'
 
 const router = createBrowserRouter([
   {
@@ -33,8 +35,16 @@ const router = createBrowserRouter([
     element: <TorneosPage />,
   },
   {
-    path: '/torneos/:torneoId',
+    path: '/torneo/:torneoId/zonas',
     element: <ZonasDelTorneo />,
+  },
+  {
+    path: '/torneo/:torneoId/zona/:zonaId',
+    element: <TablasDeLaZona />,
+  },
+  {
+    path: '/torneo/:torneoId/zona/:zonaId/posiciones',
+    element: <ListaDeTablasDePosiciones />
   },
   {
     path: '/copas',

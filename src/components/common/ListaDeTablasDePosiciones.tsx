@@ -1,16 +1,28 @@
-import { TablasPorCategoria } from '../../interfaces/TablasPorCategoria';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { PosicionesDelTorneo } from '../../interfaces/Posiciones/PosicionesDelTorneo'
+import { Tabla } from '../../interfaces/Posiciones/Tabla';
+import TablaDePosiciones from './TablaDePosiciones';
 
-interface listaProps {
-  tablasPorCategoria: TablasPorCategoria[];
-}
+export default function ListaDeTablasDePosiciones() {
+  const [tablasPorCategoria, setTablasPorCategoria] = useState<Tabla[]>([]);
+  const [tablaGeneral, setTablaGeneral] = useState<Tabla>();
+  const { zonaId } = useParams();
 
-interface tablaProps {
-  tablaPorCategoria: TablasPorCategoria;
-  key: number;
-  categoria: string;
-}
+  async function fetchPosiciones() {
+    const response = await fetch(`https://www.edefi.com.ar/publico/posiciones?${zonaId}`);
 
-export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: listaProps) {
+    const { TablasPorCategoria, TablaGeneral }: PosicionesDelTorneo = await response.json();
+
+    setTablasPorCategoria(TablasPorCategoria);
+    setTablaGeneral(TablaGeneral);
+    console.log('Tabla general: ', TablaGeneral);
+  }
+
+  useEffect(() => {
+    fetchPosiciones();
+  }, []);
+
   return (
     <div className='flex flex-wrap justify-center bg-gray-400'>
       {tablasPorCategoria.map((tablaPorCategoria) => (
@@ -20,46 +32,6 @@ export default function ListaDeTablasDePosiciones({ tablasPorCategoria }: listaP
           tablaPorCategoria={tablaPorCategoria}
         />
       ))}
-    </div>
-  );
-}
-
-function TablaDePosiciones({ tablaPorCategoria, categoria }: tablaProps) {
-  return (
-    <div className='m-2'>
-      <h2>Numero de Tabla: {categoria}</h2>
-
-      <table className='grid table-auto bg-white'>
-        <thead>
-          <tr className='grid grid-cols-12'>
-            <th>Pos</th>
-            <th>Esc</th>
-            <th className='col-span-4'>Equipo</th>
-            <th>J</th>
-            <th>G</th>
-            <th>E</th>
-            <th>P</th>
-            <th>Np</th>
-            <th>Pts</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {tablaPorCategoria.Renglones.map((renglon) => (
-            <tr key={renglon.EquipoId} className='grid grid-cols-12'>
-              <td>{renglon.Posicion}</td>
-              <td>{'Escudo'}</td>
-              <td className='col-span-4'>{renglon.Equipo}</td>
-              <td>{renglon.Pj}</td>
-              <td>{renglon.Pg}</td>
-              <td>{renglon.Pe}</td>
-              <td>{renglon.Pp}</td>
-              <td>{renglon.Np}</td>
-              <td>{renglon.Pts}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 }
