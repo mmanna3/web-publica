@@ -1,29 +1,13 @@
-import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
-interface Zona {
-  descripcion: string;
-  zonaAperturaId: number;
-  zonaClausuraId: number;
-  zonaRelampagoId: null;
-}
+import { useFetchZonasDelTorneo } from './hooks/useFetchZonasDelTorneo';
 
 export default function ZonasDelTorneo() {
-  const [zonas, setZonas] = useState<Zona[]>([]);
+  const { zonas, isFetching } = useFetchZonasDelTorneo();
   const { torneoId } = useParams();
 
-  async function fetchZonas() {
-    // eslint-disable-next-line quotes
-    const response = fetch(`https://edefi.com.ar/publico/zonas?torneoId=${torneoId}`);
-
-    const zonasData: Zona[] = await (await response).json();
-
-    setZonas(zonasData);
+  if (isFetching) {
+    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
   }
-
-  useEffect(() => {
-    fetchZonas();
-  }, []);
 
   return (
     <main className='flex justify-center'>
