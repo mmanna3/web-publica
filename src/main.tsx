@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     element: <TablasDeLaZona />,
   },
   {
-    path: '/torneo/:torneoId/zona/:zonaId/posiciones',
+    path: '/torneo/:torneoId/zona/:zonaId/:tipoDeTabla',
     element: <ListaDeTablasDePosiciones />
   },
   {
