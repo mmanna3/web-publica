@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
 import NavBar from '../../common/NavBar';
 import { Link } from 'react-router-dom';
-import { Torneo } from '../../../interfaces/Torneo';
+import { useFetchTorneos } from './hooks/useFetchTorneos';
 
 function TorneosPage() {
-  const [torneos, setTorneos] = useState<Torneo[]>([]);
+  const { torneos, isFetching } = useFetchTorneos();
 
-  async function fetchTorneosAperturaClausura() {
-    const response = await fetch(
-      'https://www.edefi.com.ar/publico/TorneosAperturaClausura?anio=2022',
-    );
-
-    const torneos: Torneo[] = await response.json();
-
-    setTorneos(torneos);
+  if (isFetching) {
+    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
   }
-
-  useEffect(() => {
-    fetchTorneosAperturaClausura();
-  }, []);
 
   return (
     <main className='bg-gray-200 p-4'>
