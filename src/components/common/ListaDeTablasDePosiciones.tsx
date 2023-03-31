@@ -19,3 +19,15 @@ export default function ListaDeTablasDePosiciones() {
     </div>
   );
 }
+
+// const ListaLasTablas = () => {
+//   <div className='flex flex-wrap justify-center bg-gray-400'>
+//     {tablasPorTipo.map((tablaPorCategoria) => (
+//       <TablaDePosiciones
+//         key={tablaPorCategoria.CategoriaId}
+//         categoria={tablaPorCategoria.Categoria}
+//         tablaPorCategoria={tablaPorCategoria}
+//       />
+//     ))}
+//   </div>;
+// };

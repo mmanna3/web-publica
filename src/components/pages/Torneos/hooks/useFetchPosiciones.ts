@@ -7,11 +7,11 @@ export const useFetchPosiciones = () => {
   const [tablasPorCategoria, setTablasPorCategoria] = useState<Tabla[]>([]);
   const [tablaGeneral, setTablaGeneral] = useState<Tabla>();
   const [isFetching, setIsFetching] = useState(true)
-  const { zonaId, tipoDeTabla } = useParams();
+  const { zonaId } = useParams();
 
   async function fetchPosiciones() {
     const response = await fetch(
-      `https://www.edefi.com.ar/publico/${tipoDeTabla}?zonaId=${zonaId}`,
+      `https://www.edefi.com.ar/publico/posiciones?zonaId=${zonaId}`,
     );
 
     const { TablasPorCategoria, TablaGeneral }: PosicionesDelTorneo = await response.json();
@@ -19,7 +19,7 @@ export const useFetchPosiciones = () => {
     setTablasPorCategoria(TablasPorCategoria);
     setTablaGeneral(TablaGeneral);
     setIsFetching(false)
-    console.log('Tabla general: ', TablaGeneral);
+    // console.log('Tabla general: ', TablaGeneral);
   }
 
   useEffect(() => {

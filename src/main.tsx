@@ -15,6 +15,7 @@ import ZonasDelTorneo from './components/pages/Torneos/ZonasDelTorneo';
 import Prueba from './components/Prueba';
 import TablasDeLaZona from './components/pages/Torneos/TablasDeLaZona';
 import ListaDeTablasDePosiciones from './components/common/ListaDeTablasDePosiciones'
+import ListaDeTablasDelFixture from './components/common/ListaDeTablasDelFixture'
 
 const router = createBrowserRouter([
   {
@@ -43,8 +44,12 @@ const router = createBrowserRouter([
     element: <TablasDeLaZona />,
   },
   {
-    path: '/torneo/:torneoId/zona/:zonaId/:tipoDeTabla',
+    path: '/torneo/:torneoId/zona/:zonaId/posiciones',
     element: <ListaDeTablasDePosiciones />
+  },
+  {
+    path: '/torneo/:torneoId/zona/:zonaId/fixture',
+    element: <ListaDeTablasDelFixture />
   },
   {
     path: '/copas',
