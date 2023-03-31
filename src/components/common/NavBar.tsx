@@ -1,47 +1,32 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+type NewNavBarLinkProps = {
+  title: string;
+  href: string;
+};
 
-export default function NavBar() {
+const NavBarLink: FC<NewNavBarLinkProps> = ({ title, href }) => {
+  return (
+    <Link className='text-blue-500 hover:text-blue-800' to={href}>
+      {title}
+    </Link>
+  );
+};
+
+export const NavBar = () => {
   return (
     <div className='p-10'>
       <img src='' alt='edefi-logo' />
-      <ul className='flex flex-row justify-end'>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/'>
-            Inicio
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/nosotros'>
-            Nosotros
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/torneos'>
-            Torneos
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/copas'>
-            Copas
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/noticias'>
-            Noticias
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/contacto'>
-            Contacto
-          </Link>
-        </li>
-        <li className='mr-6'>
-          <Link className='text-blue-500 hover:text-blue-800' to='/fichaje'>
-            Fichaje
-          </Link>
-        </li>
-      </ul>
+      <div className='flex flex-row justify-end gap-6'>
+        <NavBarLink title='Inicio' href={'/'} />
+        <NavBarLink title='Nosotros' href={'/nosotros'} />
+        <NavBarLink title='Torneos' href={'/torneos'} />
+        <NavBarLink title='Copas' href={'/copas'} />
+        <NavBarLink title='Noticias' href={'/noticias'} />
+        <NavBarLink title='Contacto' href={'/contacto'} />
+        <NavBarLink title='Fichaje' href={'/fichaje'} />
+      </div>
     </div>
   );
-}
+};
