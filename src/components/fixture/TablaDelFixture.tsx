@@ -6,7 +6,7 @@ interface Props {
   diaDeLaFecha: string;
 }
 
-export default function TablaDelFixture({ localVisitante, titulo, diaDeLaFecha }: Props) {
+export const TablaDelFixture = ({ localVisitante, titulo, diaDeLaFecha }: Props) => {
   return (
     <div className='m-2'>
       <h2 className='mb-1'>{titulo}</h2>
@@ -32,4 +32,4 @@ export default function TablaDelFixture({ localVisitante, titulo, diaDeLaFecha }
       </table>
     </div>
   );
-}
+};

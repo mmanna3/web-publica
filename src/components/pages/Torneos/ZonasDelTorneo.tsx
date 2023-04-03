@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useFetchZonasDelTorneo } from './hooks/useFetchZonasDelTorneo';
 
-export default function ZonasDelTorneo() {
+export const ZonasDelTorneo = () => {
   const { zonas, isFetching } = useFetchZonasDelTorneo();
   const { torneoId } = useParams();
 

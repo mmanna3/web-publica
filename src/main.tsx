@@ -4,18 +4,19 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ErrorPage from './components/pages/error-page';
-import NosotrosPage from './components/pages/NosotrosPage';
-import TorneosPage from './components/pages/Torneos/TorneosPage';
-import CopasPage from './components/pages/CopasPage';
-import NoticiasPage from './components/pages/NoticiasPage';
-import ContactoPage from './components/pages/ContactoPage';
-import FichajePage from './components/pages/FichajePage';
-import ZonasDelTorneo from './components/pages/Torneos/ZonasDelTorneo';
-import Prueba from './components/Prueba';
-import TablasDeLaZona from './components/pages/Torneos/TablasDeLaZona';
-import ListaDeTablasDePosiciones from './components/common/ListaDeTablasDePosiciones'
-import ListaDeTablasDelFixture from './components/common/ListaDeTablasDelFixture'
+import { ErrorPage } from './components/pages/error-page';
+import { NosotrosPage } from './components/pages/NosotrosPage';
+import { TorneosPage } from './components/pages/Torneos/TorneosPage';
+import { CopasPage } from './components/pages/CopasPage';
+import { NoticiasPage } from './components/pages/NoticiasPage';
+import { ContactoPage } from './components/pages/ContactoPage';
+import { FichajePage } from './components/pages/FichajePage';
+import { ZonasDelTorneo } from './components/pages/Torneos/ZonasDelTorneo';
+import { Prueba } from './components/Prueba';
+import { TablasDeLaZona } from './components/pages/Torneos/TablasDeLaZona';
+import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablasDePosiciones';
+import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
+import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
 
 const router = createBrowserRouter([
   {
@@ -45,11 +46,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/torneo/:torneoId/zona/:zonaId/posiciones',
-    element: <ListaDeTablasDePosiciones />
+    element: <ListaDeTablasDePosiciones />,
   },
   {
     path: '/torneo/:torneoId/zona/:zonaId/fixture',
-    element: <ListaDeTablasDelFixture />
+    element: <ListaDeTablasDelFixture />,
+  },
+  {
+    path: '/torneo/:torneoId/zona/:zonaId/jornadas',
+    element: <ListaDeTablasDeJornadas />,
   },
   {
     path: '/copas',
