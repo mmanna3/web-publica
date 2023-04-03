@@ -5,7 +5,6 @@ import { FixtureDelTorneo } from '../../../../interfaces/Fixture/FixtureDelTorne
 
 export const useFetchFixture = () => {
   const [fechas, setFechas] = useState<FechaDelFixture[]>([]);
-  // const [tablaGeneral, setTablaGeneral] = useState<Tabla>();
   const [isFetching, setIsFetching] = useState(true)
   const { zonaId } = useParams();
 

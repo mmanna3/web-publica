@@ -12,7 +12,7 @@ export const useFetchJornadas = () => {
 
   async function fetchPosiciones() {
     // eslint-disable-next-line quotes
-    const response = await fetch(`https://www.edefi.com.ar/publico/jornadas?zonaId=232`);
+    const response = await fetch(`https://www.edefi.com.ar/publico/jornadas?zonaId=${zonaId}`);
 
     const { JornadasPorFecha, Categorias }: JornadasDelTorneo = await response.json();
 

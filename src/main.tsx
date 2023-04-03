@@ -17,6 +17,7 @@ import { TablasDeLaZona } from './components/pages/Torneos/TablasDeLaZona';
 import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablasDePosiciones';
 import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
+import {ListaDeTablasDeClubes} from './components/clubes/ListaDeTablasDeClubes'
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: '/torneo/:torneoId/zona/:zonaId/jornadas',
     element: <ListaDeTablasDeJornadas />,
+  },
+  {
+    path: '/torneo/:torneoId/zona/:zonaId/clubes',
+    element: <ListaDeTablasDeClubes />,
   },
   {
     path: '/copas',

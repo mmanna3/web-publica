@@ -15,7 +15,7 @@ export const TablaDeJornadas = ({ renglones, fechaNumero, categorias }: TablaDeJ
       <table className='grid table-auto bg-white'>
         <EncabezadoTabla categorias={categorias} />
 
-        <tbody className=''>
+        <tbody>
           {renglones.map(
             (
               {
@@ -30,10 +30,7 @@ export const TablaDeJornadas = ({ renglones, fechaNumero, categorias }: TablaDeJ
               },
               index,
             ) => (
-              <tr
-                key={JornadaId + index}
-                className='grid-cols-13 grid grid-flow-col grid-rows-1 text-center'
-              >
+              <tr key={JornadaId + index} className='grid-cols-13 grid grid-flow-col grid-rows-1'>
                 <td className=''>{JornadaNumero}</td>
                 <td className='col-span-4'>
                   <img
@@ -67,7 +64,7 @@ type EncabezadoTablaProps = {
 const EncabezadoTabla = ({ categorias }: EncabezadoTablaProps) => {
   return (
     <thead>
-      <tr className='grid-cols-13 grid grid-flow-col grid-rows-1 bg-gray-300 text-center'>
+      <tr className='grid-cols-13 grid grid-flow-col grid-rows-1 bg-gray-300'>
         <td>JN°</td>
         <td className='col-span-2'>Esc</td>
         <td className='col-span-4'>Equipo</td>
@@ -81,3 +78,5 @@ const EncabezadoTabla = ({ categorias }: EncabezadoTablaProps) => {
     </thead>
   );
 };
+
+
