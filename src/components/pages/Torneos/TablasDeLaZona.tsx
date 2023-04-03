@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-export default function TablasDeLaZona() {
+export const TablasDeLaZona = () => {
   const { torneoId, zonaId } = useParams();
 
   return (

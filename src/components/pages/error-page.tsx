@@ -5,7 +5,7 @@ interface ReactRouterError {
   message: string;
 }
 
-export default function ErrorPage() {
+export const ErrorPage = () => {
   const error = useRouteError() as ReactRouterError;
   console.error(error);
 
@@ -18,4 +18,4 @@ export default function ErrorPage() {
       </p>
     </div>
   );
-}
+};

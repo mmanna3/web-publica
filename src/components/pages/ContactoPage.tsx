@@ -1,16 +1,16 @@
-import NavBar from '../common/NavBar';
+import { NavBar } from '../common/NavBar';
 
-export default function ContactoPage() {
+export const ContactoPage = () => {
   return (
     <main>
       <NavBar />
       <h1 className='mt-60 text-center text-3xl font-bold underline'>ContactoPage</h1>
     </main>
   );
-}
+};
 
-
- {/* <section className='flex justify-between bg-gray-50 p-10'>
+{
+  /* <section className='flex justify-between bg-gray-50 p-10'>
           <img className='' src='./vite.svg' alt='logo' />
           <div>
             <h3 className='font-semibold'>Contacto</h3>
@@ -25,4 +25,5 @@ export default function ContactoPage() {
             <h3 className='font-semibold'>Seguinos</h3>
             <img className='h-[400px] w-[200px]' src='./vite.svg' alt='phone' />
           </div>
-        </section> */}
+        </section> */
+}

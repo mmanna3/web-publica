@@ -1,6 +1,6 @@
-import NavBar from '../common/NavBar';
+import { NavBar } from '../common/NavBar';
 
-export default function NoticiasPage() {
+export const NoticiasPage = () => {
   return (
     <main>
       {' '}
@@ -8,4 +8,4 @@ export default function NoticiasPage() {
       <h1 className='mt-60 text-center text-3xl font-bold underline'>NoticiasPage</h1>
     </main>
   );
-}
+};

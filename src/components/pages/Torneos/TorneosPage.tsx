@@ -1,8 +1,8 @@
-import NavBar from '../../common/NavBar';
+import { NavBar } from '../../common/NavBar';
 import { Link } from 'react-router-dom';
 import { useFetchTorneos } from './hooks/useFetchTorneos';
 
-function TorneosPage() {
+export const TorneosPage = () => {
   const { torneos, isFetching } = useFetchTorneos();
 
   if (isFetching) {
@@ -27,6 +27,6 @@ function TorneosPage() {
       </div>
     </main>
   );
-}
+};
 
 export default TorneosPage;
