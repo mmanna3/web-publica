@@ -12,12 +12,12 @@ import { NoticiasPage } from './components/pages/NoticiasPage';
 import { ContactoPage } from './components/pages/ContactoPage';
 import { FichajePage } from './components/pages/FichajePage';
 import { ZonasDelTorneo } from './components/pages/Torneos/ZonasDelTorneo';
-import { Prueba } from './components/Prueba';
 import { TablasDeLaZona } from './components/pages/Torneos/TablasDeLaZona';
 import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablasDePosiciones';
 import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
-import {ListaDeTablasDeClubes} from './components/clubes/ListaDeTablasDeClubes'
+import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
+import { Layout } from './components/common/Layout'
 
 const router = createBrowserRouter([
   {
@@ -26,16 +26,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/nosotros',
-    element: <NosotrosPage />,
-  },
-  {
-    path: '/prueba/:pruebaId',
-    element: <Prueba />,
-  },
-  {
     path: '/torneos',
-    element: <TorneosPage />,
+    element:  <Layout>
+    <TorneosPage />
+  </Layout>,
   },
   {
     path: '/torneo/:torneoId/zonas',
@@ -70,6 +64,10 @@ const router = createBrowserRouter([
     element: <NoticiasPage />,
   },
   {
+    path: '/nosotros',
+    element: <NosotrosPage />,
+  },
+  {
     path: '/contacto',
     element: <ContactoPage />,
   },
@@ -81,6 +79,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />,
   </React.StrictMode>,
 );

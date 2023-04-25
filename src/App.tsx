@@ -1,6 +1,7 @@
 import './App.css';
+import { Layout } from './components/common/Layout';
+
 import { InicioPage } from './components/pages/InicioPage';
-// import { Prueba } from './components/Prueba';
 
 export function loader() {
   console.log('soy el loader');
@@ -8,9 +9,9 @@ export function loader() {
 
 function App() {
   return (
-    <>
+    <Layout>
       <InicioPage />
-    </>
+    </Layout>
   );
 }
 

@@ -1,4 +1,4 @@
-import { NavBar } from '../common/NavBar';
+import { NavBar } from '../common/NavBar/Navbar';
 
 export const FichajePage = () => {
   return (

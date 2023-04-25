@@ -1,4 +1,3 @@
-import { NavBar } from '../../common/NavBar';
 import { Link } from 'react-router-dom';
 import { useFetchTorneos } from './hooks/useFetchTorneos';
 
@@ -11,7 +10,6 @@ export const TorneosPage = () => {
 
   return (
     <main className='bg-gray-200 p-4'>
-      <NavBar />
       <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
 
       <div className='mb-10 grid grid-cols-3 gap-3'>
