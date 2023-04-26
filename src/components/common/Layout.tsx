@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
-import { NavBar } from './NavBar/Navbar';
 import { SocialMedia } from './SocialMedia/SocialMedia';
+import Header from './Header';
 
 type LayoutProps = {
   children: ReactElement;
@@ -8,8 +8,8 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className='md:bg-fondo-pc h-[100vh] bg-fondo-celu bg-cover bg-no-repeat'>
-      <NavBar />
+    <div className='h-[100vh] bg-fondo-celu bg-cover bg-no-repeat md:bg-fondo-pc'>
+      <Header />
       {children}
       <SocialMedia />
     </div>

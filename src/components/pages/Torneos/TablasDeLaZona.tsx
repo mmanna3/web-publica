@@ -5,7 +5,6 @@ export const TablasDeLaZona = () => {
 
   return (
     <main className='m-auto w-[500px]'>
-      {/* <NavBar /> */}
       <div className='mb-10 flex justify-between'>
         <button className='bg-red-600'>Torneo tanto</button>
         <button className='bg-green-500'>Zona tanto</button>
@@ -44,4 +43,4 @@ export const TablasDeLaZona = () => {
       </div>
     </main>
   );
-}
+};
