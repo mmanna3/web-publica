@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
 
 type myButtonProps = {
-  text: string;
+  img: string;
+  alt: string;
   url: string;
 };
-export const MyButton = ({ text, url }: myButtonProps) => {
+export const ImageBtn = ({ img, alt, url }: myButtonProps) => {
   return (
-    <div className='group w-[180px] rounded-lg bg-green-300 py-6 text-center text-black opacity-80 hover:bg-green-100'>
-      <div className='rounded-lg bg-green-600 tracking-wider text-white opacity-80 group-hover:bg-slate-300 group-hover:text-slate-500'>
-        <Link to={url}><p>{text}</p></Link>
-      </div>
-    </div>
+    <Link to={url}>
+      <img src={img} alt={alt} className='w-52 md:w-72 lg:w-80' />
+    </Link>
   );
 };
