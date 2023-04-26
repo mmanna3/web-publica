@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Torneo } from '../../../../interfaces/Torneo';
 
 export const useFetchTorneos = () => {
@@ -7,7 +7,7 @@ export const useFetchTorneos = () => {
 
   async function fetchTorneosAperturaClausura() {
     const response = await fetch(
-      'https://www.edefi.com.ar/publico/TorneosAperturaClausura?anio=2022',
+      'https://www.edefi.com.ar/publico/TorneosAperturaClausura?anio=2023',
     );
 
     const torneos: Torneo[] = await response.json();
