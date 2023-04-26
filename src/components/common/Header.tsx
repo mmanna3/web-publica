@@ -36,22 +36,22 @@ export default function Header() {
             </div>
             <ul className='MENU-LINK-MOBILE-OPEN flex min-h-[250px] flex-col items-center justify-between'>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/torneos'>Torneos</Link>
+                <Link to='/tiposdetorneos'>Torneos</Link>
               </li>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <a href='/copas'>Copas</a>
+                <Link to='/copas'>Copas</Link>
               </li>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <a href='/noticias'>Noticias</a>
+                <Link to='/noticias'>Noticias</Link>
               </li>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <a href='/nosotros'>Nosotros</a>
+                <Link to='/nosotros'>Nosotros</Link>
               </li>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <a href='/contacto'>Contacto</a>
+                <Link to='/contacto'>Contacto</Link>
               </li>
               <li className='my-8 border-b border-gray-400 uppercase'>
-                <a href='/fichaje'>Fichaje</a>
+                <Link to='/fichaje'>Fichaje</Link>
               </li>
             </ul>
           </div>
