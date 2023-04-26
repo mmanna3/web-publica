@@ -17,7 +17,7 @@ import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablas
 import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
 import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
-import { Layout } from './components/common/Layout'
+import TiposDeTorneosPage from './components/pages/Torneos/TiposDeTorneosPage';
 
 const router = createBrowserRouter([
   {
@@ -26,10 +26,21 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/torneos',
-    element:  <Layout>
-    <TorneosPage />
-  </Layout>,
+    path: '/tiposdetorneos',
+    element: <TiposDeTorneosPage />,
+  },
+  {
+    path: '/torneos-baby',
+    // Que esto sea un enum
+    element: <TorneosPage tipo='baby' />,
+  },
+  {
+    path: '/torneos-futsal',
+    element: <TorneosPage tipo='futsal' />,
+  },
+  {
+    path: '/torneos-futbol-11',
+    element: <TorneosPage tipo='futbol11' />,
   },
   {
     path: '/torneo/:torneoId/zonas',
@@ -79,6 +90,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-  <RouterProvider router={router} />,
+    <RouterProvider router={router} />,
   </React.StrictMode>,
 );
