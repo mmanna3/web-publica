@@ -8,7 +8,7 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className='container h-[100vh] bg-fondo-celu bg-cover bg-no-repeat'>
+    <div className='md:bg-fondo-pc h-[100vh] bg-fondo-celu bg-cover bg-no-repeat'>
       <NavBar />
       {children}
       <SocialMedia />

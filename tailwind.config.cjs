@@ -5,12 +5,12 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   fontFamily: {
-    'font-family': 'Coalition'
+    'font-family': 'Coalition',
   },
   theme: {
     extend: {
       backgroundImage: {
-        // 'fondo-pc': "url('assets/images/desktop/fondo-pc.jpg')",
+        'fondo-pc': "url('assets/images/desktop/fondo-pc.jpg')",
         'fondo-celu': "url('assets/images/mobile/fondo-celu.jpg')",
       },
       colors: {
