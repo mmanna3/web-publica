@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { ErrorPage } from './components/pages/error-page';
 import { NosotrosPage } from './components/pages/NosotrosPage';
-import { TorneosPage } from './components/pages/Torneos/TorneosPage';
+import { asd } from './components/pages/Torneos/asd';
 import { CopasPage } from './components/pages/CopasPage';
 import { NoticiasPage } from './components/pages/NoticiasPage';
 import { ContactoPage } from './components/pages/ContactoPage';
@@ -17,7 +17,7 @@ import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablas
 import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
 import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
-import TiposDeTorneosPage from './components/pages/Torneos/TiposDeTorneosPage';
+import TiposDeTorneosPage from './components/pages/Torneos/TorneosPage';
 import { Layout } from './components/common/Layout';
 import { InicioPage } from './components/pages/InicioPage';
 
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <InicioPage />,
       },
       {
-        path: '/tiposdetorneos',
+        path: '/torneos',
         element: <TiposDeTorneosPage />,
       },
       {

@@ -1,50 +1,29 @@
 import { Link } from 'react-router-dom';
-import { useFetch } from './hooks/useFetch';
-import { Torneo } from '../../../interfaces/Torneo';
+import IMG_TORNEOS_LARGE from '../../../assets/images/mobile/buttons/torneos-large.png';
+import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.png';
+import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.png';
+import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.png';
+import IMG_TORNEO_BABY from '../../../assets/images/mobile/img-baby.jpg';
+import IMG_TORNEO_FUTSAL from '../../../assets/images/mobile/img-futsal.jpg';
+import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.jpg';
 
-const filterTorneosByType = (torneos: Torneo[], tipo: 'baby' | 'futsal' | 'futbol11'): Torneo[] => {
-  const tiposDeTorneo = {
-    baby: ['MATUTINO', 'VESPERTINO'],
-    futsal: ['FUTSAL'],
-    futbol11: ['FUTBOL 11'],
-  };
-
-  const torneosByType: Torneo[] = [];
-
-  torneos.forEach((torneo) => {
-    tiposDeTorneo[tipo].forEach((tipoDeTorneo) => {
-      if (torneo.descripcion.toUpperCase().includes(tipoDeTorneo)) torneosByType.push(torneo);
-    });
-  });
-
-  return torneosByType;
-};
-
-interface Props {
-  tipo: 'baby' | 'futsal' | 'futbol11';
-}
-
-export const TorneosPage = ({ tipo }: Props) => {
-  const { data, isFetching } = useFetch<Torneo>('TorneosAperturaClausura?anio=2023');
-
-  if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
-  }
-
+export const TorneosPage = () => {
   return (
-    <main className='bg-gray-200 p-4'>
-      <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
-
-      <div className='mb-10 grid grid-cols-3 gap-3'>
-        {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (
-          <Link
-            key={id}
-            to={`/torneo/${id}/zonas`}
-            className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 text-center text-lg text-white shadow-xl'
-          >
-            {descripcion}
-          </Link>
-        ))}
+    <main>
+      <img className='' src={IMG_TORNEOS_LARGE} alt='Torneos' />
+      <div className='flex flex-col items-center gap-10'>
+        <Link key='futsal' to='/torneos-futsal' className='flex items-center'>
+          <img className='mr-2 h-[30px] w-[80px]' src={BTN_TORNEO_FUTSAL} alt='Torneo-futsal' />
+          <img className='w-[200px]' src={IMG_TORNEO_FUTSAL} alt='Torneo-futsal' />
+        </Link>
+        <Link key='baby' to='/torneos-baby' className='flex items-center'>
+          <img className='mr-2 h-[30px] w-[80px]' src={BTN_TORNEO_BABY} alt='Torneo-baby' />
+          <img className='w-[200px]' src={IMG_TORNEO_BABY} alt='Torneo-baby' />
+        </Link>
+        <Link key='futbol-11' to='/torneos-futbol-11' className='flex items-center'>
+          <img className='mr-2 h-[30px] w-[80px]' src={BTN_TORNEO_FUTBOL11} alt='Torneo-futbol11' />
+          <img className='w-[200px]' src={IMG_TORNEO_FUTBOL11} alt='Torneo-futbol11' />
+        </Link>
       </div>
     </main>
   );
