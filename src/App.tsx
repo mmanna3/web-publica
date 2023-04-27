@@ -9,9 +9,10 @@ export function loader() {
 
 function App() {
   return (
-    <Layout>
-      <InicioPage />
-    </Layout>
+    <Layout />
+    // <Layout>
+    //   <InicioPage />
+    // </Layout>
   );
 }
 

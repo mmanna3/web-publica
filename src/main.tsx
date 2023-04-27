@@ -18,30 +18,46 @@ import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFi
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
 import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
 import TiposDeTorneosPage from './components/pages/Torneos/TiposDeTorneosPage';
+import { Layout } from './components/common/Layout';
+import { InicioPage } from './components/pages/InicioPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <InicioPage />,
+      },
+      {
+        path: '/tiposdetorneos',
+        element: <TiposDeTorneosPage />,
+      },
+      {
+        path: '/copas',
+        element: <CopasPage />,
+      },
+      {
+        path: '/noticias',
+        element: <NoticiasPage />,
+      },
+      {
+        path: '/nosotros',
+        element: <NosotrosPage />,
+      },
+      {
+        path: '/contacto',
+        element: <ContactoPage />,
+      },
+      {
+        path: '/fichaje',
+        element: <FichajePage />,
+      },
+    ],
   },
-  {
-    path: '/tiposdetorneos',
-    element: <TiposDeTorneosPage />,
-  },
-  {
-    path: '/torneos-baby',
-    // Que esto sea un enum
-    element: <TorneosPage tipo='baby' />,
-  },
-  {
-    path: '/torneos-futsal',
-    element: <TorneosPage tipo='futsal' />,
-  },
-  {
-    path: '/torneos-futbol-11',
-    element: <TorneosPage tipo='futbol11' />,
-  },
+
   {
     path: '/torneo/:torneoId/zonas',
     element: <ZonasDelTorneo />,
@@ -65,26 +81,6 @@ const router = createBrowserRouter([
   {
     path: '/torneo/:torneoId/zona/:zonaId/clubes',
     element: <ListaDeTablasDeClubes />,
-  },
-  {
-    path: '/copas',
-    element: <CopasPage />,
-  },
-  {
-    path: '/noticias',
-    element: <NoticiasPage />,
-  },
-  {
-    path: '/nosotros',
-    element: <NosotrosPage />,
-  },
-  {
-    path: '/contacto',
-    element: <ContactoPage />,
-  },
-  {
-    path: '/fichaje',
-    element: <FichajePage />,
   },
 ]);
 
