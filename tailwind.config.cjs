@@ -14,7 +14,7 @@ module.exports = {
         'fondo-celu': "url('assets/images/mobile/fondo-celu.jpg')",
       },
       colors: {
-        // 'btn-green-dark': '#7db192'
+        'title-darkGreen': '#579e74'
       },
     },
   },
