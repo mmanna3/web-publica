@@ -24,7 +24,7 @@ interface Props {
   tipo: 'baby' | 'futsal' | 'futbol11';
 }
 
-export const TipoDeTorneo = ({ tipo }: Props) => {
+export const asd = ({ tipo }: Props) => {
   const { data, isFetching } = useFetch<Torneo>('TorneosAperturaClausura?anio=2023');
 
   if (isFetching) {
@@ -50,4 +50,4 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
   );
 };
 
-export default TipoDeTorneo;
+export default asd;

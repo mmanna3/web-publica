@@ -13,7 +13,7 @@ export const InicioPage = () => {
       <img className='m-auto w-[250px] md:hidden' src={BANNER_CELU} alt='banner-image' />
       <img className='m-auto hidden w-4/5 md:block' src={BANNER_DESKTOP} alt='banner-image' />
       <div className='my-10 flex flex-col items-center gap-6'>
-        <ImageBtn img={IMG_BTN_TORNEOS} alt='torneos' url='/tiposdetorneos' />
+        <ImageBtn img={IMG_BTN_TORNEOS} alt='torneos' url='/torneos' />
         <ImageBtn img={IMG_BTN_COPAS} alt='copas' url='/copas' />
         <ImageBtn img={IMG_BTN_NOSOTROS} alt='nosotros' url='/nosotros' />
         <ImageBtn img={IMG_BTN_CONTACTO} alt='contacto' url='/contacto' />
