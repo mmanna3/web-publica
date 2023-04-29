@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import IMG_TORNEOS_TITLE from '../../../assets/images/mobile/buttons/torneos-title.png';
+import IMG_TORNEOS_TITLE from '../../../assets/images/titles/torneos-title.png';
 import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.png';
 import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.png';
 import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.png';
@@ -10,7 +10,7 @@ import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.jpg'
 export const TorneosPage = () => {
   return (
     <main>
-      <img className='' src={IMG_TORNEOS_LARGE} alt='Torneos' />
+      <img className='' src={IMG_TORNEOS_TITLE} alt='Torneos' />
       <div className='flex flex-col items-center gap-10'>
         <Link key='futsal' to='/torneos/futsal' className='flex items-center'>
           <img className='mr-2 h-[30px] w-[80px]' src={BTN_TORNEO_FUTSAL} alt='Torneo-futsal' />
