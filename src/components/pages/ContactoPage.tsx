@@ -1,4 +1,4 @@
-import IMG_CONTACTO_TITLE from '../../assets/images/mobile/buttons/contacto-title.png';
+import IMG_CONTACTO_TITLE from '../../assets/images/titles/contacto-title.png';
 import SEGUINOS_CELU from '../../assets/images/mobile/seguinos-celu.png';
 
 export const ContactoPage = () => {

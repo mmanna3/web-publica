@@ -1,3 +1,5 @@
+import IMG_CONTACTO_TITLE from '../../assets/images/titles/contacto-title.png';
+
 export const FichajePage = () => {
   return (
     <main>

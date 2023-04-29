@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import IMG_TORNEOS_LARGE from '../../../assets/images/mobile/buttons/torneos-large.png';
+import IMG_TORNEOS_TITLE from '../../../assets/images/mobile/buttons/torneos-title.png';
 import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.png';
 import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.png';
 import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.png';

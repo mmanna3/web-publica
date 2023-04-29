@@ -1,4 +1,4 @@
-import IMG_NOSOTROS_TITLE from '../../assets/images/mobile/buttons/nosotros-title.png';
+import IMG_NOSOTROS_TITLE from '../../assets/images/titles/nosotros-title.png';
 
 export const NosotrosPage = () => {
   return (
