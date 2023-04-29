@@ -1,10 +1,10 @@
-import IMG_CONTACTO_LARGE from '../../assets/images/mobile/buttons/contacto-large.png';
+import IMG_CONTACTO_TITLE from '../../assets/images/mobile/buttons/contacto-title.png';
 import SEGUINOS_CELU from '../../assets/images/mobile/seguinos-celu.png';
 
 export const ContactoPage = () => {
   return (
     <main>
-      <img className='m-auto' src={IMG_CONTACTO_LARGE} alt='Contacto' />
+      <img className='m-auto' src={IMG_CONTACTO_TITLE} alt='Contacto' />
       <div className='mx-auto my-12 text-center'>
         <div className='mb-16 md:text-xl lg:text-2xl'>
           <h2 className='my-4 text-title-darkGreen md:text-xl lg:text-2xl '>

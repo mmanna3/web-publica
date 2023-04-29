@@ -33,7 +33,7 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
 
   return (
     <main className='bg-gray-200 p-4'>
-      <h1 className='my-10 text-center text-3xl font-bold underline'>TorneosPage</h1>
+      <h1 className='my-10 text-center text-3xl font-bold underline'>TIPO DE TORNEO</h1>
 
       <div className='mb-10 grid grid-cols-3 gap-3'>
         {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (

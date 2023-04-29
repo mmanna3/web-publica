@@ -1,9 +1,9 @@
-import IMG_NOSOTROS_LARGE from '../../assets/images/mobile/buttons/nosotros-large.png';
+import IMG_NOSOTROS_TITLE from '../../assets/images/mobile/buttons/nosotros-title.png';
 
 export const NosotrosPage = () => {
   return (
     <main className='bg-green-300'>
-      <img src={IMG_NOSOTROS_LARGE} alt='Nosotros' />
+      <img src={IMG_NOSOTROS_TITLE} alt='Nosotros' />
       <div className='mx-8 md:mx-14'>
         <h2 className='my-6 text-title-darkGreen md:text-xl lg:text-3xl '>Quiénes somos</h2>
         <div className='overflow-y-scroll bg-white text-justify opacity-90 p-14'>
