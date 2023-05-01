@@ -9,7 +9,7 @@ import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.jpg'
 
 export const TorneosPage = () => {
   return (
-    <main>
+    <>
       <img className='mx-auto lg:max-w-4xl mb-5' src={IMG_TORNEOS_TITLE} alt='Torneos' />
       <div className='flex flex-col items-center gap-6 lg:flex-row lg:justify-center'>
         <Link key='futsal' to='/torneos/futsal' className='flex items-center md:flex-col-reverse'>
@@ -25,7 +25,7 @@ export const TorneosPage = () => {
           <img className='w-48 lg:h-44 md:w-64' src={IMG_TORNEO_FUTBOL11} alt='Torneo-futbol11' />
         </Link>
       </div>
-    </main>
+    </>
   );
 };
 
