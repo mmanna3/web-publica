@@ -7,7 +7,10 @@ export const Layout = () => {
   return (
     <div className='bg-fondo-celu bg-cover bg-no-repeat bg-fixed md:bg-fondo-pc'>
       <Header />
+      <main className='mx-auto ml-[5%]'>
       <Outlet/>
+
+      </main>
       <SocialMedia />
     </div>
   );
