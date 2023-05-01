@@ -10,8 +10,8 @@ export const Layout = () => {
       <main className='mx-auto ml-[5%]'>
       <Outlet/>
 
-      </main>
       <SocialMedia />
+      </main>
     </div>
   );
 };
