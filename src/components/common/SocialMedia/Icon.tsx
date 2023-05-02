@@ -3,5 +3,5 @@ type IconProps = {
 };
 
 export const Icon = ({ src }: IconProps) => {
-  return <img className='max-w-[35px]' src={src} alt='instagram' />;
+  return <img className='w-10' src={src} alt='instagram' />;
 };
