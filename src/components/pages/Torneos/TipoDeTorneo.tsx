@@ -32,21 +32,21 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
   }
 
   return (
-    <main className='bg-gray-200 p-4'>
+    <>
       <h1 className='my-10 text-center text-3xl font-bold underline'>TIPO DE TORNEO</h1>
 
-      <div className='mb-10 grid grid-cols-3 gap-3'>
+      <div className='flex flex-col items-center gap-10'>
         {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (
           <Link
             key={id}
             to={`/torneo/${id}/zonas`}
-            className='min-h-[100px] min-w-[300px] rounded-lg bg-blue-600 text-center text-lg text-white shadow-xl'
+            className='w-52 md:w-80 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl'
           >
             {descripcion}
           </Link>
         ))}
       </div>
-    </main>
+    </>
   );
 };
 
