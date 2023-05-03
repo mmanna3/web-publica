@@ -4,7 +4,7 @@ import estilos from './PasoBotonEnviar.css';
 
 const PasoBotonEnviar = ({ estiloDelPaso }) => {
   return (
-    <div className={`${estiloDelPaso}`}>
+    <div className={'bg-red-700 py-6 px-3'}>
       <div className={'flex'}>
         <div className=''>
           <div className={estilos.contenedorDeContenidoCentrado}>
@@ -17,7 +17,7 @@ const PasoBotonEnviar = ({ estiloDelPaso }) => {
 
           <div className={estilos.contenedorDeContenidoCentrado}>
             <button
-              className={`//bootstrap-btn //bootstrap-btn-success} ${estilos.boton}`}
+              className={`py-auto py-auto rounded-lg bg-green-700 text-white ${estilos.boton}`}
               type='submit'
             >
               ENVIAR MIS DATOS
