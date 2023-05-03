@@ -5,7 +5,7 @@ import { IPaso } from '../SeccionPrincipalFichaje';
 
 interface IPasoInput extends IPaso {
   titulo: string;
-  onChange?: () => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   name: string;
   nombre: string;
   longMaxima: number;
