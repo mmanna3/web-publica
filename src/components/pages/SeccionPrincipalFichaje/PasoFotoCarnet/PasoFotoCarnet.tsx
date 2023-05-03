@@ -106,22 +106,22 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
               />
             </div> */}
             <div className={estilos.botonesContainer}>
-              <div className='flex'>
-                <div className=''>
+              <div className=''>
+                <div className='flex justify-around'>
                   <div className=''>
                     <button
                       type='button'
-                      className={'py-auto py-auto-success rounded-lg text-white'}
+                      className={'rounded-lg bg-green-700 px-20 py-4 text-white'}
                       style={{ width: '100%' }}
                       onClick={onAceptarClick}
                     >
                       Aceptar
                     </button>
                   </div>
-                  <div className='//bootstrap[col-4]'>
+                  <div className=''>
                     <button
                       type='button'
-                      className={'py-auto rounded-lg bg-red-700 text-center text-white'}
+                      className={'py-auto rounded-lg bg-red-700 px-20 py-4 text-center text-white'}
                       style={{ width: '100%' }}
                       onClick={onCancelarClick}
                     >
