@@ -1,24 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useFetch } from './hooks/useFetch';
 import { Torneo } from '../../../interfaces/Torneo';
-
-const filterTorneosByType = (torneos: Torneo[], tipo: 'baby' | 'futsal' | 'futbol11'): Torneo[] => {
-  const tiposDeTorneo = {
-    baby: ['MATUTINO', 'VESPERTINO'],
-    futsal: ['FUTSAL'],
-    futbol11: ['FUTBOL 11'],
-  };
-
-  const torneosByType: Torneo[] = [];
-
-  torneos.forEach((torneo) => {
-    tiposDeTorneo[tipo].forEach((tipoDeTorneo) => {
-      if (torneo.descripcion.toUpperCase().includes(tipoDeTorneo)) torneosByType.push(torneo);
-    });
-  });
-
-  return torneosByType;
-};
+import { filterTorneosByType } from '../../common/logic';
 
 interface Props {
   tipo: 'baby' | 'futsal' | 'futbol11';
@@ -40,7 +23,7 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
           <Link
             key={id}
             to={`/torneo/${id}/zonas`}
-            className='w-52 md:w-80 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl'
+            className='w-52 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl md:w-80'
           >
             {descripcion}
           </Link>
