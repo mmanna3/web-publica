@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
 import styles from './Input.module.css';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
 
@@ -7,9 +7,10 @@ interface IInput {
   name?: string;
   register?: any;
   type: string;
+  className?: string;
 }
 
-const Input = ({ onChange, name, register, type = 'text' }: IInput) => {
+const Input = ({ onChange, name, register, type = 'text', className }: IInput) => {
   const [valor, setValor] = useState('');
 
   const handleOnChange = (e: any) => {
@@ -21,7 +22,7 @@ const Input = ({ onChange, name, register, type = 'text' }: IInput) => {
     <input
       ref={register}
       name={name}
-      className={styles.input}
+      className={styles.input + ' ' + className}
       value={valor}
       type={type}
       onChange={handleOnChange}

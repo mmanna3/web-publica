@@ -85,7 +85,7 @@ const SeccionPrincipalFichaje = () => {
             <div className={`${styles.margenDeArribaDelBoton} //bootstrap-align-items-center`}>
               <button
                 onClick={() => mostrarMensajeExito(false)}
-                className={`//bootstrap-btn //bootstrap-btn-primary ${styles.botonFicharOtroJugador}`}
+                className={`py-auto py-auto-primary rounded-lg rounded-lg text-white text-white ${styles.botonFicharOtroJugador}`}
               >
                 Fichar otro jugador
               </button>

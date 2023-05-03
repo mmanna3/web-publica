@@ -38,12 +38,12 @@ const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
   };
 
   return (
-    <div className={`${estiloDelPaso}`}>
-      <div className='flex'>
+    <div className='bg-blue-700 py-6 px-3'>
+      <div className='flex flex-col'>
         <div className='w-[100%]'>
           <Label texto={'Código de tu equipo'} subtitulo='Pedíselo a tu delegado' />
         </div>
-        <div className='w-[50%]'>
+        <div className='flex'>
           <Input
             onChange={onCodigoEquipoChange}
             type='string'
@@ -52,17 +52,18 @@ const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
               validate: { asyncValidate: onValidarClick },
             })}
             name='codigoAlfanumerico'
+            className='w-1/2'
           />
-        </div>
-        <div className='w-[50%]'>
-          <button
-            type='button'
-            className={'//bootstrap-btn //btn-success'}
-            style={{ width: '100%' }}
-            onClick={onValidarClick}
-          >
-            Validar
-          </button>
+          <div className='w-1/2'>
+            <button
+              type='button'
+              className={'py-auto rounded-lg bg-green-700 text-center text-white'}
+              style={{ width: '100%' }}
+              onClick={onValidarClick}
+            >
+              Validar
+            </button>
+          </div>
         </div>
         {yaValidoCodigoEquipo &&
           (codigoEquipoEsValido ? (

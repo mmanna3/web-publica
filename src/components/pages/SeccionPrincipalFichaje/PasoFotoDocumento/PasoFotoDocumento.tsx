@@ -38,8 +38,8 @@ const PasoFotoDocumento = ({
   };
 
   return (
-    <div className={estiloDelPaso}>
-      <div className='flex'>
+    <div className={'bg-blue-800 py-6 px-3'}>
+      <div className=''>
         <div className={estilos.contenedorDeContenidoCentrado}>
           <Label texto={titulo} subtitulo='Que se lean bien tus datos' centrado />
         </div>

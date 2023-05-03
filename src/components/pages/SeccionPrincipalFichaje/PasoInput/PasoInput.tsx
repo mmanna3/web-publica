@@ -26,8 +26,8 @@ const PasoInput = ({
   const caracteres = type === 'text' ? 'letras' : 'números';
 
   return (
-    <div className={estiloDelPaso}>
-      <div className={'flex'}>
+    <div className='bg-red-700 py-6 px-3'>
+      <div className=''>
         <div className=''>
           <Label texto={titulo} />
         </div>

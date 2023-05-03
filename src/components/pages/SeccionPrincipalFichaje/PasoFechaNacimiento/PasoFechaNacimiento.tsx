@@ -44,22 +44,24 @@ const PasoFechaNacimiento = ({ register, errors, estiloDelPaso }: IPaso) => {
   };
 
   return (
-    <div className={estiloDelPaso}>
-      <div className='flex'>
+    <div className='bg-red-700 py-6 px-3'>
+      <div className=''>
         <div className=''>
           <Label texto='Tu fecha de nacimiento' />
         </div>
-        <div className={''}>
-          <p className={Estilos.tituloInput}>Día</p>
-          <Input type='number' onChange={actualizarDia} />
-        </div>
-        <div className={''}>
-          <p className={Estilos.tituloInput}>Mes</p>
-          <Input type='number' onChange={actualizarMes} />
-        </div>
-        <div className={''}>
-          <p className={Estilos.tituloInput}>Año</p>
-          <Input type='number' onChange={actualizarAnio} />
+        <div className='flex gap-2'>
+          <div className={'w-1/3'}>
+            <p className={Estilos.tituloInput}>Día</p>
+            <Input type='number' onChange={actualizarDia} className='w-20' />
+          </div>
+          <div className={'w-1/3'}>
+            <p className={Estilos.tituloInput}>Mes</p>
+            <Input type='number' onChange={actualizarMes} className='w-20' />
+          </div>
+          <div className={'w-1/3'}>
+            <p className={Estilos.tituloInput}>Año</p>
+            <Input type='number' onChange={actualizarAnio} className='w-20' />
+          </div>
         </div>
         <input
           style={{ display: 'none' }}

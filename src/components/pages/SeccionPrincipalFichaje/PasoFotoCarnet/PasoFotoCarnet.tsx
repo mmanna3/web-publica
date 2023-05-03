@@ -60,7 +60,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
 
   return (
     <div className={estiloDelPaso}>
-      <div className='flex'>
+      <div className='bg-green-700 py-6'>
         <div className={estilos.contenedorDeContenidoCentrado}>
           <Label texto={'Tu foto'} subtitulo='Tiene que tener fondo liso' centrado={true} />
         </div>
@@ -111,7 +111,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
                   <div className=''>
                     <button
                       type='button'
-                      className={'//bootstrap-btn //bootstrap-btn-success'}
+                      className={'py-auto py-auto-success rounded-lg text-white'}
                       style={{ width: '100%' }}
                       onClick={onAceptarClick}
                     >
@@ -121,7 +121,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
                   <div className='//bootstrap[col-4]'>
                     <button
                       type='button'
-                      className={'//bootstrap-btn //btn-danger'}
+                      className={'py-auto rounded-lg bg-red-700 text-center text-white'}
                       style={{ width: '100%' }}
                       onClick={onCancelarClick}
                     >

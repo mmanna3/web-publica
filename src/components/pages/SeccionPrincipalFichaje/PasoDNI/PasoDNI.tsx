@@ -18,8 +18,8 @@ const PasoDNI = ({ register, errors, estiloDelPaso }: IPaso) => {
   };
 
   return (
-    <div className={estiloDelPaso}>
-      <div className='flex'>
+    <div className='bg-red-700 py-6 px-3'>
+      <div className=''>
         <div className=''>
           <Label texto='Tu DNI' />
         </div>

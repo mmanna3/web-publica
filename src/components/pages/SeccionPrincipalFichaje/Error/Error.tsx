@@ -1,4 +1,4 @@
-import estilos from './Error.css';
+import estilos from './Error.module.css';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
 
 const Error = ({ errors, name, nombre }) => {
@@ -6,9 +6,7 @@ const Error = ({ errors, name, nombre }) => {
     <>
       {errors[name] && errors[name].type === 'required' && (
         <div className=''>
-          <div
-            className={`//bootstrap-alert //bootstrap-alert-danger ${estilos.alertaValidacionEquipo}`}
-          >
+          <div className={`text-white ${estilos.alertaValidacionEquipo}`}>
             ¡Ups! Te olvidaste tu {nombre}.
           </div>
         </div>
@@ -16,9 +14,7 @@ const Error = ({ errors, name, nombre }) => {
 
       {errors[name] && errors[name].type !== 'required' && (
         <div className=''>
-          <div
-            className={`//bootstrap-alert //bootstrap-alert-danger ${estilos.alertaValidacionEquipo}`}
-          >
+          <div className={`text-white ${estilos.alertaValidacionEquipo}`}>
             {errors[name].message}
           </div>
         </div>
