@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
-import estilos from './PasoBotonEnviar.css';
+import estilos from './PasoBotonEnviar.module.css';
 
 const PasoBotonEnviar = ({ estiloDelPaso }) => {
   return (
