@@ -3,7 +3,7 @@ import SEGUINOS_CELU from '../../assets/images/mobile/seguinos-celu.png';
 
 export const ContactoPage = () => {
   return (
-    <main>
+    <>
       <img className='m-auto' src={IMG_CONTACTO_TITLE} alt='Contacto' />
       <div className='mx-auto my-12 text-center'>
         <div className='mb-16 md:text-xl lg:text-2xl'>
@@ -28,6 +28,6 @@ export const ContactoPage = () => {
         </div>
       </div>
       <img className='m-auto w-40 md:w-52 lg:w-64' src={SEGUINOS_CELU} alt='Seguinos' />
-    </main>
+    </>
   );
 };
