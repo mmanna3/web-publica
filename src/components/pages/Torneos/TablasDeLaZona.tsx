@@ -1,46 +1,25 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { GenericButton } from '../../common/GenericButton';
 
 export const TablasDeLaZona = () => {
   const { torneoId, zonaId } = useParams();
 
   return (
-    <main className='m-auto w-[500px]'>
-      <div className='mb-10 flex justify-between'>
+    <>
+      {/* <div className='mb-10 flex justify-between'>
         <button className='bg-red-600'>Torneo tanto</button>
         <button className='bg-green-500'>Zona tanto</button>
+      </div> */}
+      <div className='mt-[5%] flex flex-col items-center gap-5'>
+        <GenericButton
+          path={`/torneo/${torneoId}/zona/${zonaId}/posiciones`}
+          content='Posiciones'
+        />
+        <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/fixture`} content='Fixture' />
+        <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/jornadas`} content='Jornadas' />
+        <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/clubes`} content='Clubes' />
+        <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/sanciones`} content='Sanciones' />
       </div>
-      <div className='flex flex-col gap-5'>
-        <Link
-          to={`/torneo/${torneoId}/zona/${zonaId}/posiciones`}
-          className='rounded-lg bg-blue-600 p-4 text-center text-white'
-        >
-          Posiciones
-        </Link>
-        <Link
-          to={`/torneo/${torneoId}/zona/${zonaId}/fixture`}
-          className='rounded-lg bg-blue-600 p-4 text-center text-white'
-        >
-          Fixture
-        </Link>
-        <Link
-          to={`/torneo/${torneoId}/zona/${zonaId}/jornadas`}
-          className='rounded-lg bg-blue-600 p-4 text-center text-white'
-        >
-          Jornadas
-        </Link>
-        <Link
-          to={`/torneo/${torneoId}/zona/${zonaId}/clubes`}
-          className='rounded-lg bg-blue-600 p-4 text-center text-white'
-        >
-          Clubes
-        </Link>
-        <Link
-          to={`/torneo/${torneoId}/zona/${zonaId}/sanciones`}
-          className='rounded-lg bg-blue-600 p-4 text-center text-white'
-        >
-          Sanciones
-        </Link>
-      </div>
-    </main>
+    </>
   );
 };
