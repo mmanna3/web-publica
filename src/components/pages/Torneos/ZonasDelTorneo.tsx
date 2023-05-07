@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useFetch } from './hooks/useFetch';
 import { Zona } from '../../../interfaces/Zona';
+import { GenericButton } from '../../common/GenericButton';
 
 export const ZonasDelTorneo = () => {
   const { torneoId } = useParams();
@@ -14,13 +15,11 @@ export const ZonasDelTorneo = () => {
     <main className='flex justify-center'>
       <div className='grid-row-3 m-20 grid grid-cols-1 gap-4'>
         {data.map(({ descripcion, zonaAperturaId }) => (
-          <Link
+          <GenericButton
             key={zonaAperturaId}
-            to={`/torneo/${torneoId}/zona/${zonaAperturaId}`}
-            className='text min-h-[100px] w-[500px] rounded-lg bg-green-600 text-center text-white  shadow-xl'
-          >
-            {descripcion}
-          </Link>
+            path={`/torneo/${torneoId}/zona/${zonaAperturaId}`}
+            content={descripcion}
+          />
         ))}
       </div>
     </main>
