@@ -18,13 +18,12 @@ import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFi
 import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
 import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
 import { TorneosPage } from './components/pages/Torneos/TorneosPage';
-import { Layout } from './components/common/Layout';
 import { InicioPage } from './components/pages/InicioPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {

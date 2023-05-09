@@ -1,4 +1,4 @@
-import { ImageBtn } from '../common/MyButton';
+import { ImageBtn } from '../common/ImageBtn';
 import BANNER_CELU from '../../assets/images/mobile/banner-celu.png';
 import BANNER_DESKTOP from '../../assets/images/desktop/banner-desktop.jpg';
 import IMG_BTN_TORNEOS from '../../assets/images/mobile/buttons/torneos.png';
