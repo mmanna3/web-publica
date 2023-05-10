@@ -19,7 +19,6 @@ export const useFetchPosiciones = () => {
     setTablasPorCategoria(TablasPorCategoria);
     setTablaGeneral(TablaGeneral);
     setIsFetching(false)
-    // console.log('Tabla general: ', TablaGeneral);
   }
 
   useEffect(() => {

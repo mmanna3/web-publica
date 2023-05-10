@@ -8,26 +8,21 @@ export const ListaDeTablasDePosiciones = () => {
     return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
   }
   return (
-    <div className='flex flex-wrap justify-center bg-gray-400'>
-      {tablasPorCategoria.map((tablaPorCategoria) => (
+    <div className='grid gap-2 bg-title-darkGreen md:grid-cols-2'>
+      {tablasPorCategoria.map(({ CategoriaId, Categoria, Renglones }) => (
         <TablaDePosiciones
-          key={tablaPorCategoria.CategoriaId}
-          categoria={tablaPorCategoria.Categoria}
-          tablaPorCategoria={tablaPorCategoria}
+          key={CategoriaId}
+          categoria={Categoria}
+          /* renglones={Renglones} */
+          renglones={Renglones}
         />
       ))}
+
+      <TablaDePosiciones
+        key={tablaGeneral?.CategoriaId}
+        categoria='General'
+        renglones={tablaGeneral?.Renglones}
+      />
     </div>
   );
 };
-
-// const ListaLasTablas = () => {
-//   <div className='flex flex-wrap justify-center bg-gray-400'>
-//     {tablasPorTipo.map((tablaPorCategoria) => (
-//       <TablaDePosiciones
-//         key={tablaPorCategoria.CategoriaId}
-//         categoria={tablaPorCategoria.Categoria}
-//         tablaPorCategoria={tablaPorCategoria}
-//       />
-//     ))}
-//   </div>;
-// };
