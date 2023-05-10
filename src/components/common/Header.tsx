@@ -2,12 +2,30 @@ import { useState } from 'react';
 import EDEFI_LOGO from '../../assets/images/edefi-logo.svg';
 import { Link } from 'react-router-dom';
 
+interface Props {
+  path: string;
+  content: string;
+  closeNav: () => void;
+}
+const NavOpenLink = ({ path, content, closeNav }: Props) => {
+  return (
+    <li className='my-8 border-b border-gray-400 uppercase'>
+      <Link onClick={closeNav} to={path}>
+        {content}
+      </Link>
+    </li>
+  );
+};
+
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const isClosed = () => setIsNavOpen(false);
 
   return (
     <div className='mb-3 flex items-center justify-between border-b border-gray-400 py-4 px-4 backdrop-blur-md md:mb-7 md:border-none md:py-2 md:pl-20 md:backdrop-blur-none'>
-      <img className='w-14' src={EDEFI_LOGO} alt='edefi-logo' />
+      <Link to='/'>
+        <img className='w-14' src={EDEFI_LOGO} alt='edefi-logo' />
+      </Link>
       <nav>
         <section className='MOBILE-MENU flex lg:hidden'>
           <div className='HAMBURGER-ICON space-y-2' onClick={() => setIsNavOpen((prev) => !prev)}>
@@ -34,25 +52,14 @@ export default function Header() {
                 <line x1='6' y1='6' x2='18' y2='18' />
               </svg>
             </div>
-            <ul className='MENU-LINK-MOBILE-OPEN flex min-h-[250px] flex-col items-center justify-between'>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/tiposdetorneos'>Torneos</Link>
-              </li>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/copas'>Copas</Link>
-              </li>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/noticias'>Noticias</Link>
-              </li>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/nosotros'>Nosotros</Link>
-              </li>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/contacto'>Contacto</Link>
-              </li>
-              <li className='my-8 border-b border-gray-400 uppercase'>
-                <Link to='/fichaje'>Fichaje</Link>
-              </li>
+
+            <ul className='MENU-LINK-MOBILE-OPEN z-50 flex min-h-[250px] flex-col items-center justify-between'>
+              <NavOpenLink closeNav={isClosed} path='/torneos' content='Torneos' />
+              <NavOpenLink closeNav={isClosed} path='/copas' content='Copas' />
+              <NavOpenLink closeNav={isClosed} path='/noticias' content='Noticias' />
+              <NavOpenLink closeNav={isClosed} path='/nosotros' content='Nosotros' />
+              <NavOpenLink closeNav={isClosed} path='/contacto' content='Contacto' />
+              <NavOpenLink closeNav={isClosed} path='/fichaje' content='Fichaje' />
             </ul>
           </div>
         </section>
@@ -79,7 +86,7 @@ export default function Header() {
         top: 0;
         left: 0;
         background: white;
-        z-index: 10;
+        z-index: 50;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
