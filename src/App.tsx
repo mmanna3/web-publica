@@ -15,7 +15,7 @@ function App() {
       </main>
       <SocialMedia />
     </div>
-  );
+  )
 }
 
 export default App;

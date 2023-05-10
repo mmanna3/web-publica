@@ -66,33 +66,34 @@ const router = createBrowserRouter([
         path: '/fichaje',
         element: <FichajePage />,
       },
+      {
+        path: '/torneo/:torneoId/zonas',
+        element: <ZonasDelTorneo />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId',
+        element: <TablasDeLaZona />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId/posiciones',
+        element: <ListaDeTablasDePosiciones />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId/fixture',
+        element: <ListaDeTablasDelFixture />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId/jornadas',
+        element: <ListaDeTablasDeJornadas />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId/clubes',
+        element: <ListaDeTablasDeClubes />,
+      },
     ],
   },
 
-  {
-    path: '/torneo/:torneoId/zonas',
-    element: <ZonasDelTorneo />,
-  },
-  {
-    path: '/torneo/:torneoId/zona/:zonaId',
-    element: <TablasDeLaZona />,
-  },
-  {
-    path: '/torneo/:torneoId/zona/:zonaId/posiciones',
-    element: <ListaDeTablasDePosiciones />,
-  },
-  {
-    path: '/torneo/:torneoId/zona/:zonaId/fixture',
-    element: <ListaDeTablasDelFixture />,
-  },
-  {
-    path: '/torneo/:torneoId/zona/:zonaId/jornadas',
-    element: <ListaDeTablasDeJornadas />,
-  },
-  {
-    path: '/torneo/:torneoId/zona/:zonaId/clubes',
-    element: <ListaDeTablasDeClubes />,
-  },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
