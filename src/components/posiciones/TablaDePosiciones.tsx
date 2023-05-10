@@ -5,18 +5,17 @@ interface Props {
   categoria: string;
 }
 
-/* Deberia recibir directamente Renglones[]  */
 export default function TablaDePosiciones({ renglones, categoria }: Props) {
   return (
     <div className='m-2'>
-      <h2 className='mb-2 text-center text-xl text-white'>{categoria}</h2>
+      <h2 className='mb-2 text-center text-xl text-black'>{categoria}</h2>
 
       <table className='mx-auto mb-4 w-[100%] max-w-xl table-auto border-collapse border border-slate-500 bg-white text-center'>
         <thead>
           <tr className='bg-[#101010] text-white'>
             <th className='p-2'>Pos</th>
             <th>Esc</th>
-            <th className=''>Equipo</th>
+            <th>Equipo</th>
             <th>J</th>
             <th>G</th>
             <th>E</th>
@@ -29,8 +28,8 @@ export default function TablaDePosiciones({ renglones, categoria }: Props) {
         <tbody>
           {renglones.map((renglon) => (
             <tr key={renglon.EquipoId} className='border border-slate-200'>
-              <td className='text-center'>{renglon.Posicion}</td>
-              <td>
+              <td className='border border-slate-200'>{renglon.Posicion}</td>
+              <td className='border border-slate-200'>
                 <img
                   className='mx-auto w-[30px]'
                   src={`https://www.edefi.com.ar${renglon.Escudo}`}
@@ -38,12 +37,12 @@ export default function TablaDePosiciones({ renglones, categoria }: Props) {
                 />
               </td>
               <td>{renglon.Equipo}</td>
-              <td>{renglon.Pj}</td>
-              <td>{renglon.Pg}</td>
-              <td>{renglon.Pe}</td>
-              <td>{renglon.Pp}</td>
-              <td>{renglon.Np}</td>
-              <td>{renglon.Pts}</td>
+              <td className='border border-slate-200'>{renglon.Pj}</td>
+              <td className='border border-slate-200'>{renglon.Pg}</td>
+              <td className='border border-slate-200'>{renglon.Pe}</td>
+              <td className='border border-slate-200'>{renglon.Pp}</td>
+              <td className='border border-slate-200'>{renglon.Np}</td>
+              <td className='border border-slate-200'>{renglon.Pts}</td>
             </tr>
           ))}
         </tbody>
