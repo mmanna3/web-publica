@@ -8,14 +8,14 @@ export function loader() {
 
 function App() {
   return (
-    <div className='max-h-max bg-fondo-celu bg-cover bg-no-repeat'>
+    <div className='max-h-max min-h-screen bg-fondo-celu bg-cover bg-no-repeat'>
       <Header />
       <main className='mx-auto ml-[5%] select-none '>
         <Outlet />
       </main>
       <SocialMedia />
     </div>
-  )
+  );
 }
 
 export default App;
