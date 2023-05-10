@@ -1,4 +1,4 @@
-import { Torneo } from '../../interfaces/Torneo';
+import { Torneo } from '../../interfaces/api';
 
 export const filterTorneosByType = (
   torneos: Torneo[],

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useFetch } from './hooks/useFetch';
-import { Torneo } from '../../../interfaces/Torneo';
+import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
 
 interface Props {

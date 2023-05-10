@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useFetch } from './hooks/useFetch';
-import { Zona } from '../../../interfaces/Zona';
+import { Zona } from '../../../interfaces/api';
 import { GenericButton } from '../../common/GenericButton';
 
 export const ZonasDelTorneo = () => {

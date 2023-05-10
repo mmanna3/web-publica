@@ -1,5 +1,4 @@
-import { Jornada } from '../../interfaces/Jornadas/Jornada';
-import { Categoria } from '../../interfaces/Jornadas/Categoria';
+import { Jornada, Categoria } from '../../interfaces/api';
 
 type TablaDeJornadasProps = {
   renglones: Jornada[];

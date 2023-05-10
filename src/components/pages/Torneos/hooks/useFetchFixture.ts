@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { FechaDelFixture } from '../../../../interfaces/Fixture/FechaDelFixture'
-import { FixtureDelTorneo } from '../../../../interfaces/Fixture/FixtureDelTorneo';
+import { FechaDelFixture, FixtureDelTorneo } from '../../../../interfaces/api'
 
 export const useFetchFixture = () => {
   const [fechas, setFechas] = useState<FechaDelFixture[]>([]);

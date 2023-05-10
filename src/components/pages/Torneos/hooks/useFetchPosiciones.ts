@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { PosicionesDelTorneo } from '../../../../interfaces/Posiciones/PosicionesDelTorneo';
-import { Tabla } from '../../../../interfaces/Posiciones/Tabla';
+import { PosicionesDelTorneo, Tabla } from '../../../../interfaces/api';
 
 export const useFetchPosiciones = () => {
   const [tablasPorCategoria, setTablasPorCategoria] = useState<Tabla[]>([]);

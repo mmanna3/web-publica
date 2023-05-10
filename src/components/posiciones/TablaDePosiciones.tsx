@@ -1,4 +1,4 @@
-import { Renglon } from '../../interfaces/Posiciones/Renglon';
+import { Renglon } from '../../interfaces/api';
 
 interface Props {
   renglones: Renglon[];

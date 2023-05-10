@@ -1,4 +1,4 @@
-import { DatosDeAmbosEquipos } from '../../interfaces/Fixture/DatosDeAmbosEquipos';
+import { DatosDeAmbosEquipos } from '../../interfaces/api';
 
 interface Props {
   localVisitante: DatosDeAmbosEquipos[];

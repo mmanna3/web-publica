@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest';
 import { filterTorneosByType } from './logic';
-import { Torneo } from '../../interfaces/Torneo';
+import { Torneo } from '../../interfaces/api';
 
 describe('filterTorneosByType', () => {
   it('Filter "futsal" correctly', ({ expect }) => {

@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { JornadasDelTorneo } from '../../../../interfaces/Jornadas/JornadasDelTorneo';
-import { JornadaPorFecha } from '../../../../interfaces/Jornadas/JornadaPorFecha';
-import { Categoria } from '../../../../interfaces/Jornadas/Categoria';
+import { JornadasDelTorneo, JornadaPorFecha, Categoria } from '../../../../interfaces/api';
 import { useEffect, useState } from 'react';
 
 export const useFetchJornadas = () => {
