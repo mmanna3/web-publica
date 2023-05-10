@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from './components/common/Header';
-import { SocialMedia } from './components/common/SocialMedia/SocialMedia';
+import { SocialMediaIcons } from './components/common/SocialMediaIcons';
 
 export function loader() {
   console.log('soy el loader');
@@ -13,7 +13,7 @@ function App() {
       <main className='mx-auto ml-[5%] select-none '>
         <Outlet />
       </main>
-      <SocialMedia />
+      <SocialMediaIcons />
     </div>
   );
 }
