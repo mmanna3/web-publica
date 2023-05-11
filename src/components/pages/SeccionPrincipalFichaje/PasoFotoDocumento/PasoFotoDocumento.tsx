@@ -50,8 +50,7 @@ const PasoFotoDocumento = ({
 
         <input
           readOnly
-          name={name}
-          ref={register(name, {
+          {...register(name, {
             validate: (value) => value !== imagenDefault || `¡Ups! Te olvidaste la ${nombre}.`,
           })}
           style={{ display: 'none' }}

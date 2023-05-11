@@ -65,7 +65,7 @@ const PasoFechaNacimiento = ({ register, errors, estiloDelPaso }: IPaso) => {
         </div>
         <input
           style={{ display: 'none' }}
-          ref={register('fechaNacimiento', { required: true, validate: validarFecha })}
+          {...register('fechaNacimiento', { required: true, validate: validarFecha })}
           name='fechaNacimiento'
           defaultValue={valorCalculado}
         />
