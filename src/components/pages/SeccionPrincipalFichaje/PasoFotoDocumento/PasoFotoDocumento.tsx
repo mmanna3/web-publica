@@ -4,7 +4,7 @@ import ImageUploader from '../ImageUploader/ImageUploader';
 import estilos from './PasoFotoDocumento.module.css';
 import imagenDniFrente from './dniFrente.png';
 import imagenDniDorso from './dniDorso.jpg';
-import Error from '../Error/Error';
+import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
 interface IPasoFotoDocumento {
@@ -56,7 +56,7 @@ const PasoFotoDocumento = ({ titulo, name, nombre }: IPasoFotoDocumento) => {
           style={{ display: 'none' }}
           value={imagenBase64}
         />
-        <Error name={name} errors={errors} nombre={nombre} />
+        <FormErrorHandler name={name} errors={errors} nombre={nombre} />
         <ImageUploader onChange={onSelectFile} />
       </div>
     </div>

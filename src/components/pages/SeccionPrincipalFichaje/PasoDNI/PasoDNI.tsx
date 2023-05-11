@@ -1,6 +1,6 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Error from '../Error/Error';
+import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
 const PasoDNI = () => {
@@ -39,7 +39,7 @@ const PasoDNI = () => {
             onChange={() => console.log('aaa')}
           />
         </div>
-        <Error name='dni' errors={errors} nombre='DNI' />
+        <FormErrorHandler name='dni' errors={errors} nombre='DNI' />
       </div>
     </div>
   );

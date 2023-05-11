@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Estilos from './PasoFechaNacimiento.module.css';
-import Error from '../Error/Error';
+import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
 const PasoFechaNacimiento = () => {
@@ -75,7 +75,7 @@ const PasoFechaNacimiento = () => {
             validate: validarFecha,
           })}
         />
-        <Error name='fechaNacimiento' errors={errors} nombre='fecha' />
+        <FormErrorHandler name='fechaNacimiento' errors={errors} nombre='fecha' />
       </div>
     </div>
   );

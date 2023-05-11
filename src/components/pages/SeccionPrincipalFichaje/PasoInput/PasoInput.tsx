@@ -1,6 +1,6 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Error from '../Error/Error';
+import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
 interface IPasoInput {
@@ -40,7 +40,7 @@ const PasoInput = ({ titulo, onChange, name, nombre, longMaxima, type = 'text' }
             onChange={onChange}
           />
         </div>
-        <Error name={name} errors={errors} nombre={nombre} />
+        <FormErrorHandler name={name} errors={errors} nombre={nombre} />
       </div>
     </div>
   );
