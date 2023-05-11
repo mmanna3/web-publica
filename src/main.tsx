@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ErrorNotFound } from './components/common/ErrorNotFound';
 import { NosotrosPage } from './components/pages/NosotrosPage';
 import { TipoDeTorneo } from './components/pages/Torneos/TipoDeTorneo';
-import { CopasPage } from './components/pages/CopasPage';
+import { CopasPage } from './components/pages/Copas/CopasPage';
 import { NoticiasPage } from './components/pages/NoticiasPage';
 import { ContactoPage } from './components/pages/ContactoPage';
 import { FichajePage } from './components/pages/FichajePage';
@@ -19,6 +19,7 @@ import { ListaDeTablasDeJornadas } from './components/common/TablasDeJornadas/Li
 import { ListaDeTablasDeClubes } from './components/common/TablasDeCubes/ListaDeTablasDeClubes';
 import { TorneosPage } from './components/pages/Torneos/TorneosPage';
 import { InicioPage } from './components/pages/InicioPage';
+import TipoDeCopa from './components/pages/Copas/TipoDeCopa';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,18 @@ const router = createBrowserRouter([
       {
         path: '/copas',
         element: <CopasPage />,
+      },
+      {
+        path: '/copas/delaliga',
+        element: <TipoDeCopa tipo='copaDeLaLiga' />,
+      },
+      {
+        path: '/copas/copaedefi',
+        element: <TipoDeCopa tipo='copaEdefi' />,
+      },
+      {
+        path: '/copas/torneoverano',
+        element: <TipoDeCopa tipo='torneoDeVerano' />,
       },
       {
         path: '/noticias',

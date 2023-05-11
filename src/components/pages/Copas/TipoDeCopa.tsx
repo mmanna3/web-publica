@@ -4,11 +4,11 @@ import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
 
 interface Props {
-  tipo: 'baby' | 'futsal' | 'futbol11';
+  tipo: 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga';
 }
 
-export const TipoDeTorneo = ({ tipo }: Props) => {
-  const { data, isFetching } = useFetch<Torneo>('TorneosAperturaClausura?anio=2023');
+export const TipoDeCopa = ({ tipo }: Props) => {
+  const { data, isFetching } = useFetch<Torneo>('TorneosRelampago?anio=2023');
 
   if (isFetching) {
     return <h2 className='text-5xl text-center'>Cargando...⌛</h2>;
@@ -16,6 +16,8 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
 
   return (
     <>
+      <h1 className='text-3xl my-10 text-center font-bold underline'>COPAS</h1>
+
       <div className='flex flex-col items-center gap-10'>
         {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (
           <Link
@@ -31,4 +33,4 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
   );
 };
 
-export default TipoDeTorneo;
+export default TipoDeCopa;
