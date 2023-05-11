@@ -35,11 +35,10 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
       referrerPolicy: 'no-referrer',
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
       .then((res) => {
         console.log('Respuesta', res);
         showLoading(false);
-        if (res === '"OK"') onSuccess();
+        if (res.ok) onSuccess();
         else onError();
       })
       .catch(function (err) {

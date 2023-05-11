@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './SeccionPrincipalFichaje.module.css';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import FormularioFichaje from './FormularioFichaje';
+import ErrorMessage from './Error/ErrorMessage';
 
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
@@ -53,15 +54,7 @@ const SeccionPrincipalFichaje = () => {
       </div>
     );
   else if (mensajeErrorServidorVisible)
-    return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeErrorResultadoDelPost}`}>
-            ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
-          </div>
-        </div>
-      </div>
-    );
+    return <ErrorMessage message='¡Ups! Hubo un error. Volvé a intentar más tarde.' large />;
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
     return (
