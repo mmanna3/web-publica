@@ -14,6 +14,7 @@ const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
 
   useEffect(() => {
     setValorCalculado(`${dia}-${mes}-${anio}`);
+    console.log('valorCaluclado', `${dia}-${mes}-${anio}`);
   }, [dia, mes, anio]);
 
   const actualizarDia = (dia: string) => {
@@ -64,8 +65,11 @@ const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
           </div>
         </div>
         <input
-          style={{ display: 'none' }}
-          {...register('fechaNacimiento', { required: true, validate: validarFecha })}
+          type='hidden'
+          {...register('fechaNacimiento', {
+            required: true,
+            validate: validarFecha,
+          })}
           defaultValue={valorCalculado}
         />
         <Error name='fechaNacimiento' errors={errors} nombre='fecha' />

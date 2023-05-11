@@ -1,12 +1,11 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Error from '../Error/Error';
-import Estilos from './PasoDNI.module.css';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
 const PasoDNI = ({ register, errors }: IPaso) => {
   const jugadorYaEstaFichado = async (dni: number) => {
-    return fetch(`/publico/elDniEstaFichado?dni=${dni}`)
+    return fetch(`https://www.edefi.com.ar/publico/elDniEstaFichado?dni=${dni}`)
       .then((response) => response.json())
       .then((data) => data)
       .catch(() => false);
