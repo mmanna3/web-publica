@@ -72,8 +72,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
         <ImageUploader value={imagen} onChange={onSelectFile} />
         <input
           readOnly
-          name='fotoCarnet'
-          ref={register('fotoCarnet', {
+          {...register('fotoCarnet', {
             validate: (value) => value !== persona || '¡Ups! Te olvidaste tu foto.',
           })}
           style={{ display: 'none' }}
