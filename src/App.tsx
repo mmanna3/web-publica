@@ -8,7 +8,7 @@ export function loader() {
 
 function App() {
   return (
-    <div className='max-h-max min-h-screen bg-fondo-celu bg-cover bg-no-repeat'>
+    <div className='max-h-max min-h-screen bg-fondo-celu xl:bg-fondo-pc bg-cover bg-no-repeat'>
       <Header />
       <main className='mx-auto select-none '>
         <Outlet />
