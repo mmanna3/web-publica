@@ -1,4 +1,5 @@
 import { FieldErrors, FieldValues } from 'react-hook-form';
+import ErrorMessage from './ErrorMessage';
 
 interface IError {
   errors: FieldErrors<FieldValues>;
@@ -6,7 +7,7 @@ interface IError {
   nombre: string;
 }
 
-const Error = ({ errors, name, nombre }: IError) => {
+const FormErrorHandler = ({ errors, name, nombre }: IError) => {
   let message = undefined;
 
   if (errors[name] && errors[name]?.type === 'required')
@@ -14,17 +15,7 @@ const Error = ({ errors, name, nombre }: IError) => {
   else if (errors[name] && errors[name]?.type !== 'required')
     message = (errors[name] as any).message;
 
-  return (
-    <>
-      {message && (
-        <div className=''>
-          <div className='mt-2 rounded-md border bg-red-600 py-1 text-center text-white'>
-            {message}
-          </div>
-        </div>
-      )}
-    </>
-  );
+  return <ErrorMessage message={message} />;
 };
 
-export default Error;
+export default FormErrorHandler;

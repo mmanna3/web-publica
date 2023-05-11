@@ -7,7 +7,7 @@ import obtenerImagenRecortada from './recortarImagen';
 import ImageUploader from '../ImageUploader/ImageUploader';
 import persona from './chico.jpg';
 import Label from '../Label/Label';
-import Error from '../Error/Error';
+import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
 const PasoFotoCarnet = () => {
@@ -85,7 +85,7 @@ const PasoFotoCarnet = () => {
           style={{ display: 'none' }}
           value={imagenRecortada}
         />
-        <Error name='fotoCarnet' errors={errors} nombre='foto' />
+        <FormErrorHandler name='fotoCarnet' errors={errors} nombre='foto' />
         {imagen && (
           <div className={estilos.contenedorGeneralDeTodo}>
             <div className={estilos.cropContainer}>
