@@ -7,7 +7,7 @@ const SuccessMessage = ({ message }: IError) => {
     <>
       {message && (
         <div className=''>
-          <div className='mt-2 rounded-md border bg-green-600 py-1 text-center text-white'>
+          <div className='mt-2 rounded-md border bg-green-600 px-2 py-1 text-center text-white'>
             {message}
           </div>
         </div>
