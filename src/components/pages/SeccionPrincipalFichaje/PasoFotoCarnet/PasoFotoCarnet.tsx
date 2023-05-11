@@ -13,6 +13,7 @@ import { useFormContext } from 'react-hook-form';
 const PasoFotoCarnet = () => {
   const {
     register,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -52,6 +53,7 @@ const PasoFotoCarnet = () => {
       const croppedImage = await obtenerImagenRecortada(imagen, croppedAreaPixels);
 
       setImagenRecortada(croppedImage);
+      setValue('fotoCarnet', croppedImage);
     } catch (e) {
       console.error(e);
     }
@@ -83,7 +85,7 @@ const PasoFotoCarnet = () => {
           style={{ display: 'none' }}
           value={imagenRecortada}
         />
-        <Error name={'fotoCarnet'} errors={errors} nombre='foto' />
+        <Error name='fotoCarnet' errors={errors} nombre='foto' />
 
         {imagen && (
           <div className={estilos.contenedorGeneralDeTodo}>
