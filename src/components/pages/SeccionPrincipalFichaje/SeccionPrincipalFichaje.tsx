@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import styles from './SeccionPrincipalFichaje.module.css';
-import PasoInput from './PasoInput/PasoInput';
-import PasoCodigoEquipo from './PasoCodigoEquipo/PasoCodigoEquipo';
-import PasoFotoCarnet from './PasoFotoCarnet/PasoFotoCarnet';
-import PasoFotoDocumento from './PasoFotoDocumento/PasoFotoDocumento';
-import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
-import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
-import PasoDNI from './PasoDNI/PasoDNI';
-import { FieldErrors, FieldValues, UseFormRegister, useForm } from 'react-hook-form';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import FormularioFichaje from './FormularioFichaje';
 
 export interface IPaso {
@@ -16,12 +9,6 @@ export interface IPaso {
 }
 
 const SeccionPrincipalFichaje = () => {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm(); // initialize the hook
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
   const [mensajeErrorServidorVisible, mostrarMensajeErrorServidor] = useState(false);
   const [spinnerVisible, mostrarSpinner] = useState(false);
