@@ -3,6 +3,8 @@ import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Estilos from './PasoCodigoEquipo.module.css';
 import { useFormContext } from 'react-hook-form';
+import ErrorMessage from '../Error/ErrorMessage';
+import FormErrorHandler from '../Error/FormErrorHandler';
 
 const PasoCodigoEquipo = () => {
   const [codigoEquipo, setCodigoEquipo] = useState<string>();
@@ -80,24 +82,10 @@ const PasoCodigoEquipo = () => {
               </div>
             </div>
           ) : (
-            <div className=''>
-              <div
-                className={`//bootstrap-alert //bootstrap-alert-danger ${Estilos.alertaValidacionEquipo}`}
-              >
-                El código es incorrecto
-              </div>
-            </div>
+            <ErrorMessage message='El código es incorrecto' />
           ))}
 
-        {errors.codigoEquipo && errors.codigoEquipo.type === 'required' && (
-          <div className=''>
-            <div
-              className={`//bootstrap-alert //bootstrap-alert-danger ${Estilos.alertaValidacionEquipo}`}
-            >
-              ¡Ups! Te olvidaste el código de tu equipo.
-            </div>
-          </div>
-        )}
+        <FormErrorHandler errors={errors} name='codigoAlfanumerico' nombre='código de equipo' />
       </div>
     </div>
   );
