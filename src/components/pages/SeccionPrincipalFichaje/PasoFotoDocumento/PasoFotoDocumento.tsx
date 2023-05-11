@@ -14,14 +14,7 @@ interface IPasoFotoDocumento extends IPaso {
   nombre: string;
 }
 
-const PasoFotoDocumento = ({
-  register,
-  estiloDelPaso,
-  titulo,
-  errors,
-  name,
-  nombre,
-}: IPasoFotoDocumento) => {
+const PasoFotoDocumento = ({ register, titulo, errors, name, nombre }: IPasoFotoDocumento) => {
   const imagenDefault = name === 'fotoDNIFrente' ? imagenDniFrente : imagenDniDorso;
   // manigga del futuro no me juzgues, había poco tiempo y me pagaban poco
 

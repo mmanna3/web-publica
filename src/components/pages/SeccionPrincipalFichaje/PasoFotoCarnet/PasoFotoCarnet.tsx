@@ -10,7 +10,7 @@ import Label from '../Label/Label';
 import Error from '../Error/Error';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
-const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
+const PasoFotoCarnet = ({ register, errors }: IPaso) => {
   const [imagen, setImagen] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -59,7 +59,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
   };
 
   return (
-    <div className={estiloDelPaso}>
+    <div>
       <div className='bg-green-700 py-6'>
         <div className={estilos.contenedorDeContenidoCentrado}>
           <Label texto={'Tu foto'} subtitulo='Tiene que tener fondo liso' centrado={true} />

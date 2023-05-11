@@ -6,7 +6,7 @@ import Estilos from './PasoFechaNacimiento.module.css';
 import Error from '../Error/Error';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
-const PasoFechaNacimiento = ({ register, errors, estiloDelPaso }: IPaso) => {
+const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
   const [valorCalculado, setValorCalculado] = useState('');
   const [dia, setDia] = useState();
   const [mes, setMes] = useState();
