@@ -1,18 +1,18 @@
 import { Torneo } from '../../interfaces/api';
 
+const tiposDeTorneo = {
+  baby: ['MATUTINO', 'VESPERTINO'],
+  futsal: ['FUTSAL'],
+  futbol11: ['FUTBOL 11'],
+  copaEdefi: ['COPA EDEFI'],
+  torneoDeVerano: ['TORNEO DE VERANO'],
+  copaDeLaLiga: ['COPA DE LA LIGA'],
+};
+
 export const filterTorneosByType = (
   torneos: Torneo[],
-  tipo: 'baby' | 'futsal' | 'futbol11' | 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga',
+  tipo: keyof typeof tiposDeTorneo,
 ): Torneo[] => {
-  const tiposDeTorneo = {
-    baby: ['MATUTINO', 'VESPERTINO'],
-    futsal: ['FUTSAL'],
-    futbol11: ['FUTBOL 11'],
-    copaEdefi: ['COPA EDEFI'],
-    torneoDeVerano: ['TORNEO DE VERANO'],
-    copaDeLaLiga: ['COPA DE LA LIGA'],
-  };
-
   const torneosByType: Torneo[] = [];
 
   torneos.forEach((torneo) => {
