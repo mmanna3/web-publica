@@ -10,7 +10,7 @@ export default function TablaDePosiciones({ renglones, categoria }: Props) {
     <div className='m-4'>
       <h2 className='mb-2 text-center text-xl text-black'>{categoria}</h2>
 
-      <table className='mx-auto mb-4 w-[100%] max-w-sm table-auto border-collapse border border-slate-500 bg-white text-center text-xs'>
+      <table className='mx-auto mb-4 w-[100%] max-w-sm table-auto border-collapse border border-slate-500 bg-white text-center text-xs font-font-arial'>
         <thead>
           <tr className='bg-[#101010] text-white'>
             <th className='p-2'>Pos</th>
