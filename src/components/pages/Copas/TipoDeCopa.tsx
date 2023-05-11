@@ -16,8 +16,6 @@ export const TipoDeCopa = ({ tipo }: Props) => {
 
   return (
     <>
-      <h1 className='text-3xl my-10 text-center font-bold underline'>COPAS</h1>
-
       <div className='flex flex-col items-center gap-10'>
         {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (
           <Link
