@@ -9,7 +9,7 @@ export const useFetchPosiciones = () => {
   const { zonaId } = useParams();
 
   async function fetchPosiciones() {
-    const response = await fetch(`https://www.edefi.com.ar/publico/posiciones?zonaId=${zonaId}`);
+    const response = await fetch(`${BASE_URL}/publico/posiciones?zonaId=${zonaId}`);
 
     const { TablasPorCategoria, TablaGeneral }: PosicionesDelTorneo = await response.json();
 

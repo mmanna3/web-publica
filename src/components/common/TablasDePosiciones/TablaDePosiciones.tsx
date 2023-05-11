@@ -8,9 +8,9 @@ interface Props {
 export default function TablaDePosiciones({ renglones, categoria }: Props) {
   return (
     <div className='m-4'>
-      <h2 className='mb-2 text-center text-xl text-black'>{categoria}</h2>
+      <h2 className='text-xl mb-2 text-center text-black'>{categoria}</h2>
 
-      <table className='mx-auto mb-4 w-[100%] max-w-sm table-auto border-collapse border border-slate-500 bg-white text-center text-xs font-arial'>
+      <table className='mx-auto mb-4 w-[100%] max-w-sm table-auto border-collapse border border-slate-500 bg-white text-center font-arial text-xs'>
         <thead>
           <tr className='bg-[#101010] text-white'>
             <th className='p-2'>Pos</th>
@@ -32,7 +32,7 @@ export default function TablaDePosiciones({ renglones, categoria }: Props) {
               <td className='border border-slate-200'>
                 <img
                   className='mx-auto w-[30px]'
-                  src={`https://www.edefi.com.ar${renglon.Escudo}`}
+                  src={`${BASE_URL}${renglon.Escudo}`}
                   alt='escudo'
                 />
               </td>

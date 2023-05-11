@@ -8,7 +8,7 @@ export const useFetchFixture = () => {
   const { zonaId } = useParams();
 
   async function fetchFixture() {
-    const response = await fetch(`https://www.edefi.com.ar/publico/fixture?zonaId=${zonaId}`);
+    const response = await fetch(`${BASE_URL}/publico/fixture?zonaId=${zonaId}`);
 
     const { Fechas }: FixtureDelTorneo = await response.json();
 

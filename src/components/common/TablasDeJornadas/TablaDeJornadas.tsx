@@ -1,3 +1,4 @@
+import { BASE_URL } from '../../../globalConst'
 import { Jornada, Categoria } from '../../../interfaces/api';
 
 type TablaDeJornadasProps = {
@@ -9,7 +10,7 @@ type TablaDeJornadasProps = {
 export const TablaDeJornadas = ({ renglones, fechaNumero, categorias }: TablaDeJornadasProps) => {
   return (
     <div className='mb-6 flex max-w-3xl flex-col'>
-      <h2 className='mb-1 text-2xl'>{fechaNumero}</h2>
+      <h2 className='text-2xl mb-1'>{fechaNumero}</h2>
 
       <table className='grid table-auto bg-white'>
         <EncabezadoTabla categorias={categorias} />
@@ -32,11 +33,7 @@ export const TablaDeJornadas = ({ renglones, fechaNumero, categorias }: TablaDeJ
               <tr key={JornadaId + index} className='grid-cols-13 grid grid-flow-col grid-rows-1'>
                 <td className=''>{JornadaNumero}</td>
                 <td className='col-span-4'>
-                  <img
-                    className='max-w-[30px]'
-                    src={`https://www.edefi.com.ar${Escudo}`}
-                    alt='escudo'
-                  />
+                  <img className='max-w-[30px]' src={`${BASE_URL}${Escudo}`} alt='escudo' />
                 </td>
                 <td className='col-span-2'>{Equipo}</td>
 

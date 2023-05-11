@@ -9,7 +9,7 @@ export const useFetchClubes = () => {
 
   async function fetchClubes() {
     // eslint-disable-next-line quotes
-    const response = await fetch(`https://www.edefi.com.ar/publico/clubes?zonaId=232`);
+    const response = await fetch(`${BASE_URL}/publico/clubes?zonaId=232`);
 
     const { Renglones }: Clubes = await response.json();
 
