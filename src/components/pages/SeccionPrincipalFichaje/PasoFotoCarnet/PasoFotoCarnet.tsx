@@ -117,7 +117,7 @@ const PasoFotoCarnet = () => {
                   <div className=''>
                     <button
                       type='button'
-                      className={'rounded-lg bg-green-700 px-20 py-4 text-white'}
+                      className='rounded-lg bg-green-700 px-10 py-4 text-white md:px-20'
                       style={{ width: '100%' }}
                       onClick={onAceptarClick}
                     >
@@ -127,7 +127,9 @@ const PasoFotoCarnet = () => {
                   <div className=''>
                     <button
                       type='button'
-                      className={'py-auto rounded-lg bg-red-700 px-20 py-4 text-center text-white'}
+                      className={
+                        'py-auto rounded-lg bg-red-700 px-10 py-4 text-center text-white md:px-20'
+                      }
                       style={{ width: '100%' }}
                       onClick={onCancelarClick}
                     >
