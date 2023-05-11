@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
 import Label from '../Label/Label';
 import ImageUploader from '../ImageUploader/ImageUploader';
 import estilos from './PasoFotoDocumento.module.css';
 import imagenDniFrente from './dniFrente.png';
 import imagenDniDorso from './dniDorso.jpg';
 import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-interface IPasoFotoDocumento extends IPaso {
+interface IPasoFotoDocumento {
   titulo: string;
   name: string;
   nombre: string;
 }
 
-const PasoFotoDocumento = ({ register, titulo, errors, name, nombre }: IPasoFotoDocumento) => {
+const PasoFotoDocumento = ({ titulo, name, nombre }: IPasoFotoDocumento) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const imagenDefault = name === 'fotoDNIFrente' ? imagenDniFrente : imagenDniDorso;
   // manigga del futuro no me juzgues, había poco tiempo y me pagaban poco
 

@@ -1,16 +1,19 @@
-import React, { ChangeEventHandler, useState } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
+import { useState } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Estilos from './PasoCodigoEquipo.module.css';
-import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-const PasoCodigoEquipo = ({ register, errors }: IPaso) => {
+const PasoCodigoEquipo = () => {
   const [codigoEquipo, setCodigoEquipo] = useState<string>();
   const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState<boolean | null>(null);
   const [nombreEquipo, setNombreEquipo] = useState('');
   const [yaValidoCodigoEquipo, setYaValidoCodigoEquipo] = useState(false);
+
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   const onCodigoEquipoChange = (id: string) => {
     setCodigoEquipo(id);

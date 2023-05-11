@@ -6,7 +6,7 @@ import PasoFotoDocumento from './PasoFotoDocumento/PasoFotoDocumento';
 import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
 import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
 import PasoDNI from './PasoDNI/PasoDNI';
-import { FieldErrors, FieldValues, UseFormRegister, useForm } from 'react-hook-form';
+import { FieldErrors, FieldValues, UseFormRegister, useForm, FormProvider } from 'react-hook-form';
 
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
@@ -20,12 +20,7 @@ interface IProps {
 }
 
 const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
+  const methods = useForm();
 
   const hacerElPost = async (data) => {
     showLoading(true);
@@ -55,68 +50,55 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
     hacerElPost(data);
   };
 
-  const huboAlgunError = !(Object.keys(errors).length === 0 && errors.constructor === Object);
+  const huboAlgunError = !(
+    Object.keys(methods.formState.errors).length === 0 &&
+    methods.formState.errors.constructor === Object
+  );
 
   return (
-    <div className={styles.seccionContainer + ' font-sans'}>
-      <div className={styles.seccion}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {huboAlgunError && (
-            <div className=''>
-              <div
-                className={`//bootstrap-alert //bootstrap-alert-danger ${styles.alertaValidacion}`}
-              >
-                ¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.
+    <FormProvider {...methods}>
+      <div className={styles.seccionContainer + ' font-sans'}>
+        <div className={styles.seccion}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>
+            {huboAlgunError && (
+              <div className=''>
+                <div
+                  className={`//bootstrap-alert //bootstrap-alert-danger ${styles.alertaValidacion}`}
+                >
+                  ¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <PasoCodigoEquipo register={register} errors={errors} />
+            <PasoCodigoEquipo />
 
-          <PasoInput
-            register={register}
-            errors={errors}
-            longMaxima={10}
-            name='nombre'
-            nombre='nombre'
-            titulo='Tu nombre'
-          />
+            <PasoInput longMaxima={10} name='nombre' nombre='nombre' titulo='Tu nombre' />
 
-          <PasoInput
-            register={register}
-            errors={errors}
-            longMaxima={11}
-            name='apellido'
-            nombre='apellido'
-            titulo='Tu apellido'
-          />
+            <PasoInput longMaxima={11} name='apellido' nombre='apellido' titulo='Tu apellido' />
 
-          <PasoDNI register={register} errors={errors} />
+            <PasoDNI />
 
-          <PasoFechaNacimiento register={register} errors={errors} setValue={setValue} />
+            <PasoFechaNacimiento />
 
-          <PasoFotoCarnet errors={errors} register={register} />
+            <PasoFotoCarnet />
 
-          <PasoFotoDocumento
-            register={register}
-            titulo='Foto del frente de tu DNI'
-            errors={errors}
-            name='fotoDNIFrente'
-            nombre='foto de FRENTE del DNI'
-          />
+            <PasoFotoDocumento
+              titulo='Foto del frente de tu DNI'
+              name='fotoDNIFrente'
+              nombre='foto de FRENTE del DNI'
+            />
 
-          <PasoFotoDocumento
-            register={register}
-            titulo='Foto de la parte de atrás de tu DNI'
-            errors={errors}
-            name='fotoDNIDorso'
-            nombre='foto de ATRÁS del DNI'
-          />
+            <PasoFotoDocumento
+              titulo='Foto de la parte de atrás de tu DNI'
+              name='fotoDNIDorso'
+              nombre='foto de ATRÁS del DNI'
+            />
 
-          <PasoBotonEnviar />
-        </form>
+            <PasoBotonEnviar />
+          </form>
+        </div>
       </div>
-    </div>
+    </FormProvider>
   );
 };
 

@@ -1,9 +1,14 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-const PasoDNI = ({ register, errors }: IPaso) => {
+const PasoDNI = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const jugadorYaEstaFichado = async (dni: number) => {
     return fetch(`https://www.edefi.com.ar/publico/elDniEstaFichado?dni=${dni}`)
       .then((response) => response.json())

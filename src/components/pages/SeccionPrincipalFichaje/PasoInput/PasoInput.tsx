@@ -1,9 +1,9 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-interface IPasoInput extends IPaso {
+interface IPasoInput {
   titulo: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   name: string;
@@ -12,16 +12,12 @@ interface IPasoInput extends IPaso {
   type?: string;
 }
 
-const PasoInput = ({
-  titulo,
-  onChange,
-  name,
-  nombre,
-  longMaxima,
-  register,
-  errors,
-  type = 'text',
-}: IPasoInput) => {
+const PasoInput = ({ titulo, onChange, name, nombre, longMaxima, type = 'text' }: IPasoInput) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const caracteres = type === 'text' ? 'letras' : 'números';
 
   return (
