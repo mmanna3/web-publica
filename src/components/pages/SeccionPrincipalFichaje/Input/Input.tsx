@@ -22,7 +22,7 @@ const Input = ({ onChange, name, register, type = 'text', className }: IInput) =
     <input
       {...register}
       name={name}
-      className={styles.input + ' ' + className}
+      className={styles.input + ' text-black' + ' ' + className}
       value={valor}
       type={type}
       onChange={handleOnChange}

@@ -60,7 +60,7 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
 
   return (
     <FormProvider {...methods}>
-      <div className={styles.seccionContainer + ' font-sans'}>
+      <div className={styles.seccionContainer + ' font-sans text-slate-100'}>
         <div className={styles.seccion}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {huboAlgunError && (
