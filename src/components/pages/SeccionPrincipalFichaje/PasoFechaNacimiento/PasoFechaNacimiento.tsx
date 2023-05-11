@@ -4,13 +4,15 @@ import Label from '../Label/Label';
 import Input from '../Input/Input';
 import Estilos from './PasoFechaNacimiento.module.css';
 import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-interface IProps extends IPaso {
-  setValue: any;
-}
+const PasoFechaNacimiento = () => {
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
 
-const PasoFechaNacimiento = ({ register, errors, setValue }: IProps) => {
   const [dia, setDia] = useState<string>();
   const [mes, setMes] = useState<string>();
   const [anio, setAnio] = useState<string>();

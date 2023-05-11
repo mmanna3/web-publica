@@ -8,9 +8,14 @@ import ImageUploader from '../ImageUploader/ImageUploader';
 import persona from './chico.jpg';
 import Label from '../Label/Label';
 import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
 
-const PasoFotoCarnet = ({ register, errors }: IPaso) => {
+const PasoFotoCarnet = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const [imagen, setImagen] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
