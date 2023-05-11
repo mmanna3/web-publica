@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Club, Clubes } from '../../../../interfaces/api';
+import { Club, Clubes } from '../interfaces/api';
 import { useParams } from 'react-router-dom';
 
 export const useFetchClubes = () => {

@@ -18,7 +18,6 @@ export const TablasDeLaZona = () => {
         <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/fixture`} content='Fixture' />
         <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/jornadas`} content='Jornadas' />
         <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/clubes`} content='Clubes' />
-        <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/sanciones`} content='Sanciones' />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { useFetchFixture } from '../pages/Torneos/hooks/useFetchFixture';
+import { useFetchFixture } from '../../../hooks/useFetchFixture';
 import { TablaDelFixture } from './TablaDelFixture';
 
 export const ListaDeTablasDelFixture = () => {

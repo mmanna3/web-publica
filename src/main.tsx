@@ -4,7 +4,7 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { ErrorPage } from './components/pages/error-page';
+import { ErrorNotFound } from './components/common/ErrorNotFound';
 import { NosotrosPage } from './components/pages/NosotrosPage';
 import { TipoDeTorneo } from './components/pages/Torneos/TipoDeTorneo';
 import { CopasPage } from './components/pages/CopasPage';
@@ -13,10 +13,10 @@ import { ContactoPage } from './components/pages/ContactoPage';
 import { FichajePage } from './components/pages/FichajePage';
 import { ZonasDelTorneo } from './components/pages/Torneos/ZonasDelTorneo';
 import { TablasDeLaZona } from './components/pages/Torneos/TablasDeLaZona';
-import { ListaDeTablasDePosiciones } from './components/posiciones/ListaDeTablasDePosiciones';
-import { ListaDeTablasDelFixture } from './components/fixture/ListaDeTablasDelFixture';
-import { ListaDeTablasDeJornadas } from './components/jornadas/ListaDeTablasDeJornadas';
-import { ListaDeTablasDeClubes } from './components/clubes/ListaDeTablasDeClubes';
+import { ListaDeTablasDePosiciones } from './components/common/TablasDePosiciones/ListaDeTablasDePosiciones';
+import { ListaDeTablasDelFixture } from './components/common/TablasDelFixture/ListaDeTablasDelFixture';
+import { ListaDeTablasDeJornadas } from './components/common/TablasDeJornadas/ListaDeTablasDeJornadas';
+import { ListaDeTablasDeClubes } from './components/common/TablasDeCubes/ListaDeTablasDeClubes';
 import { TorneosPage } from './components/pages/Torneos/TorneosPage';
 import { InicioPage } from './components/pages/InicioPage';
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <ErrorNotFound />,
     children: [
       {
         path: '/',
@@ -92,8 +92,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

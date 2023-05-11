@@ -1,4 +1,4 @@
-import { useFetchJornadas } from '../pages/Torneos/hooks/useFetchJornadas';
+import { useFetchJornadas } from '../../../hooks/useFetchJornadas';
 import { TablaDeJornadas } from './TablaDeJornadas';
 
 export const ListaDeTablasDeJornadas = () => {

@@ -1,4 +1,4 @@
-import { Renglon } from '../../interfaces/api';
+import { Renglon } from '../../../interfaces/api';
 
 interface Props {
   renglones: Renglon[];
@@ -7,10 +7,10 @@ interface Props {
 
 export default function TablaDePosiciones({ renglones, categoria }: Props) {
   return (
-    <div className='m-2'>
+    <div className='m-4'>
       <h2 className='mb-2 text-center text-xl text-black'>{categoria}</h2>
 
-      <table className='mx-auto mb-4 w-[100%] max-w-xl table-auto border-collapse border border-slate-500 bg-white text-center'>
+      <table className='mx-auto mb-4 w-[100%] max-w-sm table-auto border-collapse border border-slate-500 bg-white text-center text-xs'>
         <thead>
           <tr className='bg-[#101010] text-white'>
             <th className='p-2'>Pos</th>

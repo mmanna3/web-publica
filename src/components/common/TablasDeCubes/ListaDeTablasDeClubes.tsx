@@ -1,5 +1,5 @@
-import { useFetchClubes } from '../pages/Torneos/hooks/useFetchClubes';
-import { TablaDeClubes } from './TablaDeClubes'
+import { useFetchClubes } from '../../../hooks/useFetchClubes';
+import { TablaDeClubes } from './TablaDeClubes';
 
 export const ListaDeTablasDeClubes = () => {
   const { clubes, isFetching } = useFetchClubes();
@@ -14,7 +14,7 @@ export const ListaDeTablasDeClubes = () => {
         <button className='bg-green-500'>Zona tanto</button>
       </div>
       <div className=''>
-        {clubes.map(({  Equipo, Localidad, Direccion, TechoDescripcion }, index) => (
+        {clubes.map(({ Equipo, Localidad, Direccion, TechoDescripcion }, index) => (
           <TablaDeClubes
             key={index}
             equipo={Equipo}

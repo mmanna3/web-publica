@@ -1,4 +1,4 @@
-import { Jornada, Categoria } from '../../interfaces/api';
+import { Jornada, Categoria } from '../../../interfaces/api';
 
 type TablaDeJornadasProps = {
   renglones: Jornada[];
@@ -77,5 +77,3 @@ const EncabezadoTabla = ({ categorias }: EncabezadoTablaProps) => {
     </thead>
   );
 };
-
-

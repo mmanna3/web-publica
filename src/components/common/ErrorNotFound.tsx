@@ -5,7 +5,7 @@ interface ReactRouterError {
   message: string;
 }
 
-export const ErrorPage = () => {
+export const ErrorNotFound = () => {
   const error = useRouteError() as ReactRouterError;
   console.error(error);
 
