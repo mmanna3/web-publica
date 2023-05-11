@@ -107,7 +107,7 @@ const SeccionPrincipalFichaje = () => {
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
     return (
-      <div className={styles.seccionContainer}>
+      <div className={styles.seccionContainer + ' font-sans'}>
         <div className={styles.seccion}>
           <form onSubmit={handleSubmit(onSubmit)}>
             {huboAlgunError && (
