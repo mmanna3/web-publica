@@ -8,36 +8,36 @@ import { IPaso } from '../SeccionPrincipalFichaje';
 
 const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
   const [valorCalculado, setValorCalculado] = useState('');
-  const [dia, setDia] = useState();
-  const [mes, setMes] = useState();
-  const [anio, setAnio] = useState();
+  const [dia, setDia] = useState<string>();
+  const [mes, setMes] = useState<string>();
+  const [anio, setAnio] = useState<string>();
 
   useEffect(() => {
     setValorCalculado(`${dia}-${mes}-${anio}`);
   }, [dia, mes, anio]);
 
-  const actualizarDia = (dia) => {
+  const actualizarDia = (dia: string) => {
     if (dia.length === 1) dia = '0' + dia;
 
     setDia(dia);
   };
 
-  const actualizarMes = (mes) => {
+  const actualizarMes = (mes: string) => {
     if (mes.length === 1) mes = '0' + mes;
 
     setMes(mes);
   };
 
-  const actualizarAnio = (anio) => {
+  const actualizarAnio = (anio: string) => {
     setAnio(anio);
   };
 
-  const validarFecha = (date) => {
+  const validarFecha = (date: string) => {
     const temp = date.split('-');
     const d = new Date(temp[1] + '-' + temp[0] + '-' + temp[2]);
     const resultado =
       d &&
-      d.getMonth() + 1 == temp[1] &&
+      d.getMonth() + 1 == Number(temp[1]) &&
       d.getDate() == Number(temp[0]) &&
       d.getFullYear() == Number(temp[2]);
     return resultado || '¡Ups! Hay un problema con la fecha. Revisala.';
@@ -66,7 +66,6 @@ const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
         <input
           style={{ display: 'none' }}
           {...register('fechaNacimiento', { required: true, validate: validarFecha })}
-          name='fechaNacimiento'
           defaultValue={valorCalculado}
         />
         <Error name='fechaNacimiento' errors={errors} nombre='fecha' />
