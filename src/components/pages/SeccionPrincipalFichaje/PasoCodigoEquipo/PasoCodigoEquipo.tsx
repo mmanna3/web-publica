@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Estilos from './PasoCodigoEquipo.module.css';
 import { useFormContext } from 'react-hook-form';
 import ErrorMessage from '../Error/ErrorMessage';
 import FormErrorHandler from '../Error/FormErrorHandler';
+import SuccessMessage from '../../../common/SuccessMessage';
 
 const PasoCodigoEquipo = () => {
   const [codigoEquipo, setCodigoEquipo] = useState<string>();
@@ -74,13 +74,7 @@ const PasoCodigoEquipo = () => {
         </div>
         {yaValidoCodigoEquipo &&
           (codigoEquipoEsValido ? (
-            <div className=''>
-              <div
-                className={`//bootstrap-alert //bootstrap-alert-success ${Estilos.alertaValidacionEquipo}`}
-              >
-                Tu equipo es <strong>{nombreEquipo}</strong>
-              </div>
-            </div>
+            <SuccessMessage message={`Tu equipo es: ${nombreEquipo}`} />
           ) : (
             <ErrorMessage message='El código es incorrecto' />
           ))}
