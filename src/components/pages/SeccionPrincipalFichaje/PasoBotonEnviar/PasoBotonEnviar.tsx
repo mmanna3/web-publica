@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
 import estilos from './PasoBotonEnviar.module.css';
 
-const PasoBotonEnviar = ({ estiloDelPaso }) => {
+const PasoBotonEnviar = () => {
   return (
     <div className={'bg-red-700 py-6 px-3'}>
       <div className={'flex'}>

@@ -4,7 +4,7 @@ import Error from '../Error/Error';
 import Estilos from './PasoDNI.module.css';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
-const PasoDNI = ({ register, errors, estiloDelPaso }: IPaso) => {
+const PasoDNI = ({ register, errors }: IPaso) => {
   const jugadorYaEstaFichado = async (dni: number) => {
     return fetch(`/publico/elDniEstaFichado?dni=${dni}`)
       .then((response) => response.json())

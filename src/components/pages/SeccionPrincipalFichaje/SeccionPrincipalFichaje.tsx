@@ -12,7 +12,6 @@ import { FieldErrors, FieldValues, UseFormRegister, useForm } from 'react-hook-f
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
-  estiloDelPaso: any;
 }
 
 const SeccionPrincipalFichaje = () => {
@@ -123,7 +122,6 @@ const SeccionPrincipalFichaje = () => {
             <PasoCodigoEquipo register={register} errors={errors} />
 
             <PasoInput
-              estiloDelPaso={styles.pasoRojo}
               register={register}
               errors={errors}
               longMaxima={10}
@@ -133,7 +131,6 @@ const SeccionPrincipalFichaje = () => {
             />
 
             <PasoInput
-              estiloDelPaso={styles.pasoRojo}
               register={register}
               errors={errors}
               longMaxima={11}
@@ -142,18 +139,13 @@ const SeccionPrincipalFichaje = () => {
               titulo='Tu apellido'
             />
 
-            <PasoDNI estiloDelPaso={styles.pasoRojo} register={register} errors={errors} />
+            <PasoDNI register={register} errors={errors} />
 
-            <PasoFechaNacimiento
-              estiloDelPaso={styles.pasoRojo}
-              register={register}
-              errors={errors}
-            />
+            <PasoFechaNacimiento register={register} errors={errors} />
 
-            <PasoFotoCarnet estiloDelPaso={styles.pasoVerde} errors={errors} register={register} />
+            <PasoFotoCarnet errors={errors} register={register} />
 
             <PasoFotoDocumento
-              estiloDelPaso={styles.pasoAzul}
               register={register}
               titulo='Foto del frente de tu DNI'
               errors={errors}
@@ -162,7 +154,6 @@ const SeccionPrincipalFichaje = () => {
             />
 
             <PasoFotoDocumento
-              estiloDelPaso={styles.pasoAzul}
               register={register}
               titulo='Foto de la parte de atrás de tu DNI'
               errors={errors}
@@ -170,7 +161,7 @@ const SeccionPrincipalFichaje = () => {
               nombre='foto de ATRÁS del DNI'
             />
 
-            <PasoBotonEnviar estiloDelPaso={styles.pasoRojo} />
+            <PasoBotonEnviar />
           </form>
         </div>
       </div>
