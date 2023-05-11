@@ -4,9 +4,9 @@ export const NosotrosPage = () => {
   return (
     <>
       <img className='mx-auto' src={IMG_NOSOTROS_TITLE} alt='Nosotros' />
-      <div className='mx-8 md:mx-14'>
+      <div className='mx-6 md:mx-20'>
         <h2 className='my-6 text-title-darkGreen md:text-xl lg:text-3xl '>Quiénes somos</h2>
-        <div className=' overflow-auto h-[500px] bg-white text-justify opacity-90 p-4 sm:p-8 lg:p-14 text-sm md:text-lg lg:text-2xl '>
+        <div className='bg-white text-justify opacity-90 p-4 sm:p-8 lg:p-14 text-sm md:text-lg lg:text-2xl '>
           <div className= 'mb-10'>
             <p className='mb-6 font-sans'>
               Nuestra Liga es dirigida por Profesores de Educación Física, donde además de ser
