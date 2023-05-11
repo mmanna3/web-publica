@@ -24,9 +24,9 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
 
   const hacerElPost = async (data) => {
     showLoading(true);
-    fetch('JugadorAutofichado/autofichaje', {
+    fetch('https://www.edefi.com.ar/JugadorAutofichado/autofichaje', {
       method: 'POST',
-      mode: 'cors',
+      mode: 'no-cors',
       cache: 'no-cache',
       credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
@@ -36,11 +36,13 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log('Respuesta', res);
         showLoading(false);
-        if (res === 'OK') onSuccess();
+        if (res === '"OK"') onSuccess();
         else onError();
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.log('Error del servidor', err);
         showLoading(false);
         onError();
       });
