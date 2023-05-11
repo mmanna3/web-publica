@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
+import { useState, useEffect } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Estilos from './PasoFechaNacimiento.module.css';
 import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
 
@@ -55,16 +53,16 @@ const PasoFechaNacimiento = () => {
           <Label texto='Tu fecha de nacimiento' />
         </div>
         <div className='flex gap-2'>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Día</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Día</p>
             <Input type='number' onChange={actualizarDia} className='w-20' />
           </div>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Mes</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Mes</p>
             <Input type='number' onChange={actualizarMes} className='w-20' />
           </div>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Año</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Año</p>
             <Input type='number' onChange={actualizarAnio} className='w-20' />
           </div>
         </div>
