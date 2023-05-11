@@ -18,6 +18,7 @@ const SeccionPrincipalFichaje = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm(); // initialize the hook
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
@@ -141,7 +142,7 @@ const SeccionPrincipalFichaje = () => {
 
             <PasoDNI register={register} errors={errors} />
 
-            <PasoFechaNacimiento register={register} errors={errors} />
+            <PasoFechaNacimiento register={register} errors={errors} setValue={setValue} />
 
             <PasoFotoCarnet errors={errors} register={register} />
 

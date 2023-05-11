@@ -6,15 +6,17 @@ import Estilos from './PasoFechaNacimiento.module.css';
 import Error from '../Error/Error';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
-const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
-  const [valorCalculado, setValorCalculado] = useState('');
+interface IProps extends IPaso {
+  setValue: any;
+}
+
+const PasoFechaNacimiento = ({ register, errors, setValue }: IProps) => {
   const [dia, setDia] = useState<string>();
   const [mes, setMes] = useState<string>();
   const [anio, setAnio] = useState<string>();
 
   useEffect(() => {
-    setValorCalculado(`${dia}-${mes}-${anio}`);
-    console.log('valorCaluclado', `${dia}-${mes}-${anio}`);
+    setValue('fechaNacimiento', `${dia}-${mes}-${anio}`);
   }, [dia, mes, anio]);
 
   const actualizarDia = (dia: string) => {
@@ -70,7 +72,6 @@ const PasoFechaNacimiento = ({ register, errors }: IPaso) => {
             required: true,
             validate: validarFecha,
           })}
-          defaultValue={valorCalculado}
         />
         <Error name='fechaNacimiento' errors={errors} nombre='fecha' />
       </div>
