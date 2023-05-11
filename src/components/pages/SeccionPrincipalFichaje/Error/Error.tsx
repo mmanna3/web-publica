@@ -1,5 +1,4 @@
 import { FieldErrors, FieldValues } from 'react-hook-form';
-import estilos from './Error.module.css';
 
 interface IError {
   errors: FieldErrors<FieldValues>;
@@ -8,20 +7,19 @@ interface IError {
 }
 
 const Error = ({ errors, name, nombre }: IError) => {
+  let message = undefined;
+
+  if (errors[name] && errors[name]?.type === 'required')
+    message = `¡Ups! Te olvidaste tu ${nombre}`;
+  else if (errors[name] && errors[name]?.type !== 'required')
+    message = (errors[name] as any).message;
+
   return (
     <>
-      {errors[name] && errors[name]?.type === 'required' && (
+      {message && (
         <div className=''>
-          <div className={`text-white ${estilos.alertaValidacionEquipo}`}>
-            ¡Ups! Te olvidaste tu {nombre}.
-          </div>
-        </div>
-      )}
-
-      {errors[name] && errors[name]?.type !== 'required' && (
-        <div className=''>
-          <div className={`text-white ${estilos.alertaValidacionEquipo}`}>
-            {(errors[name] as any).message}
+          <div className='mt-2 rounded-md border bg-red-600 py-1 text-center text-white'>
+            {message}
           </div>
         </div>
       )}

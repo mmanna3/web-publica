@@ -67,7 +67,7 @@ const PasoFotoCarnet = () => {
 
   return (
     <div>
-      <div className='bg-green-700 py-6'>
+      <div className='bg-green-700 py-6 px-3'>
         <div className={estilos.contenedorDeContenidoCentrado}>
           <Label texto={'Tu foto'} subtitulo='Tiene que tener fondo liso' centrado={true} />
         </div>
@@ -86,7 +86,6 @@ const PasoFotoCarnet = () => {
           value={imagenRecortada}
         />
         <Error name='fotoCarnet' errors={errors} nombre='foto' />
-
         {imagen && (
           <div className={estilos.contenedorGeneralDeTodo}>
             <div className={estilos.cropContainer}>
