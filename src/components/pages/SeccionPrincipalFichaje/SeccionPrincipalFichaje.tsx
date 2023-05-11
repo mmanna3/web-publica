@@ -8,6 +8,7 @@ import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
 import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
 import PasoDNI from './PasoDNI/PasoDNI';
 import { FieldErrors, FieldValues, UseFormRegister, useForm } from 'react-hook-form';
+import FormularioFichaje from './FormularioFichaje';
 
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
@@ -25,30 +26,6 @@ const SeccionPrincipalFichaje = () => {
   const [mensajeErrorServidorVisible, mostrarMensajeErrorServidor] = useState(false);
   const [spinnerVisible, mostrarSpinner] = useState(false);
 
-  const hacerElPost = async (data) => {
-    mostrarSpinner(true);
-    fetch('JugadorAutofichado/autofichaje', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        mostrarSpinner(false);
-        if (res === 'OK') mostrarMensajeExito(true);
-        else mostrarMensajeErrorServidor(true);
-      })
-      .catch(function () {
-        mostrarSpinner(false);
-        mostrarMensajeErrorServidor(true);
-      });
-  };
-
   const estaLaSeccionHabilitada = () => {
     const hoy = new Date();
     const diaDeHoy = hoy.getDay();
@@ -57,12 +34,6 @@ const SeccionPrincipalFichaje = () => {
       return false;
     return true;
   };
-
-  const onSubmit = (data: any) => {
-    hacerElPost(data);
-  };
-
-  const huboAlgunError = !(Object.keys(errors).length === 0 && errors.constructor === Object);
 
   if (!estaLaSeccionHabilitada())
     // if (true)
@@ -107,65 +78,11 @@ const SeccionPrincipalFichaje = () => {
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
     return (
-      <div className={styles.seccionContainer + ' font-sans'}>
-        <div className={styles.seccion}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {huboAlgunError && (
-              <div className=''>
-                <div
-                  className={`//bootstrap-alert //bootstrap-alert-danger ${styles.alertaValidacion}`}
-                >
-                  ¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.
-                </div>
-              </div>
-            )}
-
-            <PasoCodigoEquipo register={register} errors={errors} />
-
-            <PasoInput
-              register={register}
-              errors={errors}
-              longMaxima={10}
-              name='nombre'
-              nombre='nombre'
-              titulo='Tu nombre'
-            />
-
-            <PasoInput
-              register={register}
-              errors={errors}
-              longMaxima={11}
-              name='apellido'
-              nombre='apellido'
-              titulo='Tu apellido'
-            />
-
-            <PasoDNI register={register} errors={errors} />
-
-            <PasoFechaNacimiento register={register} errors={errors} setValue={setValue} />
-
-            <PasoFotoCarnet errors={errors} register={register} />
-
-            <PasoFotoDocumento
-              register={register}
-              titulo='Foto del frente de tu DNI'
-              errors={errors}
-              name='fotoDNIFrente'
-              nombre='foto de FRENTE del DNI'
-            />
-
-            <PasoFotoDocumento
-              register={register}
-              titulo='Foto de la parte de atrás de tu DNI'
-              errors={errors}
-              name='fotoDNIDorso'
-              nombre='foto de ATRÁS del DNI'
-            />
-
-            <PasoBotonEnviar />
-          </form>
-        </div>
-      </div>
+      <FormularioFichaje
+        showLoading={mostrarSpinner}
+        onSuccess={() => mostrarMensajeExito(true)}
+        onError={() => mostrarMensajeErrorServidor(true)}
+      />
     );
 };
 
