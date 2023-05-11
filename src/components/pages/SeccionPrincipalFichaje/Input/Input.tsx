@@ -3,7 +3,7 @@ import styles from './Input.module.css';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
 
 interface IInput {
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: (value: string) => void;
   name?: string;
   register?: any;
   type: string;
@@ -13,14 +13,14 @@ interface IInput {
 const Input = ({ onChange, name, register, type = 'text', className }: IInput) => {
   const [valor, setValor] = useState('');
 
-  const handleOnChange = (e: any) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(e.target.value);
     setValor(e.target.value);
   };
 
   return (
     <input
-      ref={register}
+      {...register}
       name={name}
       className={styles.input + ' ' + className}
       value={valor}

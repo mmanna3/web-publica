@@ -85,7 +85,7 @@ const SeccionPrincipalFichaje = () => {
             <div className={`${styles.margenDeArribaDelBoton} //bootstrap-align-items-center`}>
               <button
                 onClick={() => mostrarMensajeExito(false)}
-                className={`py-auto py-auto-primary rounded-lg rounded-lg text-white text-white ${styles.botonFicharOtroJugador}`}
+                className={`py-auto py-auto-primary rounded-lg text-white ${styles.botonFicharOtroJugador}`}
               >
                 Fichar otro jugador
               </button>
@@ -120,7 +120,7 @@ const SeccionPrincipalFichaje = () => {
               </div>
             )}
 
-            <PasoCodigoEquipo estiloDelPaso={styles.pasoAzul} register={register} errors={errors} />
+            <PasoCodigoEquipo register={register} errors={errors} />
 
             <PasoInput
               estiloDelPaso={styles.pasoRojo}

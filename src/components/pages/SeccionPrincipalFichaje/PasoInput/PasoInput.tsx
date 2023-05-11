@@ -20,7 +20,6 @@ const PasoInput = ({
   longMaxima,
   register,
   errors,
-  estiloDelPaso,
   type = 'text',
 }: IPasoInput) => {
   const caracteres = type === 'text' ? 'letras' : 'números';
