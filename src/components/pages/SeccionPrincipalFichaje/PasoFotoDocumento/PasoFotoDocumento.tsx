@@ -16,11 +16,13 @@ interface IPasoFotoDocumento {
 const PasoFotoDocumento = ({ titulo, name, nombre }: IPasoFotoDocumento) => {
   const {
     register,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
   const imagenDefault = name === 'fotoDNIFrente' ? imagenDniFrente : imagenDniDorso;
   // manigga del futuro no me juzgues, había poco tiempo y me pagaban poco
+  // manigga del pasado ya no juzgo tanto creo
 
   const [imagenBase64, setImagenBase64] = useState(imagenDefault);
 
@@ -29,6 +31,7 @@ const PasoFotoDocumento = ({ titulo, name, nombre }: IPasoFotoDocumento) => {
       const reader = new FileReader();
       reader.addEventListener('load', () => {
         setImagenBase64(reader.result);
+        setValue(name, reader.result);
       });
       reader.readAsDataURL(e.target.files[0]);
     }
