@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEventHandler, useState } from 'react';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
 import Label from '../Label/Label';
 import Input from '../Input/Input';
@@ -6,18 +6,20 @@ import Estilos from './PasoCodigoEquipo.module.css';
 import Error from '../Error/Error';
 import { IPaso } from '../SeccionPrincipalFichaje';
 
-const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
-  const [codigoEquipo, setCodigoEquipo] = useState();
-  const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState(null);
+const PasoCodigoEquipo = ({ register, errors }: IPaso) => {
+  const [codigoEquipo, setCodigoEquipo] = useState<string>();
+  const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState<boolean | null>(null);
   const [nombreEquipo, setNombreEquipo] = useState('');
   const [yaValidoCodigoEquipo, setYaValidoCodigoEquipo] = useState(false);
 
-  const onCodigoEquipoChange = (id) => {
+  const onCodigoEquipoChange = (id: string) => {
     setCodigoEquipo(id);
   };
 
   const validar = async () => {
-    return fetch(`/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`)
+    return fetch(
+      `https://www.edefi.com.ar/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`,
+    )
       .then((response) => response.json())
       .then((data) => {
         setNombreEquipo(data);
