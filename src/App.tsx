@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='max-h-max min-h-screen bg-fondo-celu bg-cover bg-no-repeat'>
       <Header />
-      <main className='mx-auto ml-[5%] select-none '>
+      <main className='mx-auto select-none '>
         <Outlet />
       </main>
       <SocialMediaIcons />
