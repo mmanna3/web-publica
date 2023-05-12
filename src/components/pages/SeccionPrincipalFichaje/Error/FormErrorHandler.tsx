@@ -1,5 +1,5 @@
 import { FieldErrors, FieldValues } from 'react-hook-form';
-import ErrorMessage from './ErrorMessage';
+import MessageBox from '../../../common/MessageBox';
 
 interface IError {
   errors: FieldErrors<FieldValues>;
@@ -15,7 +15,7 @@ const FormErrorHandler = ({ errors, name, nombre }: IError) => {
   else if (errors[name] && errors[name]?.type !== 'required')
     message = (errors[name] as any).message;
 
-  return <ErrorMessage message={message} />;
+  return <MessageBox type='error' message={message} />;
 };
 
 export default FormErrorHandler;

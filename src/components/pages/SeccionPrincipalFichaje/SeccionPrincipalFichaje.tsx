@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './SeccionPrincipalFichaje.module.css';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import FormularioFichaje from './FormularioFichaje';
-import ErrorMessage from './Error/ErrorMessage';
+import MessageBox from '../../common/MessageBox';
 
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
@@ -23,7 +23,8 @@ const SeccionPrincipalFichaje = () => {
     return true;
   };
 
-  if (!estaLaSeccionHabilitada())
+  // if (!estaLaSeccionHabilitada())
+  if (false)
     // if (true)
     return (
       <div className='flex'>
@@ -54,7 +55,9 @@ const SeccionPrincipalFichaje = () => {
       </div>
     );
   else if (mensajeErrorServidorVisible)
-    return <ErrorMessage message='¡Ups! Hubo un error. Volvé a intentar más tarde.' large />;
+    return (
+      <MessageBox type='error' message='¡Ups! Hubo un error. Volvé a intentar más tarde.' large />
+    );
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
     return (
