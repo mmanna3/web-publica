@@ -8,7 +8,7 @@ import { ErrorNotFound } from './components/common/ErrorNotFound';
 import { NosotrosPage } from './components/pages/NosotrosPage';
 import { TipoDeTorneo } from './components/pages/Torneos/TipoDeTorneo';
 import { CopasPage } from './components/pages/Copas/CopasPage';
-import { NoticiasPage } from './components/pages/NoticiasPage';
+import { NoticiaPage, NoticiasPage } from './components/pages/NoticiasPage';
 import { ContactoPage } from './components/pages/ContactoPage';
 import { FichajePage } from './components/pages/FichajePage';
 import { ZonasDelTorneo } from './components/pages/Torneos/ZonasDelTorneo';
@@ -66,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: '/noticias',
         element: <NoticiasPage />,
+      },
+      {
+        path: '/noticias/:noticiaId',
+        element: <NoticiaPage />,
       },
       {
         path: '/nosotros',

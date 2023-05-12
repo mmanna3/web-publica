@@ -6,14 +6,13 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
  
   theme: {
-    fontSize: {
-      'xs': '12px',
-    },
-
     extend: {
       fontFamily: {
         'coalition': 'Coalition',
         'arial': ' Arial, Helvetica, sans-serif'
+      },
+      fontSize: {
+        'xs': '12px',
       },
       backgroundImage: {
         'fondo-pc': "url('assets/images/desktop/fondo-pc.jpg')",
@@ -22,6 +21,7 @@ module.exports = {
       colors: {
         'title-darkGreen': '#579e74',
       },
+
     },
   },
   plugins: [],

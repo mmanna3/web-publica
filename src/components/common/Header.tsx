@@ -60,6 +60,7 @@ export default function Header() {
               <NavOpenLink closeNav={isClosed} path='/nosotros' content='Nosotros' />
               <NavOpenLink closeNav={isClosed} path='/contacto' content='Contacto' />
               <NavOpenLink closeNav={isClosed} path='/fichaje' content='Fichaje' />
+              <NavOpenLink closeNav={isClosed} path='/noticias' content='Noticias' />
             </ul>
           </div>
         </section>
@@ -72,6 +73,7 @@ export default function Header() {
           <Link to='/nosotros'>Nosotros</Link>
           <Link to='/contacto'>Contacto</Link>
           <Link to='/fichaje'>Fichaje</Link>
+          <Link to='/noticias'>Noticias</Link>
         </div>
       </nav>
       <style>{`

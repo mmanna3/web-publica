@@ -131,3 +131,12 @@ export interface Clubes {
   TorneoId?: number;
   ZonaId?: number;
 }
+
+/* NOTICIAS */
+export interface Noticia {
+  id: number;
+  titulo: string;
+  subtitulo: string;
+  fecha: string;
+  cuerpo?: string;
+}
