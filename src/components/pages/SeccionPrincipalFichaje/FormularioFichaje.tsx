@@ -7,7 +7,7 @@ import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
 import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
 import PasoDNI from './PasoDNI/PasoDNI';
 import { FieldErrors, FieldValues, UseFormRegister, useForm, FormProvider } from 'react-hook-form';
-import ErrorMessage from './Error/ErrorMessage';
+import MessageBox from '../../common/MessageBox';
 
 export interface IPaso {
   register: UseFormRegister<FieldValues>;
@@ -65,7 +65,10 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {huboAlgunError && (
               <div className='mb-2'>
-                <ErrorMessage message='¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.' />
+                <MessageBox
+                  type='error'
+                  message='¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.'
+                />
               </div>
             )}
 

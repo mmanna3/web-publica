@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
 import { useFormContext } from 'react-hook-form';
-import ErrorMessage from '../Error/ErrorMessage';
+import MessageBox from '../../../common/MessageBox';
 import FormErrorHandler from '../Error/FormErrorHandler';
 import SuccessMessage from '../../../common/SuccessMessage';
 
@@ -74,9 +74,9 @@ const PasoCodigoEquipo = () => {
         </div>
         {yaValidoCodigoEquipo &&
           (codigoEquipoEsValido ? (
-            <SuccessMessage message={`Tu equipo es: ${nombreEquipo}`} />
+            <MessageBox type='success' message={`Tu equipo es: ${nombreEquipo}`} />
           ) : (
-            <ErrorMessage message='El código es incorrecto' />
+            <MessageBox type='error' message='El código es incorrecto' />
           ))}
 
         <FormErrorHandler errors={errors} name='codigoAlfanumerico' nombre='código de equipo' />
