@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
 import Label from '../Label/Label';
 import ImageUploader from '../ImageUploader/ImageUploader';
 import estilos from './PasoFotoDocumento.module.css';
 import imagenDniFrente from './dniFrente.png';
 import imagenDniDorso from './dniDorso.jpg';
-import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import FormErrorHandler from '../Error/FormErrorHandler';
+import { useFormContext } from 'react-hook-form';
 
-interface IPasoFotoDocumento extends IPaso {
+interface IPasoFotoDocumento {
   titulo: string;
   name: string;
   nombre: string;
 }
 
-const PasoFotoDocumento = ({
-  register,
-  estiloDelPaso,
-  titulo,
-  errors,
-  name,
-  nombre,
-}: IPasoFotoDocumento) => {
+const PasoFotoDocumento = ({ titulo, name, nombre }: IPasoFotoDocumento) => {
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
+
   const imagenDefault = name === 'fotoDNIFrente' ? imagenDniFrente : imagenDniDorso;
   // manigga del futuro no me juzgues, había poco tiempo y me pagaban poco
+  // manigga del pasado ya no juzgo tanto creo
 
   const [imagenBase64, setImagenBase64] = useState(imagenDefault);
 
@@ -32,6 +31,7 @@ const PasoFotoDocumento = ({
       const reader = new FileReader();
       reader.addEventListener('load', () => {
         setImagenBase64(reader.result);
+        setValue(name, reader.result);
       });
       reader.readAsDataURL(e.target.files[0]);
     }
@@ -50,14 +50,13 @@ const PasoFotoDocumento = ({
 
         <input
           readOnly
-          name={name}
-          ref={register(name, {
+          {...register(name, {
             validate: (value) => value !== imagenDefault || `¡Ups! Te olvidaste la ${nombre}.`,
           })}
           style={{ display: 'none' }}
           value={imagenBase64}
         />
-        <Error name={name} errors={errors} nombre={nombre} />
+        <FormErrorHandler name={name} errors={errors} nombre={nombre} />
         <ImageUploader onChange={onSelectFile} />
       </div>
     </div>

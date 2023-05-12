@@ -1,53 +1,11 @@
 import { useState } from 'react';
-import styles from './SeccionPrincipalFichaje.module.css';
-import PasoInput from './PasoInput/PasoInput';
-import PasoCodigoEquipo from './PasoCodigoEquipo/PasoCodigoEquipo';
-import PasoFotoCarnet from './PasoFotoCarnet/PasoFotoCarnet';
-import PasoFotoDocumento from './PasoFotoDocumento/PasoFotoDocumento';
-import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
-import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
-import PasoDNI from './PasoDNI/PasoDNI';
-import { FieldErrors, FieldValues, UseFormRegister, useForm } from 'react-hook-form';
-
-export interface IPaso {
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors<FieldValues>;
-  estiloDelPaso: any;
-}
+import FormularioFichaje from './FormularioFichaje';
+import MessageBox from '../../common/MessageBox';
 
 const SeccionPrincipalFichaje = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm(); // initialize the hook
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
   const [mensajeErrorServidorVisible, mostrarMensajeErrorServidor] = useState(false);
   const [spinnerVisible, mostrarSpinner] = useState(false);
-
-  const hacerElPost = async (data) => {
-    mostrarSpinner(true);
-    fetch('JugadorAutofichado/autofichaje', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        mostrarSpinner(false);
-        if (res === 'OK') mostrarMensajeExito(true);
-        else mostrarMensajeErrorServidor(true);
-      })
-      .catch(function () {
-        mostrarSpinner(false);
-        mostrarMensajeErrorServidor(true);
-      });
-  };
 
   const estaLaSeccionHabilitada = () => {
     const hoy = new Date();
@@ -58,122 +16,43 @@ const SeccionPrincipalFichaje = () => {
     return true;
   };
 
-  const onSubmit = (data: any) => {
-    hacerElPost(data);
-  };
-
-  const huboAlgunError = !(Object.keys(errors).length === 0 && errors.constructor === Object);
-
-  if (!estaLaSeccionHabilitada())
-    // if (true)
+  // if (!estaLaSeccionHabilitada())
+  if (false)
     return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeDeshabilitado}`}>
-            {/* El fichaje está <strong>deshabilitado.</strong> Los días habilitados para ficharse son lunes, martes, miércoles y jueves hasta las 20Hs. */}
-            El fichaje está <strong>deshabilitado</strong>.
-          </div>
-        </div>
-      </div>
+      <MessageBox type='info' large>
+        El fichaje está deshabilitado.
+      </MessageBox>
     );
   else if (mensajeExitoVisible)
     return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeExitoResultadoDelPost}`}>
-            <strong>¡Tus datos se enviaron correctamente!</strong> Gracias por ficharte.
-            <div className={`${styles.margenDeArribaDelBoton} //bootstrap-align-items-center`}>
-              <button
-                onClick={() => mostrarMensajeExito(false)}
-                className={`py-auto py-auto-primary rounded-lg rounded-lg text-white text-white ${styles.botonFicharOtroJugador}`}
-              >
-                Fichar otro jugador
-              </button>
-            </div>
+      <MessageBox type='info' large>
+        <>
+          ¡Tus datos se enviaron correctamente! Gracias por ficharte.
+          <div className='mt-6'>
+            <button
+              onClick={() => mostrarMensajeExito(false)}
+              className='rounded-lg bg-green-700 py-3 px-3 text-center text-white'
+            >
+              Fichar otro jugador
+            </button>
           </div>
-        </div>
-      </div>
+        </>
+      </MessageBox>
     );
   else if (mensajeErrorServidorVisible)
     return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeErrorResultadoDelPost}`}>
-            ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
-          </div>
-        </div>
-      </div>
+      <MessageBox type='error' large>
+        ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
+      </MessageBox>
     );
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
     return (
-      <div className={styles.seccionContainer}>
-        <div className={styles.seccion}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {huboAlgunError && (
-              <div className=''>
-                <div
-                  className={`//bootstrap-alert //bootstrap-alert-danger ${styles.alertaValidacion}`}
-                >
-                  ¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.
-                </div>
-              </div>
-            )}
-
-            <PasoCodigoEquipo estiloDelPaso={styles.pasoAzul} register={register} errors={errors} />
-
-            <PasoInput
-              estiloDelPaso={styles.pasoRojo}
-              register={register}
-              errors={errors}
-              longMaxima={10}
-              name='nombre'
-              nombre='nombre'
-              titulo='Tu nombre'
-            />
-
-            <PasoInput
-              estiloDelPaso={styles.pasoRojo}
-              register={register}
-              errors={errors}
-              longMaxima={11}
-              name='apellido'
-              nombre='apellido'
-              titulo='Tu apellido'
-            />
-
-            <PasoDNI estiloDelPaso={styles.pasoRojo} register={register} errors={errors} />
-
-            <PasoFechaNacimiento
-              estiloDelPaso={styles.pasoRojo}
-              register={register}
-              errors={errors}
-            />
-
-            <PasoFotoCarnet estiloDelPaso={styles.pasoVerde} errors={errors} register={register} />
-
-            <PasoFotoDocumento
-              estiloDelPaso={styles.pasoAzul}
-              register={register}
-              titulo='Foto del frente de tu DNI'
-              errors={errors}
-              name='fotoDNIFrente'
-              nombre='foto de FRENTE del DNI'
-            />
-
-            <PasoFotoDocumento
-              estiloDelPaso={styles.pasoAzul}
-              register={register}
-              titulo='Foto de la parte de atrás de tu DNI'
-              errors={errors}
-              name='fotoDNIDorso'
-              nombre='foto de ATRÁS del DNI'
-            />
-
-            <PasoBotonEnviar estiloDelPaso={styles.pasoRojo} />
-          </form>
-        </div>
-      </div>
+      <FormularioFichaje
+        showLoading={mostrarSpinner}
+        onSuccess={() => mostrarMensajeExito(true)}
+        onError={() => mostrarMensajeErrorServidor(true)}
+      />
     );
 };
 

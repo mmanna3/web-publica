@@ -1,23 +1,30 @@
-import React, { useState } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
+import { useState } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Estilos from './PasoCodigoEquipo.module.css';
-import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import { useFormContext } from 'react-hook-form';
+import MessageBox from '../../../common/MessageBox';
+import FormErrorHandler from '../Error/FormErrorHandler';
+import SuccessMessage from '../../../common/SuccessMessage';
 
-const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
-  const [codigoEquipo, setCodigoEquipo] = useState();
-  const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState(null);
+const PasoCodigoEquipo = () => {
+  const [codigoEquipo, setCodigoEquipo] = useState<string>();
+  const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState<boolean | null>(null);
   const [nombreEquipo, setNombreEquipo] = useState('');
   const [yaValidoCodigoEquipo, setYaValidoCodigoEquipo] = useState(false);
 
-  const onCodigoEquipoChange = (id) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const onCodigoEquipoChange = (id: string) => {
     setCodigoEquipo(id);
   };
 
   const validar = async () => {
-    return fetch(`/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`)
+    return fetch(
+      `https://www.edefi.com.ar/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`,
+    )
       .then((response) => response.json())
       .then((data) => {
         setNombreEquipo(data);
@@ -57,7 +64,7 @@ const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
           <div className='w-1/2'>
             <button
               type='button'
-              className={'py-auto rounded-lg bg-green-700 text-center text-white'}
+              className='py-auto rounded-lg bg-green-700 text-center text-white'
               style={{ width: '100%' }}
               onClick={onValidarClick}
             >
@@ -67,32 +74,14 @@ const PasoCodigoEquipo = ({ register, errors, estiloDelPaso }: IPaso) => {
         </div>
         {yaValidoCodigoEquipo &&
           (codigoEquipoEsValido ? (
-            <div className=''>
-              <div
-                className={`//bootstrap-alert //bootstrap-alert-success ${Estilos.alertaValidacionEquipo}`}
-              >
-                Tu equipo es <strong>{nombreEquipo}</strong>
-              </div>
-            </div>
+            <MessageBox type='success'>
+              Tu equipo es: <strong>{nombreEquipo}</strong>
+            </MessageBox>
           ) : (
-            <div className=''>
-              <div
-                className={`//bootstrap-alert //bootstrap-alert-danger ${Estilos.alertaValidacionEquipo}`}
-              >
-                El código es incorrecto
-              </div>
-            </div>
+            <MessageBox type='error'>El código es incorrecto</MessageBox>
           ))}
 
-        {errors.codigoEquipo && errors.codigoEquipo.type === 'required' && (
-          <div className=''>
-            <div
-              className={`//bootstrap-alert //bootstrap-alert-danger ${Estilos.alertaValidacionEquipo}`}
-            >
-              ¡Ups! Te olvidaste el código de tu equipo.
-            </div>
-          </div>
-        )}
+        <FormErrorHandler errors={errors} name='codigoAlfanumerico' nombre='código de equipo' />
       </div>
     </div>
   );

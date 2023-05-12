@@ -7,10 +7,16 @@ import obtenerImagenRecortada from './recortarImagen';
 import ImageUploader from '../ImageUploader/ImageUploader';
 import persona from './chico.jpg';
 import Label from '../Label/Label';
-import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import FormErrorHandler from '../Error/FormErrorHandler';
+import { useFormContext } from 'react-hook-form';
 
-const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
+const PasoFotoCarnet = () => {
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
+
   const [imagen, setImagen] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -47,6 +53,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
       const croppedImage = await obtenerImagenRecortada(imagen, croppedAreaPixels);
 
       setImagenRecortada(croppedImage);
+      setValue('fotoCarnet', croppedImage);
     } catch (e) {
       console.error(e);
     }
@@ -59,8 +66,8 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
   };
 
   return (
-    <div className={estiloDelPaso}>
-      <div className='bg-green-700 py-6'>
+    <div>
+      <div className='bg-green-700 py-6 px-3'>
         <div className={estilos.contenedorDeContenidoCentrado}>
           <Label texto={'Tu foto'} subtitulo='Tiene que tener fondo liso' centrado={true} />
         </div>
@@ -72,15 +79,13 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
         <ImageUploader value={imagen} onChange={onSelectFile} />
         <input
           readOnly
-          name='fotoCarnet'
-          ref={register('fotoCarnet', {
+          {...register('fotoCarnet', {
             validate: (value) => value !== persona || '¡Ups! Te olvidaste tu foto.',
           })}
           style={{ display: 'none' }}
           value={imagenRecortada}
         />
-        <Error name={'fotoCarnet'} errors={errors} nombre='foto' />
-
+        <FormErrorHandler name='fotoCarnet' errors={errors} nombre='foto' />
         {imagen && (
           <div className={estilos.contenedorGeneralDeTodo}>
             <div className={estilos.cropContainer}>
@@ -111,7 +116,7 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
                   <div className=''>
                     <button
                       type='button'
-                      className={'rounded-lg bg-green-700 px-20 py-4 text-white'}
+                      className='rounded-lg bg-green-700 px-10 py-4 text-white md:px-20'
                       style={{ width: '100%' }}
                       onClick={onAceptarClick}
                     >
@@ -121,7 +126,9 @@ const PasoFotoCarnet = ({ estiloDelPaso, register, errors }: IPaso) => {
                   <div className=''>
                     <button
                       type='button'
-                      className={'py-auto rounded-lg bg-red-700 px-20 py-4 text-center text-white'}
+                      className={
+                        'py-auto rounded-lg bg-red-700 px-10 py-4 text-center text-white md:px-20'
+                      }
                       style={{ width: '100%' }}
                       onClick={onCancelarClick}
                     >

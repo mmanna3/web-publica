@@ -1,43 +1,46 @@
-import React, { useState, useEffect } from 'react';
-// import bootstrap from "GlobalStyle/bootstrap.min.css";
+import { useState, useEffect } from 'react';
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Estilos from './PasoFechaNacimiento.module.css';
-import Error from '../Error/Error';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import FormErrorHandler from '../Error/FormErrorHandler';
+import { useFormContext } from 'react-hook-form';
 
-const PasoFechaNacimiento = ({ register, errors, estiloDelPaso }: IPaso) => {
-  const [valorCalculado, setValorCalculado] = useState('');
-  const [dia, setDia] = useState();
-  const [mes, setMes] = useState();
-  const [anio, setAnio] = useState();
+const PasoFechaNacimiento = () => {
+  const {
+    register,
+    setValue,
+    formState: { errors },
+  } = useFormContext();
+
+  const [dia, setDia] = useState<string>();
+  const [mes, setMes] = useState<string>();
+  const [anio, setAnio] = useState<string>();
 
   useEffect(() => {
-    setValorCalculado(`${dia}-${mes}-${anio}`);
+    setValue('fechaNacimiento', `${dia}-${mes}-${anio}`);
   }, [dia, mes, anio]);
 
-  const actualizarDia = (dia) => {
+  const actualizarDia = (dia: string) => {
     if (dia.length === 1) dia = '0' + dia;
 
     setDia(dia);
   };
 
-  const actualizarMes = (mes) => {
+  const actualizarMes = (mes: string) => {
     if (mes.length === 1) mes = '0' + mes;
 
     setMes(mes);
   };
 
-  const actualizarAnio = (anio) => {
+  const actualizarAnio = (anio: string) => {
     setAnio(anio);
   };
 
-  const validarFecha = (date) => {
+  const validarFecha = (date: string) => {
     const temp = date.split('-');
     const d = new Date(temp[1] + '-' + temp[0] + '-' + temp[2]);
     const resultado =
       d &&
-      d.getMonth() + 1 == temp[1] &&
+      d.getMonth() + 1 == Number(temp[1]) &&
       d.getDate() == Number(temp[0]) &&
       d.getFullYear() == Number(temp[2]);
     return resultado || '¡Ups! Hay un problema con la fecha. Revisala.';
@@ -50,26 +53,27 @@ const PasoFechaNacimiento = ({ register, errors, estiloDelPaso }: IPaso) => {
           <Label texto='Tu fecha de nacimiento' />
         </div>
         <div className='flex gap-2'>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Día</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Día</p>
             <Input type='number' onChange={actualizarDia} className='w-20' />
           </div>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Mes</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Mes</p>
             <Input type='number' onChange={actualizarMes} className='w-20' />
           </div>
-          <div className={'w-1/3'}>
-            <p className={Estilos.tituloInput}>Año</p>
+          <div className='w-1/3'>
+            <p className='font-bold'>Año</p>
             <Input type='number' onChange={actualizarAnio} className='w-20' />
           </div>
         </div>
         <input
-          style={{ display: 'none' }}
-          ref={register('fechaNacimiento', { required: true, validate: validarFecha })}
-          name='fechaNacimiento'
-          defaultValue={valorCalculado}
+          type='hidden'
+          {...register('fechaNacimiento', {
+            required: true,
+            validate: validarFecha,
+          })}
         />
-        <Error name='fechaNacimiento' errors={errors} nombre='fecha' />
+        <FormErrorHandler name='fechaNacimiento' errors={errors} nombre='fecha' />
       </div>
     </div>
   );
