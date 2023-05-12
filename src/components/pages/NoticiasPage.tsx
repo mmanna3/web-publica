@@ -4,7 +4,7 @@ import { Noticia } from '../../interfaces/api';
 import { Spinner } from '../common/Spinner';
 
 export const NoticiasPage = () => {
-  const { data, isFetching } = useFetch<Noticia>('noticias');
+  const { data, isFetching } = useFetch<Noticia[]>('noticias');
 
   if (isFetching) {
     return <Spinner />;
@@ -46,8 +46,8 @@ export const NoticiaPage = () => {
 
   return (
     <>
-      <h2 className='my-6 text-center text-3xl font-bold underline'>La Noticia</h2>
-      <div className='mx-auto w-[400px] bg-slate-100 py-6 px-10 font-arial text-xs shadow-lg'>
+      <h2 className='my-6 text-center text-3xl font-bold underline'>{data.titulo}</h2>
+      <div className='mx-auto bg-slate-100 py-6 px-10 font-arial text-xs shadow-lg'>
         <div className='flex gap-2 text-sm'>
           <p className='text-green-600'>{data.fecha} |</p>
           <p className='font-bold underline'>{data.titulo}</p>
