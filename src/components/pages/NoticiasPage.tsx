@@ -13,7 +13,7 @@ export const NoticiasPage = () => {
   return (
     <>
       <h2 className='my-6 text-center text-3xl font-bold underline'>Noticias</h2>
-      <div className='mx-auto flex w-[400px] flex-col items-stretch gap-4 p-4'>
+      <div className='mx-auto flex flex-col items-center gap-4 p-4'>
         {data.map(({ id, titulo, subtitulo, fecha }) => (
           <Card key={id} titulo={titulo} subtitulo={subtitulo} fecha={fecha} id={id}></Card>
         ))}
@@ -24,7 +24,7 @@ export const NoticiasPage = () => {
 
 const Card = ({ titulo, subtitulo, fecha, id }: Noticia) => {
   return (
-    <Link className='bg-slate-100 p-4 font-arial text-xs shadow-lg' to={`${id}`}>
+    <Link className='bg-slate-100 p-4 font-arial text-xs shadow-lg w-[80%]' to={`${id}`}>
       <div className='flex gap-2 text-sm'>
         <p className='text-green-600'>{fecha} |</p>
         <p className='font-bold underline'>{titulo}</p>
