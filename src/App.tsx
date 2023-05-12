@@ -22,7 +22,7 @@ export const Layout = () => {
   const hideLayout = () => setIsHidden(true);
 
   return (
-    <div className='mx-auto sm:max-w-2xl lg:max-w-6xl'>
+    <div className='mx-auto xs:w-[90%] sm:max-w-2xl lg:max-w-6xl'>
       <Header  showLayout={showLayout} hideLayout={hideLayout} />
       <main className={isHidden ? 'mx-auto mb-6 select-none hidden' : 'mx-auto mb-6 select-none block'}>
         <Outlet />

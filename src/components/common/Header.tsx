@@ -77,7 +77,7 @@ if(isNavOpen){
           </div>
         </section>
 
-        <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[9px] lg:text-[16px] xl:text-[18px]'>
+        <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[7px]  lg:text-[14px] xl:text-[18px]'>
           <Link to='/'>Inicio</Link>
           <Link to='/torneos'>Torneos</Link>
           <Link to='/copas'>Copas</Link>
