@@ -53,7 +53,7 @@ export const NoticiaPage = () => {
           <p className='font-bold underline'>{data.titulo}</p>
         </div>
         <p>{data.subtitulo}</p>
-        <p>{data.cuerpo}</p>
+        <p dangerouslySetInnerHTML={{ __html: data.cuerpo }}></p>
       </div>
     </>
   );
