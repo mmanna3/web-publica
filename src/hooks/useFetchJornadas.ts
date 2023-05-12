@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { JornadasDelTorneo, JornadaPorFecha, Categoria } from '../interfaces/api';
 import { useEffect, useState } from 'react';
+import { BASE_URL } from '../globalConst'
 
 export const useFetchJornadas = () => {
   const [jornadasPorFecha, setJornadasPorFecha] = useState<JornadaPorFecha[]>([]);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Club, Clubes } from '../interfaces/api';
 import { useParams } from 'react-router-dom';
+import { BASE_URL } from '../globalConst'
 
 export const useFetchClubes = () => {
   const [clubes, setClubes] = useState<Club[]>([]);

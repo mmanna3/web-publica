@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PosicionesDelTorneo, Tabla } from '../interfaces/api';
+import { BASE_URL } from '../globalConst'
 
 export const useFetchPosiciones = () => {
   const [tablasPorCategoria, setTablasPorCategoria] = useState<Tabla[]>([]);

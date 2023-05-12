@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FechaDelFixture, FixtureDelTorneo } from '../interfaces/api';
+import { BASE_URL } from '../globalConst'
 
 export const useFetchFixture = () => {
   const [fechas, setFechas] = useState<FechaDelFixture[]>([]);
