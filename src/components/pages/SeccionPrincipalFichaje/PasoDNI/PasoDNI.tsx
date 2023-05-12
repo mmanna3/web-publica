@@ -1,12 +1,16 @@
 import Label from '../Label/Label';
 import Input from '../Input/Input';
-import Error from '../Error/Error';
-import Estilos from './PasoDNI.module.css';
-import { IPaso } from '../SeccionPrincipalFichaje';
+import FormErrorHandler from '../Error/FormErrorHandler';
+import { useFormContext } from 'react-hook-form';
 
-const PasoDNI = ({ register, errors, estiloDelPaso }: IPaso) => {
+const PasoDNI = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   const jugadorYaEstaFichado = async (dni: number) => {
-    return fetch(`/publico/elDniEstaFichado?dni=${dni}`)
+    return fetch(`https://www.edefi.com.ar/publico/elDniEstaFichado?dni=${dni}`)
       .then((response) => response.json())
       .then((data) => data)
       .catch(() => false);
@@ -35,7 +39,7 @@ const PasoDNI = ({ register, errors, estiloDelPaso }: IPaso) => {
             onChange={() => console.log('aaa')}
           />
         </div>
-        <Error name='dni' errors={errors} nombre='DNI' />
+        <FormErrorHandler name='dni' errors={errors} nombre='DNI' />
       </div>
     </div>
   );
