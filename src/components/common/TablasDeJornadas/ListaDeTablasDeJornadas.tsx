@@ -1,11 +1,12 @@
 import { useFetchJornadas } from '../../../hooks/useFetchJornadas';
+import { Spinner } from '../Spinner'
 import { TablaDeJornadas } from './TablaDeJornadas';
 
 export const ListaDeTablasDeJornadas = () => {
   const { jornadasPorFecha, categorias, isFetching } = useFetchJornadas();
 
   if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
   return (
     <div className='flex flex-col justify-center bg-gray-400 p-6'>

@@ -1,11 +1,12 @@
 import { useFetchFixture } from '../../../hooks/useFetchFixture';
+import { Spinner } from '../Spinner'
 import { TablaDelFixture } from './TablaDelFixture';
 
 export const ListaDeTablasDelFixture = () => {
   const { fechas, isFetching } = useFetchFixture();
 
   if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
   return (
     <div className='flex flex-wrap justify-center bg-gray-400'>

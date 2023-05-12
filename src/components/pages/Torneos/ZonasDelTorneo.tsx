@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { Zona } from '../../../interfaces/api';
 import { GenericButton } from '../../common/GenericButton';
+import { Spinner } from '../../common/Spinner'
 
 export const ZonasDelTorneo = () => {
   const { torneoId } = useParams();
@@ -11,7 +12,7 @@ export const ZonasDelTorneo = () => {
     zona.zonaAperturaId || zona.zonaClausuraId || zona.zonaRelampagoId;
 
   if (isFetching) {
-    return <h2 className='text-5xl text-center'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
 
   return (

@@ -1,18 +1,19 @@
 import { Link, useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { Noticia } from '../../interfaces/api';
+import { Spinner } from '../common/Spinner';
 
 export const NoticiasPage = () => {
   const { data, isFetching } = useFetch<Noticia>('noticias');
 
   if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
 
   return (
     <>
       <h2 className='my-6 text-center text-3xl font-bold underline'>Noticias</h2>
-      <div className='flex flex-col items-stretch gap-4 w-[400px] mx-auto p-4'>
+      <div className='mx-auto flex w-[400px] flex-col items-stretch gap-4 p-4'>
         {data.map(({ id, titulo, subtitulo, fecha }) => (
           <Card key={id} titulo={titulo} subtitulo={subtitulo} fecha={fecha} id={id}></Card>
         ))}
@@ -23,8 +24,8 @@ export const NoticiasPage = () => {
 
 const Card = ({ titulo, subtitulo, fecha, id }: Noticia) => {
   return (
-    <Link className='bg-slate-100 font-arial text-xs p-4 shadow-lg' to={`${id}`}>
-      <div className='flex text-sm gap-2'>
+    <Link className='bg-slate-100 p-4 font-arial text-xs shadow-lg' to={`${id}`}>
+      <div className='flex gap-2 text-sm'>
         <p className='text-green-600'>{fecha} |</p>
         <p className='font-bold underline'>{titulo}</p>
       </div>
@@ -40,14 +41,14 @@ export const NoticiaPage = () => {
   const { data, isFetching } = useFetch<Noticia>(`noticia?id=${noticiaId}`);
 
   if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
 
   return (
     <>
       <h2 className='my-6 text-center text-3xl font-bold underline'>La Noticia</h2>
-      <div className='w-[400px] bg-slate-100 font-arial text-xs mx-auto py-6 px-10 shadow-lg'>
-        <div className='flex text-sm gap-2'>
+      <div className='mx-auto w-[400px] bg-slate-100 py-6 px-10 font-arial text-xs shadow-lg'>
+        <div className='flex gap-2 text-sm'>
           <p className='text-green-600'>{data.fecha} |</p>
           <p className='font-bold underline'>{data.titulo}</p>
         </div>

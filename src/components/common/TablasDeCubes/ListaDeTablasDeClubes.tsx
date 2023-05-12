@@ -1,12 +1,14 @@
 import { useFetchClubes } from '../../../hooks/useFetchClubes';
+import { Spinner } from '../Spinner'
 import { TablaDeClubes } from './TablaDeClubes';
 
 export const ListaDeTablasDeClubes = () => {
   const { clubes, isFetching } = useFetchClubes();
 
   if (isFetching) {
-    return <h2 className='text-center text-5xl'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
+  
   return (
     <div className='flex flex-col justify-center bg-gray-400 p-6'>
       <div className='mb-10 flex justify-between'>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
+import { Spinner } from '../../common/Spinner'
 
 interface Props {
   tipo: 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga';
@@ -11,7 +12,7 @@ export const TipoDeCopa = ({ tipo }: Props) => {
   const { data, isFetching } = useFetch<Torneo>('TorneosRelampago?anio=2023');
 
   if (isFetching) {
-    return <h2 className='text-5xl text-center'>Cargando...⌛</h2>;
+    return <Spinner />;
   }
 
   return (
