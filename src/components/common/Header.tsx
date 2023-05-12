@@ -22,12 +22,12 @@ export default function Header() {
   const isClosed = () => setIsNavOpen(false);
 
   return (
-    <div className='mb-3 flex items-center justify-between border-b border-gray-400 py-4 px-4 backdrop-blur-md md:mb-7 md:border-none md:py-2 md:pl-20 md:backdrop-blur-none'>
+    <div className='mb-3 flex items-center justify-between py-4 px-4  gap-8'>
       <Link to='/'>
-        <img className='w-14' src={EDEFI_LOGO} alt='edefi-logo' />
+        <img className='w-14 sm:w-20 lg:w-24' src={EDEFI_LOGO} alt='edefi-logo' />
       </Link>
       <nav>
-        <section className='MOBILE-MENU flex lg:hidden'>
+        <section className='MOBILE-MENU flex sm:hidden'>
           <div className='HAMBURGER-ICON space-y-2' onClick={() => setIsNavOpen((prev) => !prev)}>
             <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
             <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
@@ -65,7 +65,7 @@ export default function Header() {
           </div>
         </section>
 
-        <div className='DESKTOP-MENU hidden space-x-8 pt-2 text-[#666] lg:flex'>
+        <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[9px] lg:text-[16px] xl:text-[18px]'>
           <Link to='/'>Inicio</Link>
           <Link to='/torneos'>Torneos</Link>
           <Link to='/copas'>Copas</Link>

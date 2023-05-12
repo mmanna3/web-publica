@@ -8,7 +8,7 @@ type myButtonProps = {
 export const ImageBtn = ({ img, alt, url }: myButtonProps) => {
   return (
     <Link to={url}>
-      <img src={img} alt={alt} className='w-52 md:w-72 lg:w-80' />
+      <img src={img} alt={alt} className='w-52 sm:w-72 lg:w-96' />
     </Link>
   );
 };

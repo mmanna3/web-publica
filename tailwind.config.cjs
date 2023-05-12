@@ -7,6 +7,9 @@ module.exports = {
  
   theme: {
     extend: {
+      screens: {
+        'xs': '320px'
+      },
       fontFamily: {
         'coalition': 'Coalition',
         'arial': ' Arial, Helvetica, sans-serif'

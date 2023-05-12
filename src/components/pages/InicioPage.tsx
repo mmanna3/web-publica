@@ -10,8 +10,8 @@ import IMG_BTN_CONTACTO from '../../assets/images/mobile/buttons/contacto.png';
 export const InicioPage = () => {
   return (
     <>
-      <img className='m-auto w-[250px] md:hidden' src={BANNER_CELU} alt='banner-image' />
-      <img className='m-auto hidden w-4/5 md:block' src={BANNER_DESKTOP} alt='banner-image' />
+      <img className='mx-auto sm:hidden w-[90%] h-[130px]' src={BANNER_CELU} alt='banner-image' />
+      <img className='m-auto hidden sm:block w-[90%] h-[180px] ' src={BANNER_DESKTOP} alt='banner-image' />
       <div className='my-10 flex flex-col items-center gap-6'>
         <ImageBtn img={IMG_BTN_TORNEOS} alt='torneos' url='/torneos' />
         <ImageBtn img={IMG_BTN_COPAS} alt='copas' url='/copas' />

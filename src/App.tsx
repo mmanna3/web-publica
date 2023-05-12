@@ -8,14 +8,21 @@ export function loader() {
 
 function App() {
   return (
-    <div className='max-h-max min-h-screen  bg-fondo-celu xl:bg-fondo-pc bg-cover bg-no-repeat'> {/* max-w-3xl */}
-      <Header />
-      <main className='mx-auto select-none  '>
-        <Outlet />
-      </main>
+    <div className='mx-auto flex max-h-fit min-h-screen flex-col justify-between bg-fondo-celu bg-cover bg-no-repeat xl:bg-fondo-pc'>
+      <Layout />
       <SocialMediaIcons />
     </div>
   );
 }
 
+export const Layout = () => {
+  return (
+    <div className='mx-auto sm:max-w-2xl lg:max-w-6xl'>
+      <Header />
+      <main className='mx-auto mb-6 select-none  '>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 export default App;
