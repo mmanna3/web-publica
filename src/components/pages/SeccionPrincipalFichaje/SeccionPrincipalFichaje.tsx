@@ -1,12 +1,6 @@
 import { useState } from 'react';
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import FormularioFichaje from './FormularioFichaje';
 import MessageBox from '../../common/MessageBox';
-
-export interface IPaso {
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors<FieldValues>;
-}
 
 const SeccionPrincipalFichaje = () => {
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
@@ -22,7 +16,8 @@ const SeccionPrincipalFichaje = () => {
     return true;
   };
 
-  if (!estaLaSeccionHabilitada())
+  // if (!estaLaSeccionHabilitada())
+  if (false)
     return (
       <MessageBox type='info' large>
         El fichaje está deshabilitado.
