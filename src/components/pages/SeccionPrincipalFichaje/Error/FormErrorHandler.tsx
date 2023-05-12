@@ -15,7 +15,7 @@ const FormErrorHandler = ({ errors, name, nombre }: IError) => {
   else if (errors[name] && errors[name]?.type !== 'required')
     message = (errors[name] as any).message;
 
-  return <MessageBox type='error' message={message} />;
+  return <MessageBox type='error'>{message}</MessageBox>;
 };
 
 export default FormErrorHandler;

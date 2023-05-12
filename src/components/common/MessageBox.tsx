@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 interface IProps {
-  message: string;
+  children: ReactNode;
   large?: boolean;
   type: 'error' | 'success' | 'info';
 }
@@ -10,19 +12,19 @@ const backgroundByType = {
   info: 'bg-blue-600',
 };
 
-const MessageBox = ({ message, large, type }: IProps) => {
+const MessageBox = ({ children, large, type }: IProps) => {
   let sizeClasses = 'px-2 py-1 mt-2';
 
-  if (large) sizeClasses = 'mt-8 font-sans font-bold p-6 mx-10';
+  if (large) sizeClasses = 'mt-8 font-sans font-bold px-6 py-20 mx-10';
 
   return (
     <>
-      {message && (
-        <div className=''>
+      {children && (
+        <div className='font-sans'>
           <div
-            className={`rounded-md border   text-center text-white ${backgroundByType[type]} ${sizeClasses}`}
+            className={`rounded-xl border text-center text-white ${backgroundByType[type]} ${sizeClasses}`}
           >
-            {message}
+            {children}
           </div>
         </div>
       )}

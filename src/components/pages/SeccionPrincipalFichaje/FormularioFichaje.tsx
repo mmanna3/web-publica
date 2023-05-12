@@ -65,10 +65,9 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {huboAlgunError && (
               <div className='mb-2'>
-                <MessageBox
-                  type='error'
-                  message='¡Ups! Hubo algún error. Revisá tus datos y volvé a enviarlos.'
-                />
+                <MessageBox type='error'>
+                  ¡Ups! Hubo algún <strong>error</strong>. Revisá tus datos y volvé a enviarlos.
+                </MessageBox>
               </div>
             )}
 

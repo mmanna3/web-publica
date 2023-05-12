@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './SeccionPrincipalFichaje.module.css';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import FormularioFichaje from './FormularioFichaje';
 import MessageBox from '../../common/MessageBox';
@@ -23,40 +22,33 @@ const SeccionPrincipalFichaje = () => {
     return true;
   };
 
-  // if (!estaLaSeccionHabilitada())
-  if (false)
-    // if (true)
+  if (!estaLaSeccionHabilitada())
     return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeDeshabilitado}`}>
-            {/* El fichaje está <strong>deshabilitado.</strong> Los días habilitados para ficharse son lunes, martes, miércoles y jueves hasta las 20Hs. */}
-            El fichaje está <strong>deshabilitado</strong>.
-          </div>
-        </div>
-      </div>
+      <MessageBox type='info' large>
+        El fichaje está deshabilitado.
+      </MessageBox>
     );
   else if (mensajeExitoVisible)
     return (
-      <div className='flex'>
-        <div className=''>
-          <div className={`${styles.mensajeExitoResultadoDelPost}`}>
-            <strong>¡Tus datos se enviaron correctamente!</strong> Gracias por ficharte.
-            <div className={`${styles.margenDeArribaDelBoton} //bootstrap-align-items-center`}>
-              <button
-                onClick={() => mostrarMensajeExito(false)}
-                className={`py-auto py-auto-primary rounded-lg text-white ${styles.botonFicharOtroJugador}`}
-              >
-                Fichar otro jugador
-              </button>
-            </div>
+      <MessageBox type='info' large>
+        <>
+          ¡Tus datos se enviaron correctamente! Gracias por ficharte.
+          <div className='mt-6'>
+            <button
+              onClick={() => mostrarMensajeExito(false)}
+              className='rounded-lg bg-green-700 py-3 px-3 text-center text-white'
+            >
+              Fichar otro jugador
+            </button>
           </div>
-        </div>
-      </div>
+        </>
+      </MessageBox>
     );
   else if (mensajeErrorServidorVisible)
     return (
-      <MessageBox type='error' message='¡Ups! Hubo un error. Volvé a intentar más tarde.' large />
+      <MessageBox type='error' large>
+        ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
+      </MessageBox>
     );
   else if (spinnerVisible) return <>Ponele que soy un spinner</>;
   else
