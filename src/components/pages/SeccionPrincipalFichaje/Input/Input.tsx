@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './Input.module.css';
 // import bootstrap from "GlobalStyle/bootstrap.min.css";
 

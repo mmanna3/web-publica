@@ -1,4 +1,3 @@
-import styles from './SeccionPrincipalFichaje.module.css';
 import PasoInput from './PasoInput/PasoInput';
 import PasoCodigoEquipo from './PasoCodigoEquipo/PasoCodigoEquipo';
 import PasoFotoCarnet from './PasoFotoCarnet/PasoFotoCarnet';
@@ -6,13 +5,8 @@ import PasoFotoDocumento from './PasoFotoDocumento/PasoFotoDocumento';
 import PasoBotonEnviar from './PasoBotonEnviar/PasoBotonEnviar';
 import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
 import PasoDNI from './PasoDNI/PasoDNI';
-import { FieldErrors, FieldValues, UseFormRegister, useForm, FormProvider } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 import MessageBox from '../../common/MessageBox';
-
-export interface IPaso {
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors<FieldValues>;
-}
 
 interface IProps {
   showLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +17,7 @@ interface IProps {
 const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
   const methods = useForm();
 
-  const hacerElPost = async (data) => {
+  const hacerElPost = async (data: unknown) => {
     showLoading(true);
     fetch('https://www.edefi.com.ar/JugadorAutofichado/autofichaje', {
       method: 'POST',
@@ -60,8 +54,8 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
 
   return (
     <FormProvider {...methods}>
-      <div className={styles.seccionContainer + ' font-sans text-slate-100'}>
-        <div className={styles.seccion}>
+      <div className='flex justify-center font-sans text-slate-100'>
+        <div className='max-w-[360px]'>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {huboAlgunError && (
               <div className='mb-2'>
