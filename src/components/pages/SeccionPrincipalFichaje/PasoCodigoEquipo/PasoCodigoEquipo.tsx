@@ -64,7 +64,7 @@ const PasoCodigoEquipo = () => {
           <div className='w-1/2'>
             <button
               type='button'
-              className={'py-auto rounded-lg bg-green-700 text-center text-white'}
+              className='py-auto rounded-lg bg-green-700 text-center text-white'
               style={{ width: '100%' }}
               onClick={onValidarClick}
             >
@@ -74,9 +74,11 @@ const PasoCodigoEquipo = () => {
         </div>
         {yaValidoCodigoEquipo &&
           (codigoEquipoEsValido ? (
-            <MessageBox type='success' message={`Tu equipo es: ${nombreEquipo}`} />
+            <MessageBox type='success'>
+              Tu equipo es: <strong>{nombreEquipo}</strong>
+            </MessageBox>
           ) : (
-            <MessageBox type='error' message='El código es incorrecto' />
+            <MessageBox type='error'>El código es incorrecto</MessageBox>
           ))}
 
         <FormErrorHandler errors={errors} name='codigoAlfanumerico' nombre='código de equipo' />
