@@ -2,14 +2,14 @@ import { useState } from 'react';
 import EDEFI_LOGO from '../../assets/images/edefi-logo.svg';
 import { Link } from 'react-router-dom';
 
-interface Props {
+interface NavOpenLinksProps {
   path: string;
   content: string;
-  closeNav: () => void;
+  closeNav: () => void
 }
-const NavOpenLink = ({ path, content, closeNav }: Props) => {
+const NavOpenLink = ({ path, content, closeNav }: NavOpenLinksProps) => {
   return (
-    <li className='my-8 border-b border-gray-400 uppercase'>
+    <li className='border-b border-gray-400 uppercase'>
       <Link onClick={closeNav} to={path}>
         {content}
       </Link>
@@ -17,12 +17,24 @@ const NavOpenLink = ({ path, content, closeNav }: Props) => {
   );
 };
 
-export default function Header() {
+interface HeaderProps {
+  hideLayout: () => void;
+  showLayout: () => void
+}
+
+export default function Header({hideLayout, showLayout}: HeaderProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const isClosed = () => setIsNavOpen(false);
+  
+
+if(isNavOpen){
+  hideLayout()
+}else{
+  showLayout()
+}
 
   return (
-    <div className='mb-3 flex items-center justify-between py-4 px-4  gap-8'>
+    <div className='mb-3 flex items-center justify-between py-4 px-4 gap-8 '>
       <Link to='/'>
         <img className='w-14 sm:w-20 lg:w-24' src={EDEFI_LOGO} alt='edefi-logo' />
       </Link>
@@ -53,7 +65,7 @@ export default function Header() {
               </svg>
             </div>
 
-            <ul className='MENU-LINK-MOBILE-OPEN z-50 flex min-h-[250px] flex-col items-center justify-between'>
+            <ul className='MENU-LINK-MOBILE-OPEN z-50 flex h-[100vh] py-10 flex-col items-center justify-evenly'>
               <NavOpenLink closeNav={isClosed} path='/torneos' content='Torneos' />
               <NavOpenLink closeNav={isClosed} path='/copas' content='Copas' />
               <NavOpenLink closeNav={isClosed} path='/noticias' content='Noticias' />
@@ -76,6 +88,8 @@ export default function Header() {
           <Link to='/noticias'>Noticias</Link>
         </div>
       </nav>
+      {/* ShowMenuBar styles  */}
+      {/* height: 100%; */}
       <style>{`
       .hideMenuNav {
         display: none;
@@ -83,16 +97,11 @@ export default function Header() {
       .showMenuNav {
         display: block;
         position: absolute;
+        background: white;
         width: 100%;
-        height: 100vh;
         top: 0;
         left: 0;
-        background: white;
         z-index: 50;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
       }
     `}</style>
     </div>

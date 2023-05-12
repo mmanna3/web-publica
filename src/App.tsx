@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Header from './components/common/Header';
 import { SocialMediaIcons } from './components/common/SocialMediaIcons';
+import { useState } from 'react'
 
 export function loader() {
   console.log('soy el loader');
@@ -16,10 +17,14 @@ function App() {
 }
 
 export const Layout = () => {
+  const [isHidden, setIsHidden] = useState(false);
+  const showLayout = () => setIsHidden(false);
+  const hideLayout = () => setIsHidden(true);
+
   return (
     <div className='mx-auto sm:max-w-2xl lg:max-w-6xl'>
-      <Header />
-      <main className='mx-auto mb-6 select-none  '>
+      <Header  showLayout={showLayout} hideLayout={hideLayout} />
+      <main className={isHidden ? 'mx-auto mb-6 select-none hidden' : 'mx-auto mb-6 select-none block'}>
         <Outlet />
       </main>
     </div>
