@@ -3,7 +3,7 @@ import { BASE_URL } from '../globalConst';
 
 /* TRUCAZO! Typescript */
 export const useFetch = <TipoDeDato>(endpoint: string) => {
-  const [data, setData] = useState<TipoDeDato[] | TipoDeDato>([]);
+  const [data, setData] = useState<TipoDeDato | TipoDeDato[]>([]);
   const [isFetching, setIsFetching] = useState(true);
 
   async function doFetch() {
