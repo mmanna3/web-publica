@@ -112,6 +112,12 @@ export interface JornadaPorFecha {
 }
 
 /* CLUBES */
+export interface Clubes {
+  Titulo?: string;
+  Renglones: Club[];
+  TorneoId?: number;
+  ZonaId?: number;
+}
 export interface Club {
   Equipo: string;
   Escudo: string;
@@ -125,12 +131,6 @@ export interface Club {
   Telefono2?: number;
 }
 
-export interface Clubes {
-  Titulo?: string;
-  Renglones: Club[];
-  TorneoId?: number;
-  ZonaId?: number;
-}
 
 /* NOTICIAS */
 export interface Noticia {

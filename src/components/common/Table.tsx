@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { BASE_URL } from '../../globalConst';
 
 interface TableProps {
-  titulo: string;
+  titulo?: string;
   children: ReactNode;
 }
 
