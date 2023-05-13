@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { Spinner } from '../Spinner';
-import { RowContent, Table, TableRow, RowImg } from '../Table';
+import { RowContent, Table, TableRow } from '../Table';
 import { PosicionesDelTorneo, Tabla } from '../../../interfaces/api';
 
 /* //ESTE COMPONENTE SE VA A ENCARGAR DE FILTRAR LA DATA Y PASARSELA A LA TABLA GENERICA. */
