@@ -11,7 +11,7 @@ export const useFetch = <TipoDeDato>(endpoint: string) => {
 
     const json = await response.json();
 
-    console.log(json);
+    // console.log(json);
 
     setData(json);
     setIsFetching(false);

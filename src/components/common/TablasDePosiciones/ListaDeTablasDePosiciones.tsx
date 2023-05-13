@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch';
 import { Spinner } from '../Spinner';
-import {Table} from './Table';
+import { RowContent, Table, TableRow, RowImg } from '../Table';
 import { PosicionesDelTorneo, Tabla } from '../../../interfaces/api';
 
 /* //ESTE COMPONENTE SE VA A ENCARGAR DE FILTRAR LA DATA Y PASARSELA A LA TABLA GENERICA. */
@@ -14,17 +14,46 @@ export const ListaDeTablasDePosiciones = () => {
   if (isFetching) {
     return <Spinner />;
   }
+
   return (
     <div className='mx-auto grid gap-2 sm:grid-cols-2'>
       {TablasPorCategoria.map(({ CategoriaId, Categoria, Renglones }: Tabla) => (
-        <Table key={CategoriaId} categoria={Categoria} renglones={Renglones} />
+        <Table key={CategoriaId} titulo={Categoria}>
+          <thead>
+            <TableRow type={'tableHead'}>
+              <RowContent content={'Pos'} />
+              <RowContent content={'Esc'} />
+              <RowContent content={'Equipo'} />
+              <RowContent content={'J'} />
+              <RowContent content={'G'} />
+              <RowContent content={'E'} />
+              <RowContent content={'P'} />
+              <RowContent content={'Np'} />
+              <RowContent content={'Pts'} />
+            </TableRow>
+          </thead>
+          <tbody>
+            {Renglones.map(({ EquipoId, Posicion, Escudo, Equipo, Pj, Pg, Pe, Pp, Np, Pts }) => (
+              <TableRow key={EquipoId}>
+                <RowContent content={Posicion} />
+                <RowContent type={'Img'} content={Escudo} />
+                <RowContent content={Equipo} />
+                <RowContent content={Pj} />
+                <RowContent content={Pg} />
+                <RowContent content={Pe} />
+                <RowContent content={Pp} />
+                <RowContent content={Np} />
+                <RowContent content={Pts} />
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
       ))}
 
-      <Table
-        key={TablaGeneral?.CategoriaId}
-        categoria='General'
-        renglones={TablaGeneral?.Renglones}
-      />
+      {/* <Table key={TablaGeneral.CategoriaId} titulo='General'>
+        <TableHead columnNames={['Pos', 'Esc', 'Equipo', 'J', 'G', 'E', 'P', 'Np', 'Pts']} />
+        <tbody><TableRow row={TablaGeneral.Renglones[0]}/></tbody>
+      </Table> */}
     </div>
   );
 };
