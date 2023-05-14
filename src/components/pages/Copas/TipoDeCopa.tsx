@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../../common/hooks/useFetch';
 import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
-import { Spinner } from '../../common/Spinner'
+import { Spinner } from '../../common/Spinner';
 
 interface Props {
   tipo: 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga';

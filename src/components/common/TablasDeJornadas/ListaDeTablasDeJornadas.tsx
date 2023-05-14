@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../hooks/useFetch';
 import { Spinner } from '../Spinner';
 import { RowContent, Table, TableRow } from '../Table';
 import { JornadasDelTorneo } from '../../../interfaces/api';

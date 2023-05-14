@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../hooks/useFetch';
 import { Clubes, Renglon } from '../../../interfaces/api';
 import { Spinner } from '../Spinner';
 import { TablaDeClubes } from './TablaDeClubes';

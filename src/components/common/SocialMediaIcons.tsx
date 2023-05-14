@@ -18,7 +18,7 @@ interface IconProps {
 const Icon = ({ src, url }: IconProps) => {
   return (
     <a href={url} target='_blank' rel='noreferrer'>
-      <img className='w-8 bg-red-600' src={src} alt='instagram' />
+      <img className='w-8' src={src} alt='instagram' />
     </a>
   );
 };

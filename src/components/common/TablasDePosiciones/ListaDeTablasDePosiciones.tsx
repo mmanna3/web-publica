@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../hooks/useFetch';
 import { Spinner } from '../Spinner';
 import { RowContent, Table, TableRow } from '../Table';
 import { PosicionesDelTorneo, Renglon, Tabla } from '../../../interfaces/api';
@@ -9,7 +9,7 @@ import { PosicionesDelTorneo, Renglon, Tabla } from '../../../interfaces/api';
 export const ListaDeTablasDePosiciones = () => {
   const { zonaId } = useParams();
   const { data, isFetching } = useFetch(`/posiciones?zonaId=${zonaId}`);
-  const { TablaGeneral, TablasPorCategoria }:PosicionesDelTorneo = data;
+  const { TablaGeneral, TablasPorCategoria }: PosicionesDelTorneo = data;
 
   if (isFetching) {
     return <Spinner />;

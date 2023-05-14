@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BASE_URL } from '../globalConst';
+import { BASE_URL } from '../../../globalConst';
 
 /* TRUCAZO! Typescript */
 export const useFetch = <TipoDeDato>(endpoint: string) => {

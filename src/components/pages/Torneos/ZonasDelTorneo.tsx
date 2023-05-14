@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../../../hooks/useFetch';
+import { useFetch } from '../../common/hooks/useFetch';
 import { Zona } from '../../../interfaces/api';
 import { GenericButton } from '../../common/GenericButton';
-import { Spinner } from '../../common/Spinner'
+import { Spinner } from '../../common/Spinner';
 
 export const ZonasDelTorneo = () => {
   const { torneoId } = useParams();

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../common/hooks/useFetch';
 import { Noticia } from '../../interfaces/api';
 import { Spinner } from '../common/Spinner';
 
@@ -24,7 +24,7 @@ export const NoticiasPage = () => {
 
 const Card = ({ titulo, subtitulo, fecha, id }: Noticia) => {
   return (
-    <Link className='bg-slate-100 p-4 font-arial text-xs shadow-lg w-[80%]' to={`${id}`}>
+    <Link className='w-[80%] bg-slate-100 p-4 font-arial text-xs shadow-lg' to={`${id}`}>
       <div className='flex gap-2 text-sm'>
         <p className='text-green-600'>{fecha} |</p>
         <p className='font-bold underline'>{titulo}</p>
