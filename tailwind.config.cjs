@@ -18,8 +18,8 @@ module.exports = {
         'xs': '12px',
       },
       backgroundImage: {
-        'fondo-pc': "url('assets/images/desktop/fondo-pc.jpg')",
-        'fondo-celu': "url('assets/images/mobile/fondo-celu.jpg')",
+        'fondo-pc': "url('assets/images/desktop/fondo-pc.avif')",
+        'fondo-celu': "url('assets/images/mobile/fondo-celu.avif')",
       },
       colors: {
         'title-darkGreen': '#579e74',

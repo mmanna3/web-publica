@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import IMG_TORNEOS_TITLE from '../../../assets/images/titles/torneos-title.png';
-import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.png';
-import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.png';
-import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.png';
-import IMG_TORNEO_BABY from '../../../assets/images/mobile/img-baby.jpg';
-import IMG_TORNEO_FUTSAL from '../../../assets/images/mobile/img-futsal.jpg';
-import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.jpg';
+import IMG_TORNEOS_TITLE from '../../../assets/images/mobile/titles/torneos-title.png';
+import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.avif';
+import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.avif';
+import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.avif';
+import IMG_TORNEO_FUTSAL from '../../../assets/images/mobile/img-futsal.avif';
+import IMG_TORNEO_BABY from '../../../assets/images/mobile/img-baby.avif';
+import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.avif';
 
 export const TorneosPage = () => {
   return (

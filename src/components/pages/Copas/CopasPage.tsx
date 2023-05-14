@@ -1,4 +1,4 @@
-import IMG_COPAS_TITLE from '../../../assets/images/titles/copas-title.png';
+import IMG_COPAS_TITLE from '../../../assets/images/mobile/titles/copas-title.png';
 import IMG_COPA_EDEFI from '../../../assets/images/mobile/buttons/copa-edefi.png';
 import IMG_COPA_LIGA from '../../../assets/images/mobile/buttons/copa-liga.png';
 import { Link } from 'react-router-dom';

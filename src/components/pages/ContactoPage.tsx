@@ -1,5 +1,5 @@
-import IMG_CONTACTO_TITLE from '../../assets/images/titles/contacto-title.png';
-import SEGUINOS_CELU from '../../assets/images/mobile/seguinos-celu.png';
+import IMG_CONTACTO_TITLE from '../../assets/images/mobile/titles/contacto-title.png';
+import SEGUINOS_CELU from '../../assets/images/mobile/seguinos-celu.avif';
 
 interface Props {
   children: React.ReactNode;
