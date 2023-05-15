@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 interface NavOpenLinksProps {
   path: string;
   content: string;
-  closeNav: () => void
+  closeNav: () => void;
 }
 const NavOpenLink = ({ path, content, closeNav }: NavOpenLinksProps) => {
   return (
@@ -19,22 +19,21 @@ const NavOpenLink = ({ path, content, closeNav }: NavOpenLinksProps) => {
 
 interface HeaderProps {
   hideLayout: () => void;
-  showLayout: () => void
+  showLayout: () => void;
 }
 
-export default function Header({hideLayout, showLayout}: HeaderProps) {
+export const Header = ({ hideLayout, showLayout }: HeaderProps) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const isClosed = () => setIsNavOpen(false);
-  
 
-if(isNavOpen){
-  hideLayout()
-}else{
-  showLayout()
-}
+  if (isNavOpen) {
+    hideLayout();
+  } else {
+    showLayout();
+  }
 
   return (
-    <div className='mb-3 flex items-center justify-between py-4 px-4 gap-8 '>
+    <div className='mb-3 flex items-center justify-around gap-8 py-4 px-4 '>
       <Link to='/'>
         <img className='w-14 sm:w-20 lg:w-24' src={EDEFI_LOGO} alt='edefi-logo' />
       </Link>
@@ -65,10 +64,9 @@ if(isNavOpen){
               </svg>
             </div>
 
-            <ul className='MENU-LINK-MOBILE-OPEN z-50 flex h-[100vh] py-10 flex-col items-center justify-evenly'>
+            <ul className='MENU-LINK-MOBILE-OPEN z-50 flex h-[100vh] flex-col items-center justify-evenly py-10'>
               <NavOpenLink closeNav={isClosed} path='/torneos' content='Torneos' />
               <NavOpenLink closeNav={isClosed} path='/copas' content='Copas' />
-              <NavOpenLink closeNav={isClosed} path='/noticias' content='Noticias' />
               <NavOpenLink closeNav={isClosed} path='/nosotros' content='Nosotros' />
               <NavOpenLink closeNav={isClosed} path='/contacto' content='Contacto' />
               <NavOpenLink closeNav={isClosed} path='/fichaje' content='Fichaje' />
@@ -77,19 +75,16 @@ if(isNavOpen){
           </div>
         </section>
 
-        <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[7px]  lg:text-[14px] xl:text-[18px]'>
+        <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[10px]  lg:text-[14px]'>
           <Link to='/'>Inicio</Link>
           <Link to='/torneos'>Torneos</Link>
           <Link to='/copas'>Copas</Link>
-          <Link to='/noticias'>Noticias</Link>
           <Link to='/nosotros'>Nosotros</Link>
           <Link to='/contacto'>Contacto</Link>
           <Link to='/fichaje'>Fichaje</Link>
           <Link to='/noticias'>Noticias</Link>
         </div>
       </nav>
-      {/* ShowMenuBar styles  */}
-      {/* height: 100%; */}
       <style>{`
       .hideMenuNav {
         display: none;

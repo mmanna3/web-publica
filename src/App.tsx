@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import Header from './components/common/Header';
+import { Header } from './components/common/Header';
 import { SocialMediaIcons } from './components/common/SocialMediaIcons';
-import { useState } from 'react'
+import { useState } from 'react';
 
 export function loader() {
   console.log('soy el loader');
@@ -9,7 +9,7 @@ export function loader() {
 
 function App() {
   return (
-    <div className='mx-auto flex max-h-fit min-h-screen flex-col justify-between bg-fondo-celu bg-cover bg-no-repeat xl:bg-fondo-pc'>
+    <div className='mx-auto flex max-h-fit min-h-screen flex-col justify-between bg-fondo-celu bg-cover bg-no-repeat sm:bg-fondo-pc'>
       <Layout />
       <SocialMediaIcons />
     </div>
@@ -22,9 +22,11 @@ export const Layout = () => {
   const hideLayout = () => setIsHidden(true);
 
   return (
-    <div className='mx-auto xs:w-[90%] sm:max-w-2xl lg:max-w-6xl'>
-      <Header  showLayout={showLayout} hideLayout={hideLayout} />
-      <main className={isHidden ? 'mx-auto mb-6 select-none hidden' : 'mx-auto mb-6 select-none block'}>
+    <div className='mx-auto  sm:max-w-4xl lg:max-w-7xl xl:max-w-[1500px]'>
+      <Header showLayout={showLayout} hideLayout={hideLayout} />
+      <main
+        className={isHidden ? 'mx-auto mb-6 hidden select-none' : 'mx-auto mb-6 block select-none'}
+      >
         <Outlet />
       </main>
     </div>
