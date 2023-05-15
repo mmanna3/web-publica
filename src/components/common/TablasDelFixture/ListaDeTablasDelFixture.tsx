@@ -15,28 +15,28 @@ export const ListaDeTablasDelFixture = () => {
   const fechas: FechaDelFixture[] = [...data.Fechas];
 
   return (
-    <div className='mx-auto grid gap-2 sm:grid-cols-2'>
+    <>
       {fechas.map(({ Titulo, DiaDeLaFecha, LocalVisitante }) => (
-        <Table key={DiaDeLaFecha} titulo={Titulo}>
-          <thead>
-            <TableRow type='tableHead'>
-              <RowContent content={Titulo} />
-              <RowContent content={DiaDeLaFecha} />
-            </TableRow>
-          </thead>
-          <tbody>
-            {LocalVisitante.map(({ Local, Visitante, EscudoLocal, EscudoVisitante }, i) => (
-              <TableRow key={i}>
-                <RowContent content={EscudoLocal} type='Img' />
-                <RowContent content={Local} />
-                <RowContent content={'vs.'} />
-                <RowContent content={Visitante} />
-                <RowContent content={EscudoVisitante} type='Img' />
-              </TableRow>
-            ))}
-          </tbody>
-        </Table>
+        <>
+          <tr className=' flex justify-between bg-[#101010] text-xl text-white'>
+          <RowContent content={Titulo}/>
+          <RowContent content={DiaDeLaFecha}/>
+          </tr>
+          <Table key={DiaDeLaFecha}>
+            <tbody>
+              {LocalVisitante.map(({ Local, Visitante, EscudoLocal, EscudoVisitante }, i) => (
+                <TableRow key={i}>
+                  <RowContent content={EscudoLocal} type='Img' />
+                  <RowContent content={Local} />
+                  <RowContent content={'vs.'} />
+                  <RowContent content={Visitante} />
+                  <RowContent content={EscudoVisitante} type='Img' />
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+        </>
       ))}
-    </div>
+    </>
   );
 };

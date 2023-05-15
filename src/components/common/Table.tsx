@@ -24,7 +24,7 @@ interface TableRowProps {
 
 export const TableRow = ({ children, type }: TableRowProps) => {
   return type === 'tableHead' ? (
-    <tr className='w-[100%] bg-[#101010] text-xl text-white'>{children}</tr>
+    <tr className='bg-[#101010] text-xl text-white'>{children}</tr>
   ) : (
     <tr className='border border-slate-200'>{children}</tr>
   );
