@@ -1,6 +1,7 @@
 import IMG_COPAS_TITLE from '../../../assets/images/mobile/titles/copas-title.png';
-import IMG_COPA_EDEFI from '../../../assets/images/mobile/buttons/copa-edefi.png';
-import IMG_COPA_LIGA from '../../../assets/images/mobile/buttons/copa-liga.png';
+import IMG_COPA_EDEFI from '../../../assets/images/mobile/buttons/copa-edefi.avif';
+import IMG_COPA_LIGA from '../../../assets/images/mobile/buttons/copa-liga.avif';
+import IMG_TORNEO_VERANO from '../../../assets/images/mobile/buttons/torneo-verano.avif';
 import { Link } from 'react-router-dom';
 
 export const CopasPage = () => {
@@ -20,7 +21,7 @@ export const CopasPage = () => {
           to='/copas/torneoverano'
           className='flex items-center md:flex-col-reverse'
         >
-          <img className='w-56 md:w-72 lg:w-96' src={IMG_COPA_EDEFI} alt='Torneo verano' />
+          <img className='w-56 md:w-72 lg:w-96' src={IMG_TORNEO_VERANO} alt='Torneo verano' />
         </Link>
         <Link
           key='copa-liga'
