@@ -12,7 +12,7 @@ export const NoticiasPage = () => {
 
   return (
     <>
-      <h2 className='my-6 text-center text-3xl font-bold underline'>Noticias</h2>
+      {/* <h2 className='my-6 text-center text-3xl font-bold underline'>Noticias</h2> */}
       <div className='mx-auto flex flex-col items-center gap-4 p-4'>
         {data.map(({ id, titulo, subtitulo, fecha }) => (
           <Card key={id} titulo={titulo} subtitulo={subtitulo} fecha={fecha} id={id}></Card>

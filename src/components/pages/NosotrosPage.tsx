@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import IMG_NOSOTROS_TITLE from '../../assets/images/mobile/titles/nosotros-title.png';
+import IMG_NOSOTROS_TITLE from '../../assets/images/mobile/titles/nosotros-title.avif';
 import { Title } from '../common/Title';
 
 interface Props {
@@ -15,7 +15,7 @@ export const NosotrosPage = () => {
       <Title img={IMG_NOSOTROS_TITLE} alt='Nosotros' />
       <div className='mx-6 md:mx-20'>
         <h2 className='mb-6 mt-12 text-title-darkGreen md:text-xl lg:text-3xl '>Quiénes somos</h2>
-        <div className=' rounded-xl bg-gradient-to-tl from-title-darkGreen to-slate-100 p-6 text-justify text-sm opacity-70 sm:p-8 md:text-lg lg:p-14 lg:text-2xl '>
+        <div className=' rounded-md bg-gradient-to-tl from-title-darkGreen to-slate-100 p-6 text-justify text-sm opacity-70 sm:p-8 md:text-lg lg:p-14 lg:text-2xl '>
           <div className='mb-10'>
             <Text>
               Nuestra Liga es dirigida por Profesores de Educación Física, donde además de ser

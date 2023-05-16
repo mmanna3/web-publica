@@ -1,5 +1,5 @@
-import IG_ICON from '../../assets/images/icons/ig-icon.png';
-import WP_ICON from '../../assets/images/icons/wp-icon.png';
+import IG_ICON from '../../assets/images/icons/ig-icon.avif';
+import WP_ICON from '../../assets/images/icons/wp-icon.avif';
 
 export const SocialMediaIcons = () => {
   return (
