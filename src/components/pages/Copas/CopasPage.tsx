@@ -2,34 +2,17 @@ import IMG_COPAS_TITLE from '../../../assets/images/mobile/titles/copas-title.pn
 import IMG_COPA_EDEFI from '../../../assets/images/mobile/buttons/copa-edefi.avif';
 import IMG_COPA_LIGA from '../../../assets/images/mobile/buttons/copa-liga.avif';
 import IMG_TORNEO_VERANO from '../../../assets/images/mobile/buttons/torneo-verano.avif';
-import { Link } from 'react-router-dom';
+import { Title } from '../../common/Title';
+import { ImageBtn } from '../../common/ImageBtn';
 
 export const CopasPage = () => {
   return (
     <>
-      <img className='mx-auto lg:max-w-4xl' src={IMG_COPAS_TITLE} alt='Copas' />
-      <div className='my-16 flex flex-col items-center gap-8 lg:flex-row lg:justify-center'>
-        <Link
-          key='copa-edefi'
-          to='/copas/copaedefi'
-          className='flex items-center md:flex-col-reverse'
-        >
-          <img className='w-56 md:w-72 lg:w-96' src={IMG_COPA_EDEFI} alt='Copa EDEFI' />
-        </Link>
-        <Link
-          key='torneo-verano'
-          to='/copas/torneoverano'
-          className='flex items-center md:flex-col-reverse'
-        >
-          <img className='w-56 md:w-72 lg:w-96' src={IMG_TORNEO_VERANO} alt='Torneo verano' />
-        </Link>
-        <Link
-          key='copa-liga'
-          to='/copas/delaliga'
-          className='flex items-center md:flex-col-reverse'
-        >
-          <img className='w-56 md:w-72 lg:w-96' src={IMG_COPA_LIGA} alt='Copas de la liga' />
-        </Link>
+      <Title img={IMG_COPAS_TITLE} alt='Copas' />
+      <div className='mx-auto flex flex-col items-center gap-8 xl:flex-row xl:justify-center px-16 xl:p-4 xl:max-w-7xl max-w-md'>
+        <ImageBtn img={IMG_COPA_EDEFI} alt='Copa Edefi' url='/copas/copaedefi' />
+        <ImageBtn img={IMG_TORNEO_VERANO} alt='Torneos de verano' url='/copas/torneoverano' />
+        <ImageBtn img={IMG_COPA_LIGA} alt='Copas de la liga' url='/copas/delaliga' />
       </div>
     </>
   );
