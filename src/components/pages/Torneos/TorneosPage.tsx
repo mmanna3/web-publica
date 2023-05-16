@@ -6,44 +6,37 @@ import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbo
 import IMG_TORNEO_FUTSAL from '../../../assets/images/mobile/img-futsal.avif';
 import IMG_TORNEO_BABY from '../../../assets/images/mobile/img-baby.avif';
 import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.avif';
+import { Title } from '../../common/Title';
+import { ImageBtn } from '../../common/ImageBtn';
 
 export const TorneosPage = () => {
   return (
     <>
-     
-      <img className='mx-auto mb-5 lg:max-w-4xl' src={IMG_TORNEOS_TITLE} alt='Torneos' />
-      <div className='flex flex-col items-center gap-6 lg:flex-row lg:justify-center'>
-        <Link key='futsal' to='/torneos/futsal' className='flex items-center md:flex-col-reverse'>
-          <img
-            className='mr-2 h-8 w-20 md:mt-3 md:h-12 md:w-40'
-            src={BTN_TORNEO_FUTSAL}
-            alt='Torneo-futsal'
-          />
-          <img className='w-48 md:w-64 lg:h-44' src={IMG_TORNEO_FUTSAL} alt='Torneo-futsal' />
-        </Link>
-        <Link key='baby' to='/torneos/baby' className='flex items-center md:flex-col-reverse'>
-          <img
-            className='mr-2 h-8 w-20 md:mt-3 md:h-12 md:w-40'
-            src={BTN_TORNEO_BABY}
-            alt='Torneo-baby'
-          />
-          <img className='w-48 md:w-64 lg:h-44' src={IMG_TORNEO_BABY} alt='Torneo-baby' />
-        </Link>
-        <Link
-          key='futbol-11'
-          to='/torneos/futbol-11'
-          className='flex items-center md:flex-col-reverse'
+      <Title alt='Torneos' img={IMG_TORNEOS_TITLE} />
+      <div className='flex flex-col items-center gap-6  xl:p-10 lg:justify-center xl:flex-row '>
+        <div
+          key='futsal'
+          className='flex items-center space-x-2   px-[10%] xl:flex-col-reverse xl:px-0'
         >
-          <img
-            className='mr-2 h-8 w-20 md:mt-3 md:h-12 md:w-40'
-            src={BTN_TORNEO_FUTBOL11}
-            alt='Torneo-futbol11'
-          />
-          <img className='w-48 md:w-64 lg:h-44' src={IMG_TORNEO_FUTBOL11} alt='Torneo-futbol11' />
-        </Link>
+          <ImageBtn img={BTN_TORNEO_FUTSAL} alt='Futsal' url='/torneos/futsal' style='xl:p-14' />
+          <ImageBtn img={IMG_TORNEO_FUTSAL} alt='Futsal-image' url='/torneos/futsal' />
+        </div>
+        <div
+          key='baby'
+          className='flex items-center space-x-2 px-[10%]  xl:flex-col-reverse xl:px-0'
+        >
+          <ImageBtn img={BTN_TORNEO_BABY} alt='baby-image' url='/torneos/baby' style='xl:p-14' />
+          <ImageBtn img={IMG_TORNEO_BABY} alt='baby' url='/torneos/baby'  />
+        </div>
+        <div
+          key='futbol-11'
+          className='flex items-center space-x-2 px-[10%]  xl:flex-col-reverse xl:px-0'
+          
+        >
+          <ImageBtn img={BTN_TORNEO_FUTBOL11} alt='futbol 11 image' url='/torneos/futbol -11' style='xl:p-14' />
+          <ImageBtn img={IMG_TORNEO_FUTBOL11} alt='futbol 11' url='/torneos/futbol-11'  />
+        </div>
       </div>
     </>
   );
 };
-
-export default TorneosPage;

@@ -4,11 +4,12 @@ type myButtonProps = {
   img: string;
   alt: string;
   url: string;
+  style?: string;
 };
-export const ImageBtn = ({ img, alt, url }: myButtonProps) => {
+export const ImageBtn = ({ img, alt, url, style }: myButtonProps) => {
   return (
     <Link to={url}>
-      <img src={img} alt={alt} className='w-52 sm:w-72 lg:w-96' />
+      <img src={img} alt={alt} className={style} />
     </Link>
   );
 };
