@@ -33,7 +33,7 @@ export const Header = ({ hideLayout, showLayout }: HeaderProps) => {
   }
 
   return (
-    <div className='flex items-center justify-between gap-8 py-4 px-4 '>
+    <div className='flex items-center justify-between gap-8 py-4 px-4 mb-4'>
       <Link to='/'>
         <img className='w-14 sm:w-20 lg:w-24' src={EDEFI_LOGO} alt='edefi-logo' />
       </Link>

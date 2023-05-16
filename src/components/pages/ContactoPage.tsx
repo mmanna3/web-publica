@@ -42,7 +42,6 @@ export const ContactoPage = () => {
           <Content>edefiargentina@hotmail.com</Content>
         </Text>
       </div>
-      img
       <img className='m-auto w-40 md:w-52 lg:w-64' src={SEGUINOS_CELU} alt='Seguinos' />
     </>
   );

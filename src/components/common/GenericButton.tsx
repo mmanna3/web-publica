@@ -9,7 +9,7 @@ export const GenericButton = ({ path, content }: Props) => {
   return (
     <Link
       to={path}
-      className='w-80 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl md:w-80'
+      className='w-72 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl'
     >
       {content}
     </Link>

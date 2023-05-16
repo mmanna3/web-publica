@@ -3,6 +3,7 @@ import { useFetch } from '../../common/hooks/useFetch';
 import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
 import { Spinner } from '../../common/Spinner';
+import { GenericButton } from '../../common/GenericButton';
 
 interface Props {
   tipo: 'baby' | 'futsal' | 'futbol11';
@@ -19,13 +20,7 @@ export const TipoDeTorneo = ({ tipo }: Props) => {
     <>
       <div className='flex flex-col items-center gap-10'>
         {filterTorneosByType(data, tipo).map(({ id, descripcion }) => (
-          <Link
-            key={id}
-            to={`/torneo/${id}/zonas`}
-            className='w-52 rounded-lg bg-title-darkGreen py-10 text-center text-white shadow-xl md:w-80'
-          >
-            {descripcion}
-          </Link>
+          <GenericButton key={id} path={`/torneo/${id}/zonas`} content={descripcion} />
         ))}
       </div>
     </>

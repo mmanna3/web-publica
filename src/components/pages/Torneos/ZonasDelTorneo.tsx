@@ -16,8 +16,8 @@ export const ZonasDelTorneo = () => {
   }
 
   return (
-    <main className='flex justify-center'>
-      <div className='mt-[5%] flex flex-col items-center gap-5'>
+    <>
+      <div className='flex flex-col items-center gap-10'>
         {data.map((zona) => (
           <GenericButton
             key={getZonaId(zona)}
@@ -26,6 +26,6 @@ export const ZonasDelTorneo = () => {
           />
         ))}
       </div>
-    </main>
+    </>
   );
 };
