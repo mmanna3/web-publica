@@ -25,14 +25,14 @@ jobs:
       - name: Build project
         run: npx vite build
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: 174.138.184.42
-        username: webpublica
-        password: ${{ secrets.ftp_password }}
-        local-dir: ./dist/
-        server-dir: WebPublica
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 174.138.184.42
+          username: webpublica
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./dist/
+          server-dir: WebPublica
 
       # - name: Upload production-ready build files
       #   uses: actions/upload-artifact@v2
