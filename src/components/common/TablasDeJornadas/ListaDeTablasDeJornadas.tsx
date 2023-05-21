@@ -22,11 +22,9 @@ export const ListaDeTablasDeJornadas = () => {
               <RowContent content={''} />
               <RowContent content={'Esc'} />
               <RowContent content={'Equipo'} />
-              <RowContent content={'1ra'} />
-              <RowContent content={'Rva.'} />
-              <RowContent content={'3ra'} />
-              <RowContent content={'4ta'} />
-              <RowContent content={'5ta'} />
+              {jornadas.Categorias.map(({ Nombre, Id }) => (
+                <RowContent key={Id} content={Nombre} />
+              ))}
               <RowContent content={'T.P.'} />
               <RowContent content={'P.J.'} />
               <RowContent content={'V'} />
