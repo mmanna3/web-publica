@@ -4,7 +4,6 @@ import Input from '../Input/Input';
 import { useFormContext } from 'react-hook-form';
 import MessageBox from '../../../common/MessageBox';
 import FormErrorHandler from '../Error/FormErrorHandler';
-import SuccessMessage from '../../../common/SuccessMessage';
 
 const PasoCodigoEquipo = () => {
   const [codigoEquipo, setCodigoEquipo] = useState<string>();
