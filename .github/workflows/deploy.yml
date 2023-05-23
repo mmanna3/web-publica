@@ -32,7 +32,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: 174.138.184.42
-          username: edeficom
+          username: webpublica
           password: ${{ secrets.ftp_password }}
           local-dir: ./dist/
           server-dir: WebPublica/
