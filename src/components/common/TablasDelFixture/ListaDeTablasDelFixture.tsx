@@ -18,10 +18,10 @@ export const ListaDeTablasDelFixture = () => {
     <>
       {fechas.map(({ Titulo, DiaDeLaFecha, LocalVisitante }) => (
         <>
-          <tr className=' flex justify-between bg-[#101010] text-xl text-white'>
-            <RowContent content={Titulo} />
-            <RowContent content={DiaDeLaFecha} />
-          </tr>
+          <div className='mb-[-8px] flex justify-between bg-[#101010] text-xl text-white'>
+            <RowContent content={' ' + Titulo} />
+            <RowContent content={DiaDeLaFecha + ' '} />
+          </div>
           <Table key={DiaDeLaFecha}>
             <tbody>
               {LocalVisitante.map(({ Local, Visitante, EscudoLocal, EscudoVisitante }, i) => (
