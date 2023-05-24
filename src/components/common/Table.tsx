@@ -20,7 +20,7 @@ export function Table({ titulo, children }: TableProps) {
 interface TableRowProps {
   children: ReactNode;
   type?: 'tableHead';
-  className: string;
+  className?: string;
 }
 
 export const TableRow = ({ children, type, className }: TableRowProps) => {
