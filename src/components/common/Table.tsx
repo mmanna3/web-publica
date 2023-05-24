@@ -24,7 +24,7 @@ interface TableRowProps {
 
 export const TableRow = ({ children, type }: TableRowProps) => {
   return type === 'tableHead' ? (
-    <tr className='bg-[#101010] text-xl text-white border-'>{children}</tr>
+    <tr className='border- bg-[#101010] text-xl text-white'>{children}</tr>
   ) : (
     <tr className='border border-slate-600'>{children}</tr>
   );
@@ -37,10 +37,10 @@ interface RowContentProps {
 
 export const RowContent = ({ content, type }: RowContentProps) => {
   return type === 'Img' ? (
-    <td className='border border-slate-600'>
+    <td className='border-b-1 border-slate-600'>
       <img className='mx-auto w-[30px]' src={`${BASE_URL}${content}`} alt='escudo' />
     </td>
   ) : (
-    <td className='border border-slate-600'>{content}</td>
+    <td className='border-b-1 border-slate-600'>{content}</td>
   );
 };
