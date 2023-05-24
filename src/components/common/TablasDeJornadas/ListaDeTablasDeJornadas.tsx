@@ -45,17 +45,22 @@ export const ListaDeTablasDeJornadas = () => {
                 },
                 i,
               ) => (
-                <TableRow key={JornadaId * i}>
-                  <RowContent content={JornadaNumero} />
-                  <RowContent type={'Img'} content={Escudo} />
-                  <RowContent content={Equipo} />
-                  {ResultadosPorCategorias.map(({ Goles, Orden }, i) => (
-                    <RowContent key={Orden * i} content={Goles} />
-                  ))}
-                  <RowContent content={PuntosTotales} />
-                  <RowContent content={PartidosJugados} />
-                  <RowContent content={PartidoVerificado} />
-                </TableRow>
+                <>
+                  <TableRow
+                    key={JornadaId * i}
+                    className={(i + 1) % 2 == 0 ? 'border-b-black' : ''}
+                  >
+                    <RowContent content={JornadaNumero} />
+                    <RowContent type={'Img'} content={Escudo} />
+                    <RowContent content={Equipo} />
+                    {ResultadosPorCategorias.map(({ Goles, Orden }, i) => (
+                      <RowContent key={Orden * i} content={Goles} />
+                    ))}
+                    <RowContent content={PuntosTotales} />
+                    <RowContent content={PartidosJugados} />
+                    <RowContent content={PartidoVerificado} />
+                  </TableRow>
+                </>
               ),
             )}
           </tbody>

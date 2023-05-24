@@ -20,13 +20,14 @@ export function Table({ titulo, children }: TableProps) {
 interface TableRowProps {
   children: ReactNode;
   type?: 'tableHead';
+  className: string;
 }
 
-export const TableRow = ({ children, type }: TableRowProps) => {
+export const TableRow = ({ children, type, className }: TableRowProps) => {
   return type === 'tableHead' ? (
     <tr className='bg-[#101010] text-[15px] text-white'>{children}</tr>
   ) : (
-    <tr className='border border-slate-300 text-[14px]'>{children}</tr>
+    <tr className={'border border-slate-300 text-[14px] ' + className}>{children}</tr>
   );
 };
 
