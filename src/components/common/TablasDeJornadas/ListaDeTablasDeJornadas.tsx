@@ -19,7 +19,7 @@ export const ListaDeTablasDeJornadas = () => {
         <Table key={FechaId} titulo={`${FechaNumero}`}>
           <thead>
             <TableRow type={'tableHead'}>
-              <RowContent content={''} />
+              <RowContent content={'   '} />
               <RowContent content={'Esc'} />
               <RowContent content={'Equipo'} />
               {jornadas.Categorias.map(({ Nombre, Id }) => (
@@ -27,7 +27,7 @@ export const ListaDeTablasDeJornadas = () => {
               ))}
               <RowContent content={'T.P.'} />
               <RowContent content={'P.J.'} />
-              <RowContent content={'V'} />
+              <RowContent content={' V '} />
             </TableRow>
           </thead>
           <tbody>
