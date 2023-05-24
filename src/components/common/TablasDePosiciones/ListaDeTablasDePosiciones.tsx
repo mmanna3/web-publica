@@ -77,12 +77,33 @@ export const ListaDeTablasDePosiciones = () => {
             <RowContent content={'E'} />
             <RowContent content={'P'} />
             <RowContent content={'Np'} />
+            {VerGoles && (
+              <>
+                <RowContent content={'Gf'} />
+                <RowContent content={'Gc'} />
+                <RowContent content={'Df'} />
+              </>
+            )}
             <RowContent content={'Pts'} />
           </TableRow>
         </thead>
         <tbody>
           {TablaGeneral.Renglones.map(
-            ({ EquipoId, Posicion, Escudo, Equipo, Pj, Pg, Pe, Pp, Np, Pts }: Renglon) => (
+            ({
+              EquipoId,
+              Posicion,
+              Escudo,
+              Equipo,
+              Pj,
+              Pg,
+              Pe,
+              Pp,
+              Np,
+              Gf,
+              Gc,
+              Df,
+              Pts,
+            }: Renglon) => (
               <TableRow key={EquipoId}>
                 <RowContent content={Posicion} />
                 <RowContent type={'Img'} content={Escudo} />
@@ -92,7 +113,13 @@ export const ListaDeTablasDePosiciones = () => {
                 <RowContent content={Pe} />
                 <RowContent content={Pp} />
                 <RowContent content={Np} />
-                {VerGoles === true && <RowContent content={Np} />}
+                {VerGoles && (
+                  <>
+                    <RowContent content={Gf} />
+                    <RowContent content={Gc} />
+                    <RowContent content={Df} />
+                  </>
+                )}
                 <RowContent content={Pts} />
               </TableRow>
             ),
