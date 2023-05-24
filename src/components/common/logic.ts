@@ -2,7 +2,7 @@ import { Torneo } from '../../interfaces/api';
 
 const tiposDeTorneo = {
   baby: ['MATUTINO', 'VESPERTINO'],
-  futsal: ['FUTSAL'],
+  futsal: ['FUTSAL', 'FEMENINO'],
   futbol11: ['FUTBOL 11'],
   copaEdefi: ['COPA EDEFI'],
   torneoDeVerano: ['TORNEO DE VERANO'],
