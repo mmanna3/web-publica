@@ -9,7 +9,7 @@ import { PosicionesDelTorneo, Renglon, Tabla } from '../../../interfaces/api';
 export const ListaDeTablasDePosiciones = () => {
   const { zonaId } = useParams();
   const { data, isFetching } = useFetch(`/posiciones?zonaId=${zonaId}`);
-  const { TablaGeneral, TablasPorCategoria }: PosicionesDelTorneo = data;
+  const { TablaGeneral, TablasPorCategoria, VerGoles }: PosicionesDelTorneo = data;
 
   if (isFetching) {
     return <Spinner />;
@@ -29,23 +29,39 @@ export const ListaDeTablasDePosiciones = () => {
               <RowContent content={'E'} />
               <RowContent content={'P'} />
               <RowContent content={'Np'} />
+              {VerGoles && (
+                <>
+                  <RowContent content={'Gf'} />
+                  <RowContent content={'Gc'} />
+                  <RowContent content={'Df'} />
+                </>
+              )}
               <RowContent content={'Pts'} />
             </TableRow>
           </thead>
           <tbody>
-            {Renglones.map(({ EquipoId, Posicion, Escudo, Equipo, Pj, Pg, Pe, Pp, Np, Pts }) => (
-              <TableRow key={EquipoId}>
-                <RowContent content={Posicion} />
-                <RowContent type={'Img'} content={Escudo} />
-                <RowContent content={Equipo} />
-                <RowContent content={Pj} />
-                <RowContent content={Pg} />
-                <RowContent content={Pe} />
-                <RowContent content={Pp} />
-                <RowContent content={Np} />
-                <RowContent content={Pts} />
-              </TableRow>
-            ))}
+            {Renglones.map(
+              ({ EquipoId, Posicion, Escudo, Equipo, Pj, Pg, Pe, Pp, Np, Gf, Gc, Df, Pts }) => (
+                <TableRow key={EquipoId}>
+                  <RowContent content={Posicion} />
+                  <RowContent type={'Img'} content={Escudo} />
+                  <RowContent content={Equipo} />
+                  <RowContent content={Pj} />
+                  <RowContent content={Pg} />
+                  <RowContent content={Pe} />
+                  <RowContent content={Pp} />
+                  <RowContent content={Np} />
+                  {VerGoles && (
+                    <>
+                      <RowContent content={Gf} />
+                      <RowContent content={Gc} />
+                      <RowContent content={Df} />
+                    </>
+                  )}
+                  <RowContent content={Pts} />
+                </TableRow>
+              ),
+            )}
           </tbody>
         </Table>
       ))}
@@ -76,6 +92,7 @@ export const ListaDeTablasDePosiciones = () => {
                 <RowContent content={Pe} />
                 <RowContent content={Pp} />
                 <RowContent content={Np} />
+                {VerGoles === true && <RowContent content={Np} />}
                 <RowContent content={Pts} />
               </TableRow>
             ),
