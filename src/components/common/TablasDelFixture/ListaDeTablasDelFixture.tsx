@@ -19,8 +19,8 @@ export const ListaDeTablasDelFixture = () => {
       {fechas.map(({ Titulo, DiaDeLaFecha, LocalVisitante }) => (
         <>
           <tr className=' flex justify-between bg-[#101010] text-xl text-white'>
-          <RowContent content={Titulo}/>
-          <RowContent content={DiaDeLaFecha}/>
+            <RowContent content={Titulo} />
+            <RowContent content={DiaDeLaFecha} />
           </tr>
           <Table key={DiaDeLaFecha}>
             <tbody>
