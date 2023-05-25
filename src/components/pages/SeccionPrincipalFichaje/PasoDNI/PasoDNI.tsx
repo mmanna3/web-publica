@@ -2,6 +2,7 @@ import Label from '../Label/Label';
 import Input from '../Input/Input';
 import FormErrorHandler from '../Error/FormErrorHandler';
 import { useFormContext } from 'react-hook-form';
+import { BASE_URL } from '../../../../globalConst';
 
 const PasoDNI = () => {
   const {
@@ -10,7 +11,7 @@ const PasoDNI = () => {
   } = useFormContext();
 
   const jugadorYaEstaFichado = async (dni: number) => {
-    return fetch(`https://www.edefi.com.ar/publico/elDniEstaFichado?dni=${dni}`)
+    return fetch(`${BASE_URL}/publico/elDniEstaFichado?dni=${dni}`)
       .then((response) => response.json())
       .then((data) => data)
       .catch(() => false);

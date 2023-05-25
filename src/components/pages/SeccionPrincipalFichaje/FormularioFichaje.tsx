@@ -7,6 +7,7 @@ import PasoFechaNacimiento from './PasoFechaNacimiento/PasoFechaNacimiento';
 import PasoDNI from './PasoDNI/PasoDNI';
 import { useForm, FormProvider } from 'react-hook-form';
 import MessageBox from '../../common/MessageBox';
+import { BASE_URL } from '../../../globalConst';
 
 interface IProps {
   showLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +20,7 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
 
   const hacerElPost = async (data: unknown) => {
     showLoading(true);
-    fetch('https://www.edefi.com.ar/JugadorAutofichado/autofichaje', {
+    fetch(`${BASE_URL}/JugadorAutofichado/autofichaje`, {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',

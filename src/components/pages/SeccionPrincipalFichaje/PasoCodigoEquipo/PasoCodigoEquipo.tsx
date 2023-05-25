@@ -4,6 +4,7 @@ import Input from '../Input/Input';
 import { useFormContext } from 'react-hook-form';
 import MessageBox from '../../../common/MessageBox';
 import FormErrorHandler from '../Error/FormErrorHandler';
+import { BASE_URL } from '../../../../globalConst';
 
 const PasoCodigoEquipo = () => {
   const [codigoEquipo, setCodigoEquipo] = useState<string>();
@@ -22,7 +23,7 @@ const PasoCodigoEquipo = () => {
 
   const validar = async () => {
     return fetch(
-      `https://www.edefi.com.ar/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`,
+      `${BASE_URL}/publico/obtenerNombreDelEquipo?codigoAlfanumerico=${codigoEquipo}`,
     )
       .then((response) => response.json())
       .then((data) => {
