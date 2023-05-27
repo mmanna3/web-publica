@@ -9,13 +9,13 @@ interface IProps {
 const backgroundByType = {
   error: 'bg-red-600',
   success: 'bg-green-600',
-  info: 'bg-blue-600',
+  info: 'bg-blue-500',
 };
 
 const MessageBox = ({ children, large, type }: IProps) => {
   let sizeClasses = 'px-2 py-1 mt-2';
 
-  if (large) sizeClasses = 'mt-8 font-sans font-bold px-6 py-20 mx-10';
+  if (large) sizeClasses = 'mt-8 text-lg font-sans font-bold px-6 py-20 mx-10';
 
   return (
     <>

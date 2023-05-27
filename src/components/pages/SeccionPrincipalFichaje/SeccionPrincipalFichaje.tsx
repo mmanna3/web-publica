@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FormularioFichaje from './FormularioFichaje';
 import MessageBox from '../../common/MessageBox';
+import { Spinner } from '../../common/Spinner';
 
 const SeccionPrincipalFichaje = () => {
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
@@ -16,8 +17,7 @@ const SeccionPrincipalFichaje = () => {
     return true;
   };
 
-  // if (!estaLaSeccionHabilitada())
-  if (false)
+  if (!estaLaSeccionHabilitada())
     return (
       <MessageBox type='info' large>
         El fichaje está deshabilitado.
@@ -45,7 +45,7 @@ const SeccionPrincipalFichaje = () => {
         ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
       </MessageBox>
     );
-  else if (spinnerVisible) return <>Ponele que soy un spinner</>;
+  else if (spinnerVisible) return <Spinner/>;
   else
     return (
       <FormularioFichaje
