@@ -20,6 +20,7 @@ export const ListaDeTablasDeClubes = () => {
       <Table>
         <thead>
           <TableRow type={'tableHead'}>
+            <RowContent content={' '} />
             <RowContent content={'Equipo'} />
             <RowContent content={'Localidad'} />
             <RowContent content={'Dirección'} />
@@ -30,6 +31,7 @@ export const ListaDeTablasDeClubes = () => {
           {Renglones.map(({ Equipo, Localidad, Direccion, TechoDescripcion, Escudo }) => (
             <TableRow key={Equipo}>
               <RowContent type={'Img'} content={Escudo} />
+              <RowContent content={Equipo} />
               <RowContent content={Localidad} />
               <RowContent content={Direccion} />
               <RowContent content={TechoDescripcion} />
