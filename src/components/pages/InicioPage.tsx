@@ -24,7 +24,7 @@ export const InicioPage = () => {
         <ImageBtn img={IMG_BTN_COPAS} alt='copas' url='/copas' />
         <ImageBtn img={IMG_BTN_NOSOTROS} alt='nosotros' url='/nosotros' />
         <ImageBtn img={IMG_BTN_CONTACTO} alt='contacto' url='/contacto' />
-        <ImageBtn img={IMG_BTN_FICHAJE} alt='contacto' url='/contacto' />
+        <ImageBtn img={IMG_BTN_FICHAJE} alt='fichaje' url='/fichaje' />
       </div>
     </>
   );
