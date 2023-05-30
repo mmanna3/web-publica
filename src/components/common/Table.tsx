@@ -27,7 +27,7 @@ export const TableRow = ({ children, type, className }: TableRowProps) => {
   return type === 'tableHead' ? (
     <tr className='bg-[#101010] text-[15px] text-white'>{children}</tr>
   ) : (
-    <tr className={'border border-slate-300 text-[14px]' + className}>{children}</tr>
+    <tr className={`border border-slate-300 text-[14px] ${className}`}>{children}</tr>
   );
 };
 
