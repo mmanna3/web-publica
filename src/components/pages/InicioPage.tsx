@@ -1,7 +1,7 @@
 import { ImageBtn } from '../common/ImageBtn';
 import IMG_BTN_TORNEOS from '../../assets/images/mobile/buttons/torneos.avif';
 import IMG_BTN_COPAS from '../../assets/images/mobile/buttons/copas.avif';
-import IMG_BTN_FICHAJE from '../../assets/images/mobile/buttons/fichaje.avif';
+import IMG_BTN_FICHAJE from '../../assets/images/mobile/buttons/fichaje.png';
 import IMG_BTN_NOSOTROS from '../../assets/images/mobile/buttons/nosotros.avif';
 import IMG_BTN_CONTACTO from '../../assets/images/mobile/buttons/contacto.avif';
 import { BASE_URL } from '../../globalConst';
