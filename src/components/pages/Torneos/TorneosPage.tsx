@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import IMG_TORNEOS_TITLE from '../../../assets/images/mobile/titles/torneos-title.avif';
 import BTN_TORNEO_BABY from '../../../assets/images/mobile/buttons/btn-baby.avif';
 import BTN_TORNEO_FUTSAL from '../../../assets/images/mobile/buttons/btn-futsal.avif';
-import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-futbol11.avif';
+import BTN_TORNEO_FUTBOL11 from '../../../assets/images/mobile/buttons/btn-f11.avif';
 import IMG_TORNEO_FUTSAL from '../../../assets/images/mobile/img-futsal.avif';
 import IMG_TORNEO_BABY from '../../../assets/images/mobile/img-baby.avif';
-import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-futbol11.avif';
+import IMG_TORNEO_FUTBOL11 from '../../../assets/images/mobile/img-f11.avif';
 import { Title } from '../../common/Title';
 import { ImageBtn } from '../../common/ImageBtn';
 
