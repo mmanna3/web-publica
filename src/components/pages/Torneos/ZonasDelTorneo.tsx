@@ -3,13 +3,11 @@ import { useFetch } from '../../common/hooks/useFetch';
 import { Zona } from '../../../interfaces/api';
 import { GenericButton } from '../../common/GenericButton';
 import { Spinner } from '../../common/Spinner';
+import { flatZonas } from '../../common/logic';
 
 export const ZonasDelTorneo = () => {
   const { torneoId } = useParams();
   const { data, isFetching } = useFetch<Zona>(`zonas?torneoId=${torneoId}`);
-
-  const getZonaId = (zona: Zona) =>
-    zona.zonaAperturaId || zona.zonaClausuraId || zona.zonaRelampagoId;
 
   if (isFetching) {
     return <Spinner />;
@@ -18,10 +16,10 @@ export const ZonasDelTorneo = () => {
   return (
     <>
       <div className='flex flex-col items-center gap-10'>
-        {data.map((zona) => (
+        {flatZonas(data).map((zona) => (
           <GenericButton
-            key={getZonaId(zona)}
-            path={`/torneo/${torneoId}/zona/${getZonaId(zona)}`}
+            key={zona?.id}
+            path={`/torneo/${torneoId}/zona/${zona?.id}`}
             content={zona.descripcion}
           />
         ))}

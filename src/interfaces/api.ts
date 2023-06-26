@@ -6,8 +6,8 @@ export interface Torneo {
 
 export interface Zona {
   descripcion: string;
-  zonaAperturaId: number;
-  zonaClausuraId: number;
+  zonaAperturaId?: number;
+  zonaClausuraId?: number;
   zonaRelampagoId?: number;
 }
 

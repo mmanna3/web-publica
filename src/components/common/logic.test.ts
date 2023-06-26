@@ -1,6 +1,6 @@
 import { describe, it } from 'vitest';
-import { filterTorneosByType } from './logic';
-import { Torneo } from '../../interfaces/api';
+import { filterTorneosByType, flatZonas } from './logic';
+import { Torneo, Zona } from '../../interfaces/api';
 
 describe('filterTorneosByType', () => {
   it('Filter "COPA EDEFI" correctly', ({ expect }) => {
@@ -103,3 +103,60 @@ describe('filterTorneosByType', () => {
     expect(resultado.length).toBe(0);
   });
 });
+
+describe.only('flatZonas', () => {
+  it('Case 1: Only ZonaAperturaId', ({ expect }) => {
+    const zonas: Zona[] = [
+      {descripcion: 'Solo Apertura', zonaAperturaId: 100},
+      {descripcion: 'Solo Apertura 2', zonaAperturaId: 200}
+    ]
+    
+    const resultado = flatZonas(zonas);
+
+    expect(resultado.length).toBe(2);
+    expect(resultado[0].id).toBe(100);
+    expect(resultado[0].descripcion).toBe('Solo Apertura - Apertura');
+    expect(resultado[1].id).toBe(200);
+    expect(resultado[1].descripcion).toBe('Solo Apertura 2 - Apertura');
+  });
+
+  it('Case 2: ZonaAperturaId and ZonaClausuraId', ({ expect }) => {
+    const zonas: Zona[] = [
+      {descripcion: 'Apertura y Clausura', zonaAperturaId: 100, zonaClausuraId: 102},
+      {descripcion: 'Solo Apertura 2', zonaAperturaId: 200}
+    ]
+    
+    const resultado = flatZonas(zonas);
+
+    expect(resultado.length).toBe(3);
+    expect(resultado[0].id).toBe(100);
+    expect(resultado[0].descripcion).toBe('Apertura y Clausura - Apertura');
+    expect(resultado[1].id).toBe(102);
+    expect(resultado[1].descripcion).toBe('Apertura y Clausura - Clausura');
+    expect(resultado[2].id).toBe(200);
+    expect(resultado[2].descripcion).toBe('Solo Apertura 2 - Apertura');
+  });
+
+  it('Case 3: ZonaRelampagoId', ({ expect }) => {
+    const zonas: Zona[] = [
+      {descripcion: 'Relámpago', zonaRelampagoId: 700},
+      {descripcion: 'Relámpago 2', zonaRelampagoId: 800}
+    ]
+    
+    const resultado = flatZonas(zonas);
+
+    expect(resultado.length).toBe(2);
+    expect(resultado[0].id).toBe(700);
+    expect(resultado[0].descripcion).toBe('Relámpago');
+    expect(resultado[1].id).toBe(800);    
+    expect(resultado[1].descripcion).toBe('Relámpago 2');
+  });
+
+  it('Case 4: Bad data from backend', ({ expect }) => {
+    const zonas: Zona[] = [
+      {descripcion: 'No tiene ningún Id'}
+    ]
+    
+    expect(() => flatZonas(zonas)).toThrowError();    
+  });
+})
