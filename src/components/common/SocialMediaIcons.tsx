@@ -29,14 +29,19 @@ interface CopyToClipboardProps {
   children: ReactNode;
 }
 
-function copy() {
+async function copy() {
   const email = 'edefiargentina@hotmail.com';
-  navigator.clipboard.writeText(email);
+  try {
+      await navigator.clipboard.writeText(email)
+      alert('¡E-mail copiado al portapapeles!')
+  }
+  catch(e) {
+      console.error(e);
+  }
 }
 
-function handleClick() {
-  copy();
-  alert('E-mail copiado al portapapeles!')
+async function handleClick() {
+  await copy();  
 }
 
 const CopyToClipboard = ({ children }: CopyToClipboardProps) => {
