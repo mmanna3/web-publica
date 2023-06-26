@@ -104,7 +104,7 @@ describe('filterTorneosByType', () => {
   });
 });
 
-describe.only('flatZonas', () => {
+describe('flatZonas', () => {
   it('Case 1: Only ZonaAperturaId', ({ expect }) => {
     const zonas: Zona[] = [
       {descripcion: 'Solo Apertura', zonaAperturaId: 100},
