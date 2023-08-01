@@ -12,7 +12,7 @@ import { NoticiaPage, NoticiasPage } from './components/pages/NoticiasPage';
 import { ContactoPage } from './components/pages/ContactoPage';
 import { FichajePage } from './components/pages/FichajePage';
 import { ZonasDelTorneo } from './components/pages/Torneos/ZonasDelTorneo';
-import { TablasDeLaZona } from './components/pages/Torneos/TablasDeLaZona';
+import { OpcionesDeLaZona } from './components/pages/Torneos/OpcionesDeLaZona';
 import { ListaDeTablasDePosiciones } from './components/common/TablasDePosiciones/ListaDeTablasDePosiciones';
 import { ListaDeTablasDelFixture } from './components/common/TablasDelFixture/ListaDeTablasDelFixture';
 import { ListaDeTablasDeJornadas } from './components/common/TablasDeJornadas/ListaDeTablasDeJornadas';
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/torneo/:torneoId/zona/:zonaId',
-        element: <TablasDeLaZona />,
+        element: <OpcionesDeLaZona />,
       },
       {
         path: '/torneo/:torneoId/zona/:zonaId/posiciones',

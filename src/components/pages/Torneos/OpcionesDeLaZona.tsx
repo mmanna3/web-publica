@@ -1,14 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { GenericButton } from '../../common/GenericButton';
 
-export const TablasDeLaZona = () => {
+export const OpcionesDeLaZona = () => {
   const { torneoId, zonaId } = useParams();
+  const [URLSearchParams] = useSearchParams();
 
   return (
     <>
       <div className='flex flex-col items-center gap-5'>
         <GenericButton
-          path={`/torneo/${torneoId}/zona/${zonaId}/posiciones`}
+          path={`/torneo/${torneoId}/zona/${zonaId}/posiciones?esAnual=${URLSearchParams.get('esAnual')}`}
           content='Posiciones'
         />
         <GenericButton path={`/torneo/${torneoId}/zona/${zonaId}/fixture`} content='Fixture' />

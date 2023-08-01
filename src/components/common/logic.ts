@@ -24,9 +24,10 @@ export const filterTorneosByType = (
   return torneosByType;
 };
 
-interface IdDescripcion {
+interface ZonaProcesada {
   id: number;
   descripcion: string;
+  esAnual: boolean;
 }
 
 /**
@@ -36,28 +37,37 @@ interface IdDescripcion {
  * @param zonas 
  * @returns 
  */
-export const flatZonas = (zonas: Array<Zona>): Array<IdDescripcion> => {
+export const flatZonas = (zonas: Array<Zona>): Array<ZonaProcesada> => {
   return zonas.map((zona) => {
   
     if (zona.zonaRelampagoId) {
       return [{
         id:  zona.zonaRelampagoId,
-        descripcion: zona.descripcion
+        descripcion: zona.descripcion,
+        esAnual: false
       }]
     }
 
     if (zona.zonaAperturaId) {
       const zonaApertura = {
         id:  zona.zonaAperturaId,
-        descripcion: `${zona.descripcion} - Apertura`
+        descripcion: `${zona.descripcion} - Apertura`,
+        esAnual: false
       }
 
       if (zona.zonaClausuraId) {
         const zonaClausura = {
           id:  zona.zonaClausuraId,
-          descripcion: `${zona.descripcion} - Clausura`
+          descripcion: `${zona.descripcion} - Clausura`,
+          esAnual: false
         }
-        return [zonaApertura, zonaClausura]
+
+        const zonaAnual = {
+          id:  zona.zonaAperturaId,
+          descripcion: `${zona.descripcion} - Anual`,
+          esAnual: true
+        }
+        return [zonaApertura, zonaClausura, zonaAnual]
       } else return [zonaApertura]
     } 
     

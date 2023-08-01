@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { Spinner } from '../Spinner';
 import { RowContent, Table, TableRow } from '../Table';
@@ -7,8 +7,15 @@ import { PosicionesDelTorneo, Renglon, Tabla } from '../../../interfaces/api';
 /* //ESTE COMPONENTE SE VA A ENCARGAR DE FILTRAR LA DATA Y PASARSELA A LA TABLA GENERICA. */
 
 export const ListaDeTablasDePosiciones = () => {
-  const { zonaId } = useParams();
-  const { data, isFetching } = useFetch(`/posiciones?zonaId=${zonaId}`);
+  const { zonaId} = useParams();
+  const [URLSearchParams] = useSearchParams();
+  const esAnual =  (URLSearchParams.get('esAnual'));
+
+  const fetchUrl = esAnual === 'true' ? `/posicionesAnual?zonaAperturaId=${zonaId}` : `/posiciones?zonaId=${zonaId}`;
+
+  const { data, isFetching } = useFetch(fetchUrl);
+  
+  
   const { TablaGeneral, TablasPorCategoria, VerGoles }: PosicionesDelTorneo = data;
 
   if (isFetching) {

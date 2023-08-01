@@ -18,8 +18,8 @@ export const ZonasDelTorneo = () => {
       <div className='flex flex-col items-center gap-10'>
         {flatZonas(data).map((zona) => (
           <GenericButton
-            key={zona?.id}
-            path={`/torneo/${torneoId}/zona/${zona?.id}`}
+            key={zona?.id + zona.esAnual.toString()}
+            path={`/torneo/${torneoId}/zona/${zona?.id}?esAnual=${zona?.esAnual}`}
             content={zona.descripcion}
           />
         ))}
