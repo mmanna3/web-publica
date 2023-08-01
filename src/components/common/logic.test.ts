@@ -120,7 +120,7 @@ describe('flatZonas', () => {
     expect(resultado[1].descripcion).toBe('Solo Apertura 2 - Apertura');
   });
 
-  it('Case 2: ZonaAperturaId and ZonaClausuraId', ({ expect }) => {
+  it('Case 2: ZonaAperturaId, ZonaClausuraId and ZonaAnual', ({ expect }) => {
     const zonas: Zona[] = [
       {descripcion: 'Apertura y Clausura', zonaAperturaId: 100, zonaClausuraId: 102},
       {descripcion: 'Solo Apertura 2', zonaAperturaId: 200}
@@ -128,13 +128,19 @@ describe('flatZonas', () => {
     
     const resultado = flatZonas(zonas);
 
-    expect(resultado.length).toBe(3);
+    expect(resultado.length).toBe(4);
     expect(resultado[0].id).toBe(100);
     expect(resultado[0].descripcion).toBe('Apertura y Clausura - Apertura');
+    expect(resultado[0].esAnual).toBe(false);
     expect(resultado[1].id).toBe(102);
     expect(resultado[1].descripcion).toBe('Apertura y Clausura - Clausura');
-    expect(resultado[2].id).toBe(200);
-    expect(resultado[2].descripcion).toBe('Solo Apertura 2 - Apertura');
+    expect(resultado[1].esAnual).toBe(false);
+    expect(resultado[2].id).toBe(100);
+    expect(resultado[2].descripcion).toBe('Apertura y Clausura - Anual');
+    expect(resultado[2].esAnual).toBe(true);
+    expect(resultado[3].id).toBe(200);
+    expect(resultado[3].descripcion).toBe('Solo Apertura 2 - Apertura');
+    expect(resultado[3].esAnual).toBe(false);
   });
 
   it('Case 3: ZonaRelampagoId', ({ expect }) => {
