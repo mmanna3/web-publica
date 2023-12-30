@@ -94,7 +94,7 @@ const PasoFotoCarnet = () => {
                 crop={crop}
                 aspect={4 / 3}
                 onCropChange={setCrop}
-                cropSize={{ width: 240, height: 240 }}
+                cropSize={{ width: 360, height: 360 }}
                 onCropComplete={onCropComplete}
                 zoom={zoom}
                 onZoomChange={(zoom) => setZoom(zoom)}
