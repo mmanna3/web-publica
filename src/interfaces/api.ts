@@ -14,6 +14,7 @@ export interface Zona {
 export interface Tabla {
   CategoriaId: number;
   Categoria: string;
+  Leyenda: string;
   Renglones: Renglon[];
 }
 

@@ -24,8 +24,8 @@ export const ListaDeTablasDePosiciones = () => {
 
   return (
     <div className='mx-auto grid gap-2 sm:grid-cols-2'>
-      {TablasPorCategoria.map(({ CategoriaId, Categoria, Renglones }: Tabla) => (
-        <Table key={CategoriaId} titulo={Categoria}>
+      {TablasPorCategoria.map(({ CategoriaId, Categoria, Leyenda, Renglones }: Tabla) => (
+        <Table key={CategoriaId} titulo={Categoria} leyenda={Leyenda}>
           <thead>
             <TableRow type={'tableHead'}>
               <RowContent content={'Pos'} />

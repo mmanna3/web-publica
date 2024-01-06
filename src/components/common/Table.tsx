@@ -3,16 +3,18 @@ import { BASE_URL } from '../../globalConst';
 
 interface TableProps {
   titulo?: string;
+  leyenda?: string;
   children: ReactNode;
 }
 
-export function Table({ titulo, children }: TableProps) {
+export function Table({ titulo, children, leyenda }: TableProps) {
   return (
-    <div>
+    <div className='mx-1'>
       <h2 className='mb-2 text-center text-xl text-black'>{titulo}</h2>
-      <table className='max-2xl mx-auto mb-4 w-[100%] table-auto border-collapse border border-slate-500 bg-white text-center font-arial text-xs'>
+      <table className='max-2xl mx-auto mb-6 w-[100%] table-auto border-collapse border border-slate-500 bg-white text-center font-arial text-xs'>
         {children}
-      </table>
+      </table>      
+      <p className='max-w-[400px] font-arial text-[13px] ml-1 mt-[-0.8rem]'>{leyenda}</p>      
     </div>
   );
 }
