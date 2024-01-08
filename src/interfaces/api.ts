@@ -132,6 +132,16 @@ export interface Club {
   Telefono2?: number;
 }
 
+export interface Sancion {
+  dia: string;
+  fecha: string;
+  local: string;
+  visitante: string;
+  categoria: number;
+  sancion: string;
+  fechasQueAdeuda: number;
+}
+
 
 /* NOTICIAS */
 export interface Noticia {

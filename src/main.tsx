@@ -20,6 +20,7 @@ import { ListaDeTablasDeClubes } from './components/common/TablasDeCubes/ListaDe
 import { TorneosPage } from './components/pages/Torneos/TorneosPage';
 import { InicioPage } from './components/pages/InicioPage';
 import TipoDeCopa from './components/pages/Copas/TipoDeCopa';
+import { ListaDeTablasDeSanciones } from './components/common/TablaDeSanciones/ListaDeTablasDeSanciones';
 
 const router = createBrowserRouter([
   {
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: '/torneo/:torneoId/zona/:zonaId/clubes',
         element: <ListaDeTablasDeClubes />,
+      },
+      {
+        path: '/torneo/:torneoId/zona/:zonaId/sanciones',
+        element: <ListaDeTablasDeSanciones />,
       },
     ],
   },

@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const TipoDeCopa = ({ tipo }: Props) => {
-  const { data, isFetching } = useFetch<Torneo>('TorneosRelampago?anio=2023');
+  const { data, isFetching } = useFetch<Torneo>('TorneosRelampago?anio=2024');
 
   if (isFetching) {
     return <Spinner />;
