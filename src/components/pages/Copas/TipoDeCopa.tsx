@@ -9,7 +9,8 @@ interface Props {
 }
 
 export const TipoDeCopa = ({ tipo }: Props) => {
-  const { data, isFetching } = useFetch<Torneo>('TorneosRelampago?anio=2024');
+  const anioActual = new Date().getFullYear() - 1;
+  const { data, isFetching } = useFetch<Torneo>(`TorneosRelampago?anio=${anioActual}`);
 
   if (isFetching) {
     return <Spinner />;

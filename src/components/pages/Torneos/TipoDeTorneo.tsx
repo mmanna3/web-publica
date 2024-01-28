@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useFetch } from '../../common/hooks/useFetch';
 import { Torneo } from '../../../interfaces/api';
 import { filterTorneosByType } from '../../common/logic';
@@ -10,7 +9,8 @@ interface Props {
 }
 
 export const TipoDeTorneo = ({ tipo }: Props) => {
-  const { data, isFetching } = useFetch<Torneo>('TorneosAperturaClausura?anio=2024');
+  const anioActual = new Date().getFullYear() - 1;
+  const { data, isFetching } = useFetch<Torneo>(`TorneosAperturaClausura?anio=${anioActual}`);
 
   if (isFetching) {
     return <Spinner />;
