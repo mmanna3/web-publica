@@ -14,7 +14,7 @@ export function Table({ titulo, children, leyenda }: TableProps) {
       <table className='max-2xl mx-auto mb-6 w-[100%] table-auto border-collapse border border-slate-500 bg-white text-center font-arial text-xs'>
         {children}
       </table>      
-      <p className='max-w-[400px] font-arial text-[13px] ml-1 mt-[-0.8rem]'>{leyenda}</p>      
+      <pre className='max-w-[400px] font-arial text-[13px] ml-1 mt-[-0.8rem]'>{leyenda}</pre>      
     </div>
   );
 }
