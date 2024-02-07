@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const TipoDeTorneo = ({ tipo }: Props) => {
-  const anioActual = new Date().getFullYear() - 1;
+  const anioActual = new Date().getFullYear();
   const { data, isFetching } = useFetch<Torneo>(`TorneosAperturaClausura?anio=${anioActual}`);
 
   if (isFetching) {
