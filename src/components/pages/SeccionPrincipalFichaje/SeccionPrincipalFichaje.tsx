@@ -39,7 +39,7 @@ const SeccionPrincipalFichaje = () => {
         </>
       </MessageBox>
     );
-  else if (mensajeErrorServidor !== undefined)
+  else if (mensajeErrorServidor)
       if (mensajeErrorServidor === 'Error')
         return (
             <MessageBox type='error' large>
