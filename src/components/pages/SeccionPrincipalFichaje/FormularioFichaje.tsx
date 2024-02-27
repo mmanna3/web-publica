@@ -12,7 +12,7 @@ import { BASE_URL } from '../../../globalConst';
 interface IProps {
   showLoading: React.Dispatch<React.SetStateAction<boolean>>;
   onSuccess: () => void;
-  onError: () => void;
+  onError: (mensaje: string) => void;
 }
 
 const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
@@ -35,12 +35,12 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
         console.log('Respuesta', res);
         showLoading(false);
         if (res === 'OK') onSuccess();
-        else onError();
+        else onError(res);
       })
       .catch(function (err) {
         console.log('Error del servidor', err);
         showLoading(false);
-        onError();
+        onError(err);
       });
   };
 

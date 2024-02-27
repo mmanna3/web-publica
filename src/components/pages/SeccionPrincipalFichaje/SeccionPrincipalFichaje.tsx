@@ -5,7 +5,7 @@ import { Spinner } from '../../common/Spinner';
 
 const SeccionPrincipalFichaje = () => {
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
-  const [mensajeErrorServidorVisible, mostrarMensajeErrorServidor] = useState(false);
+  const [mensajeErrorServidor, mostrarMensajeErrorServidor] = useState<string | undefined>('');
   const [spinnerVisible, mostrarSpinner] = useState(false);
 
   const estaLaSeccionHabilitada = () => {
@@ -39,19 +39,26 @@ const SeccionPrincipalFichaje = () => {
         </>
       </MessageBox>
     );
-  else if (mensajeErrorServidorVisible)
-    return (
-      <MessageBox type='error' large>
-        ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
-      </MessageBox>
-    );
+  else if (mensajeErrorServidor !== undefined)
+      if (mensajeErrorServidor === 'Error')
+        return (
+            <MessageBox type='error' large>
+              ¡Ups! Hubo un <strong>error</strong>. Volvé a intentar más tarde.
+            </MessageBox>
+          );
+      else
+        return (
+          <MessageBox type='error' large>
+            ¡Ups! Hubo un <strong>error</strong>. {mensajeErrorServidor}.
+          </MessageBox>
+        );
   else if (spinnerVisible) return <Spinner/>;
   else
     return (
       <FormularioFichaje
         showLoading={mostrarSpinner}
         onSuccess={() => mostrarMensajeExito(true)}
-        onError={() => mostrarMensajeErrorServidor(true)}
+        onError={(mensaje: string) => mostrarMensajeErrorServidor(mensaje)}
       />
     );
 };
