@@ -49,7 +49,7 @@ const SeccionPrincipalFichaje = () => {
       else
         return (
           <MessageBox type='error' large>
-            ¡Ups! Hubo un <strong>error</strong>. {mensajeErrorServidor}.
+            ¡Ups! Hubo un <strong>error</strong>. {mensajeErrorServidor}
           </MessageBox>
         );
   else if (spinnerVisible) return <Spinner/>;
