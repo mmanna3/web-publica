@@ -163,6 +163,8 @@ export interface FaseConPartidos {
 }
 
 export interface PartidoEliminacionDirecta {
+  escudoLocal: string;
+  escudoVisitante: string;
   orden: number,
   local: string,
   visitante: string,
