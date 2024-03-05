@@ -11,11 +11,12 @@ import { BASE_URL } from '../../../globalConst';
 
 interface IProps {
   showLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  onSuccess: () => void;
+  onSuccess: (codigoAlfanumerico: string) => void;
   onError: (mensaje: string) => void;
+  codigoEquipo: string;
 }
 
-const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
+const FormularioFichaje = ({ showLoading, onSuccess, onError, codigoEquipo }: IProps) => {
   const methods = useForm();
 
   const hacerElPost = async (data: unknown) => {
@@ -34,7 +35,7 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
       .then((res) => {
         console.log('Respuesta', res);
         showLoading(false);
-        if (res === 'OK') onSuccess();
+        if (res === 'OK') onSuccess((data as any).codigoAlfanumerico);
         else onError(res);
       })
       .catch(function (err) {
@@ -66,7 +67,7 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError }: IProps) => {
               </div>
             )}
 
-            <PasoCodigoEquipo />
+            <PasoCodigoEquipo valorInicial={codigoEquipo} />
 
             <PasoInput longMaxima={10} name='nombre' nombre='nombre' titulo='Tu nombre' />
 

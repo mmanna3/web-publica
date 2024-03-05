@@ -7,6 +7,7 @@ const SeccionPrincipalFichaje = () => {
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
   const [mensajeErrorServidor, mostrarMensajeErrorServidor] = useState<string | undefined>('');
   const [spinnerVisible, mostrarSpinner] = useState(false);
+  const [codigoEquipoAnterior, setCodigoEquipoAnterior] = useState('');
 
   const estaLaSeccionHabilitada = () => {
     const hoy = new Date();
@@ -16,6 +17,11 @@ const SeccionPrincipalFichaje = () => {
       return false;
     return true;
   };
+
+  const onSuccess = (codigoEquipo: string) => {
+    mostrarMensajeExito(true);
+    setCodigoEquipoAnterior(codigoEquipo);
+  }
 
   if (!estaLaSeccionHabilitada())
     return (
@@ -56,8 +62,9 @@ const SeccionPrincipalFichaje = () => {
   else
     return (
       <FormularioFichaje
+        codigoEquipo={codigoEquipoAnterior}
         showLoading={mostrarSpinner}
-        onSuccess={() => mostrarMensajeExito(true)}
+        onSuccess={onSuccess}
         onError={(mensaje: string) => mostrarMensajeErrorServidor(mensaje)}
       />
     );

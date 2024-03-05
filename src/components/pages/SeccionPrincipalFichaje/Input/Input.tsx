@@ -8,10 +8,11 @@ interface IInput {
   register?: any;
   type: string;
   className?: string;
+  valorInicial?: string;
 }
 
-const Input = ({ onChange, name, register, type = 'text', className }: IInput) => {
-  const [valor, setValor] = useState('');
+const Input = ({ onChange, name, register, type = 'text', className, valorInicial = '' }: IInput) => {
+  const [valor, setValor] = useState(valorInicial);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(e.target.value);

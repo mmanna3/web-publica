@@ -6,8 +6,12 @@ import MessageBox from '../../../common/MessageBox';
 import FormErrorHandler from '../Error/FormErrorHandler';
 import { BASE_URL } from '../../../../globalConst';
 
-const PasoCodigoEquipo = () => {
-  const [codigoEquipo, setCodigoEquipo] = useState<string>();
+interface IProps {
+  valorInicial: string;
+} 
+
+const PasoCodigoEquipo = (props: IProps) => {
+  const [codigoEquipo, setCodigoEquipo] = useState<string>(props.valorInicial);
   const [codigoEquipoEsValido, setCodigoEquipoEsValido] = useState<boolean | null>(null);
   const [nombreEquipo, setNombreEquipo] = useState('');
   const [yaValidoCodigoEquipo, setYaValidoCodigoEquipo] = useState(false);
@@ -58,6 +62,7 @@ const PasoCodigoEquipo = () => {
               required: true,
               validate: { asyncValidate: onValidarClick },
             })}
+            valorInicial={props.valorInicial}
             name='codigoAlfanumerico'
             className='w-1/2'
           />
