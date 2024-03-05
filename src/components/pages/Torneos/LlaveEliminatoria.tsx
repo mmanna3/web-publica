@@ -24,7 +24,7 @@ export const LlaveEliminatoria = () => {
               {cat.partidos.map((fase) => (
                 <div key={fase.fase}>
                   <div className='mt-3'>
-                    <p className='ml-10 font-bold'>{fase.fase}</p>
+                    <p className='ml-20 font-bold'>{fase.fase}</p>
                     {fase.partidos.map((partido) => (
                       <PartidoEliminacionDirecta key={partido.orden} partido={partido}/>                    
                     ))}
