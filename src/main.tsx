@@ -21,6 +21,7 @@ import { TorneosPage } from './components/pages/Torneos/TorneosPage';
 import { InicioPage } from './components/pages/InicioPage';
 import TipoDeCopa from './components/pages/Copas/TipoDeCopa';
 import { ListaDeTablasDeSanciones } from './components/common/TablaDeSanciones/ListaDeTablasDeSanciones';
+import { LlaveEliminatoria } from './components/pages/Torneos/LlaveEliminatoria';
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: '/fichaje',
         element: <FichajePage />,
+      },
+      {
+        path: '/torneo/:torneoId/llaveeliminatoria',
+        element: <LlaveEliminatoria />,
       },
       {
         path: '/torneo/:torneoId/zonas',

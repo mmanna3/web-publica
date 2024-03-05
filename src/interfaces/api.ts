@@ -151,3 +151,23 @@ export interface Noticia {
   fecha: string;
   cuerpo?: string;
 }
+
+export interface CategoriaConPartidos {
+  categoria: string;
+  partidos: FaseConPartidos[];
+}
+
+export interface FaseConPartidos {
+  fase: string;
+  partidos: PartidoEliminacionDirecta[];
+}
+
+export interface PartidoEliminacionDirecta {
+  orden: number,
+  local: string,
+  visitante: string,
+  golesLocal: string,
+  golesVisitante: string,
+  penalesLocal: string,
+  penalesVisitante: string
+}
