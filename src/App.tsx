@@ -9,7 +9,7 @@ export function loader() {
 
 function App() {
   return (
-    <div className='mx-auto flex max-h-fit min-h-screen flex-col justify-between bg-fondo-celu bg-cover bg-no-repeat sm:bg-fondo-pc select-none'>
+    <div className='mx-auto flex max-h-fit min-h-screen min-w-full w-fit flex-col justify-between bg-fondo-celu bg-cover bg-no-repeat sm:w-auto sm:bg-fondo-pc select-none'>
       <Layout />
       <SocialMediaIcons />
     </div>
