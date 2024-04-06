@@ -10,11 +10,11 @@ const SeccionPrincipalFichaje = () => {
   const [codigoEquipoAnterior, setCodigoEquipoAnterior] = useState('');
 
   const estaLaSeccionHabilitada = () => {
-    const hoy = new Date();
-    const diaDeHoy = hoy.getDay();
-    const horaActual = hoy.getHours();
-    if (diaDeHoy == 6 || diaDeHoy == 0 || diaDeHoy == 5 || (diaDeHoy == 4 && horaActual >= 20))
-      return false;
+    // const hoy = new Date();
+    // const diaDeHoy = hoy.getDay();
+    // const horaActual = hoy.getHours();
+    // if (diaDeHoy == 6 || diaDeHoy == 0 || diaDeHoy == 5 || (diaDeHoy == 4 && horaActual >= 20))
+    //   return false;
     return true;
   };
 
