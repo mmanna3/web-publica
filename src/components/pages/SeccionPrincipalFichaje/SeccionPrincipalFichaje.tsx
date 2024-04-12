@@ -3,20 +3,21 @@ import FormularioFichaje from './FormularioFichaje';
 import MessageBox from '../../common/MessageBox';
 import { Spinner } from '../../common/Spinner';
 
+
+export const estaLaSeccionHabilitada = () => {
+  // const hoy = new Date();
+  // const diaDeHoy = hoy.getDay();
+  // const horaActual = hoy.getHours();
+  // if (diaDeHoy == 6 || diaDeHoy == 0 || diaDeHoy == 5 || (diaDeHoy == 4 && horaActual >= 20))
+  //   return false;
+  return true;
+};
+
 const SeccionPrincipalFichaje = () => {
   const [mensajeExitoVisible, mostrarMensajeExito] = useState(false);
   const [mensajeErrorServidor, mostrarMensajeErrorServidor] = useState<string | undefined>('');
   const [spinnerVisible, mostrarSpinner] = useState(false);
   const [codigoEquipoAnterior, setCodigoEquipoAnterior] = useState('');
-
-  const estaLaSeccionHabilitada = () => {
-    const hoy = new Date();
-    const diaDeHoy = hoy.getDay();
-    const horaActual = hoy.getHours();
-    if (diaDeHoy == 6 || diaDeHoy == 0 || diaDeHoy == 5 || (diaDeHoy == 4 && horaActual >= 20))
-      return false;
-    return true;
-  };
 
   const onSuccess = (codigoEquipo: string) => {
     mostrarMensajeExito(true);

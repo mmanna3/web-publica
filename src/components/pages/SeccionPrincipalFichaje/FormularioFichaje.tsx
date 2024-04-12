@@ -8,6 +8,7 @@ import PasoDNI from './PasoDNI/PasoDNI';
 import { useForm, FormProvider } from 'react-hook-form';
 import MessageBox from '../../common/MessageBox';
 import { BASE_URL } from '../../../globalConst';
+import { estaLaSeccionHabilitada } from './SeccionPrincipalFichaje';
 
 interface IProps {
   showLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,6 +21,11 @@ const FormularioFichaje = ({ showLoading, onSuccess, onError, codigoEquipo }: IP
   const methods = useForm();
 
   const hacerElPost = async (data: unknown) => {
+    if (!estaLaSeccionHabilitada()) {
+      onError('La sección no está habilitada');
+      return;
+    }
+
     showLoading(true);
     fetch(`${BASE_URL}/JugadorAutofichado/autofichaje`, {
       method: 'POST',
