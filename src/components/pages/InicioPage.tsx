@@ -11,12 +11,12 @@ export const InicioPage = () => {
     <>
       <img
         className='mx-auto h-[130px] w-[90%] sm:hidden'
-        src={`${BASE_URL}/imagenes/publicidades/2.avif`}
+        src={`${BASE_URL}/imagenes/publicidades/2.jpg`}
         alt='banner-image'
       />
       <img
         className='m-auto hidden h-[180px] w-[90%] sm:block '
-        src={`${BASE_URL}/imagenes/publicidades/1.avif`}
+        src={`${BASE_URL}/imagenes/publicidades/1.jpg`}
         alt='banner-image'
       />
       <div className=' mx-auto flex flex-col items-center gap-6 p-16 xs:max-w-sm md:max-w-md xl:max-w-xl'>
