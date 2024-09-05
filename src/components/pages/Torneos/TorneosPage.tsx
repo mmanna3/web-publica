@@ -17,14 +17,14 @@ export const TorneosPage = () => {
           key='futsal'
           className='flex items-center space-x-2 px-[10%] xl:flex-col-reverse xl:px-0'
         >
-          <ImageBtn img={BTN_TORNEO_FUTSAL} alt='Futsal' url='/torneos/futsal' style='xl:p-14' />
+          {/* <ImageBtn img={BTN_TORNEO_FUTSAL} alt='Futsal' url='/torneos/futsal' style='xl:p-14' /> */}
           <ImageBtn img={IMG_TORNEO_FUTSAL} alt='Futsal-image' url='/torneos/futsal' />
         </div>
         <div
           key='baby'
           className='flex items-center space-x-2 px-[10%]  xl:flex-col-reverse xl:px-0'
         >
-          <ImageBtn img={BTN_TORNEO_BABY} alt='baby-image' url='/torneos/baby' style='xl:p-14' />
+          {/* <ImageBtn img={BTN_TORNEO_BABY} alt='baby-image' url='/torneos/baby' style='xl:p-14' /> */}
           <ImageBtn img={IMG_TORNEO_BABY} alt='baby' url='/torneos/baby'  />
         </div>
         <div
@@ -32,7 +32,7 @@ export const TorneosPage = () => {
           className='flex items-center space-x-2 px-[10%]  xl:flex-col-reverse xl:px-0'
           
         >
-          <ImageBtn img={BTN_TORNEO_FUTBOL11} alt='futbol 11 image' url='/torneos/futbol-11' style='xl:p-14' />
+          {/* <ImageBtn img={BTN_TORNEO_FUTBOL11} alt='futbol 11 image' url='/torneos/futbol-11' style='xl:p-14' /> */}
           <ImageBtn img={IMG_TORNEO_FUTBOL11} alt='futbol 11' url='/torneos/futbol-11'  />
         </div>
       </div>
