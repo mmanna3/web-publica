@@ -7,6 +7,7 @@ const tiposDeTorneo = {
   copaEdefi: ['COPA EDEFI'],
   torneoDeVerano: ['TORNEO DE VERANO'],
   copaDeLaLiga: ['COPA DE LA LIGA'],
+  copaDePrimera: ['COPA DE PRIMERA'],
 };
 
 export const filterTorneosByType = (
