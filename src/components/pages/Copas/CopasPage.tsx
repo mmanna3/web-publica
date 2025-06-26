@@ -13,6 +13,7 @@ export const CopasPage = () => {
         <ImageBtn img={IMG_COPA_EDEFI} alt='Copa Edefi' url='/copas/copaedefi' />
         <ImageBtn img={IMG_TORNEO_VERANO} alt='Torneos de verano' url='/copas/torneoverano' />
         <ImageBtn img={IMG_COPA_LIGA} alt='Copas de la liga' url='/copas/delaliga' />
+        <ImageBtn img={IMG_COPA_LIGA} alt='Copas de primera' url='/copas/deprimera' />
       </div>
     </>
   );

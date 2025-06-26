@@ -58,6 +58,10 @@ const router = createBrowserRouter([
         element: <TipoDeCopa tipo='copaDeLaLiga' />,
       },
       {
+        path: '/copas/deprimera',
+        element: <TipoDeCopa tipo='copaDePrimera' />,
+      },
+      {
         path: '/copas/copaedefi',
         element: <TipoDeCopa tipo='copaEdefi' />,
       },

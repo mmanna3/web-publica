@@ -5,7 +5,7 @@ import { filterTorneosByType } from '../../common/logic';
 import { Spinner } from '../../common/Spinner';
 
 interface Props {
-  tipo: 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga';
+  tipo: 'copaEdefi' | 'torneoDeVerano' | 'copaDeLaLiga' | 'copaDePrimera';
 }
 
 export const TipoDeCopa = ({ tipo }: Props) => {
