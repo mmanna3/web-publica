@@ -1,6 +1,7 @@
 import IMG_COPAS_TITLE from '../../../assets/images/mobile/titles/copas-title.avif';
 import IMG_COPA_EDEFI from '../../../assets/images/mobile/buttons/copa-edefi.avif';
 import IMG_COPA_LIGA from '../../../assets/images/mobile/buttons/copa-liga.avif';
+import IMG_COPA_DE_PRIMERA from '../../../assets/images/mobile/buttons/copa-de-primera.avif';
 import IMG_TORNEO_VERANO from '../../../assets/images/mobile/buttons/torneo-verano.avif';
 import { Title } from '../../common/Title';
 import { ImageBtn } from '../../common/ImageBtn';
@@ -13,7 +14,7 @@ export const CopasPage = () => {
         <ImageBtn img={IMG_COPA_EDEFI} alt='Copa Edefi' url='/copas/copaedefi' />
         <ImageBtn img={IMG_TORNEO_VERANO} alt='Torneos de verano' url='/copas/torneoverano' />
         <ImageBtn img={IMG_COPA_LIGA} alt='Copas de la liga' url='/copas/delaliga' />
-        <ImageBtn img={IMG_COPA_LIGA} alt='Copas de primera' url='/copas/deprimera' />
+        <ImageBtn img={IMG_COPA_DE_PRIMERA} alt='Copas de primera' url='/copas/deprimera' />
       </div>
     </>
   );
