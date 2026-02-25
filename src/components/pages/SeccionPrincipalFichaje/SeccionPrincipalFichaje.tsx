@@ -24,7 +24,8 @@ const SeccionPrincipalFichaje = () => {
     setCodigoEquipoAnterior(codigoEquipo);
   }
 
-  if (!estaLaSeccionHabilitada())
+  // if (!estaLaSeccionHabilitada())
+  if (true)
     return (
       <MessageBox type='info' large>
         El fichaje está deshabilitado.
