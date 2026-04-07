@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import EDEFI_LOGO from '../../assets/images/edefi-logo.svg';
 import { Link } from 'react-router-dom';
+import { TORNEOS_PORTAL_URL } from '../../globalConst';
 
 interface NavOpenLinksProps {
   path: string;
@@ -13,6 +14,21 @@ const NavOpenLink = ({ path, content, closeNav }: NavOpenLinksProps) => {
       <Link onClick={closeNav} to={path}>
         {content}
       </Link>
+    </li>
+  );
+};
+
+interface NavOpenExternalLinkProps {
+  href: string;
+  content: string;
+  closeNav: () => void;
+}
+const NavOpenExternalLink = ({ href, content, closeNav }: NavOpenExternalLinkProps) => {
+  return (
+    <li className='border-b border-gray-400 uppercase'>
+      <a href={href} onClick={closeNav}>
+        {content}
+      </a>
     </li>
   );
 };
@@ -65,8 +81,8 @@ export const Header = ({ hideLayout, showLayout }: HeaderProps) => {
             </div>
 
             <ul className='MENU-LINK-MOBILE-OPEN z-50 flex h-[100vh] flex-col items-center justify-evenly py-10'>
-              <NavOpenLink closeNav={isClosed} path='/torneos' content='Torneos' />
-              <NavOpenLink closeNav={isClosed} path='/copas' content='Copas' />
+              <NavOpenExternalLink closeNav={isClosed} href={TORNEOS_PORTAL_URL} content='Torneos' />
+              <NavOpenExternalLink closeNav={isClosed} href={TORNEOS_PORTAL_URL} content='Copas' />
               <NavOpenLink closeNav={isClosed} path='/nosotros' content='Nosotros' />
               <NavOpenLink closeNav={isClosed} path='/contacto' content='Contacto' />
               <NavOpenLink closeNav={isClosed} path='/fichaje' content='Fichaje' />
@@ -77,8 +93,8 @@ export const Header = ({ hideLayout, showLayout }: HeaderProps) => {
 
         <div className='DESKTOP-MENU hidden space-x-4 pt-2 text-[#666] sm:flex sm:text-[10px]  lg:text-[14px]'>
           <Link to='/'>Inicio</Link>
-          <Link to='/torneos'>Torneos</Link>
-          <Link to='/copas'>Copas</Link>
+          <a href={TORNEOS_PORTAL_URL}>Torneos</a>
+          <a href={TORNEOS_PORTAL_URL}>Copas</a>
           <Link to='/nosotros'>Nosotros</Link>
           <Link to='/contacto'>Contacto</Link>
           <Link to='/fichaje'>Fichaje</Link>
